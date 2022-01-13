@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum ExecutionType: String {
-    case sell = "1"
-    case buy = "2"
-}
-
 enum Trend: String {
     case up
     case down = "dn"
@@ -29,7 +24,7 @@ extension WebSocketTransactionHistory: Decodable {
 
 struct WebSocketTransaction {
     let symbol: String?
-    let executionType: ExecutionType?
+    let executionType: OrderType?
     let price: Double?
     let quantity: Double?
     let amount: Double?
@@ -51,7 +46,7 @@ extension WebSocketTransaction: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         symbol = try? values.decode(String.self, forKey: .symbol)
-        executionType = try? ExecutionType(rawValue: values.decode(String.self, forKey: .executionType))
+        executionType = try? OrderType(numberValue: Int(values.decode(String.self, forKey: .executionType)))
         price = try? Double(values.decode(String.self, forKey: .price))
         quantity = try? Double(values.decode(String.self, forKey: .quantity))
         amount = try? Double(values.decode(String.self, forKey: .amount))

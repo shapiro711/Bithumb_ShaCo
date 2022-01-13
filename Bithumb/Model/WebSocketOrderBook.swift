@@ -10,6 +10,17 @@ import Foundation
 enum OrderType: String {
     case ask
     case bid
+    
+    init?(numberValue: Int?) {
+        switch numberValue {
+        case 1:
+            self = .ask
+        case 2:
+            self = .bid
+        default:
+            return nil
+        }
+    }
 }
 
 struct WebSocketOrderBook {
