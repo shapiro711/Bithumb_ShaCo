@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum OrderType: String {
+    case ask
+    case bid
+}
+
 struct WebSocketOrderBook {
     let orders: [WebSocketOrder]?
     let dateTime: Double?
@@ -27,7 +32,7 @@ extension WebSocketOrderBook: Decodable {
 
 struct WebSocketOrder {
     let symbol: String?
-    let orderType: String?
+    let orderType: OrderType?
     let price: Double?
     let quantity: Double?
     let totalCount: Int?
@@ -42,7 +47,7 @@ extension WebSocketOrder: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         symbol = try? values.decode(String.self, forKey: .symbol)
-        orderType = try? values.decode(String.self, forKey: .orderType)
+        orderType = try? OrderType(rawValue: values.decode(String.self, forKey: .orderType))
         price = try? Double(values.decode(String.self, forKey: .price))
         quantity = try? Double(values.decode(String.self, forKey: .quantity))
         totalCount = try? Int(values.decode(String.self, forKey: .totalCount))
