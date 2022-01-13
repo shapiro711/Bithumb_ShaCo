@@ -23,6 +23,16 @@ struct RestTransaction {
     let quantity: Double?
     let price: Double?
     let amount: Double?
+    
+    var date: Date? {
+        guard let dateTime = dateTime else {
+            return nil
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: dateTime)
+    }
 }
 
 extension RestTransaction: Decodable {

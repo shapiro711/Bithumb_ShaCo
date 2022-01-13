@@ -30,6 +30,16 @@ struct WebSocketTransaction {
     let amount: Double?
     let dateTime: String?
     let trend: Trend?
+    
+    var date: Date? {
+        guard let dateTime = dateTime?.split(separator: ".").first else {
+            return nil
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: String(dateTime))
+    }
 }
 
 extension WebSocketTransaction: Decodable {
