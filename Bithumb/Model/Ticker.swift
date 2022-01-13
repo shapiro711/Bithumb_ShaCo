@@ -24,6 +24,16 @@ struct Ticker {
     let rateOfChange: Double?
     let amountOfChange: Double?
     let executionPower: Double?
+    
+    var date: Date? {
+        guard let day = day, let time = time else {
+            return nil
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        return dateFormatter.date(from: day + time)
+    }
 }
 
 extension Ticker: Decodable {
