@@ -35,7 +35,7 @@ struct Ticker {
     let previousDayClosingPrice: Double?
     let rateOfChange: Double?
     let amountOfChange: Double?
-    let executionPower: Double?
+    let volumePower: Double?
     
     var date: Date? {
         guard let day = day, let time = time else {
@@ -50,7 +50,7 @@ struct Ticker {
 
 extension Ticker: Decodable {
     enum CodingKeys: String, CodingKey {
-        case symbol, time, lowPrice, highPrice
+        case symbol, time, lowPrice, highPrice, volumePower
         case criteriaOfChange = "tickType"
         case day = "date"
         case initialPrice = "openPrice"
@@ -62,7 +62,6 @@ extension Ticker: Decodable {
         case previousDayClosingPrice = "prevClosePrice"
         case rateOfChange = "chgRate"
         case amountOfChange = "chgAmt"
-        case executionPower = "volumePower"
     }
     
     init(from decoder: Decoder) throws {
@@ -82,6 +81,6 @@ extension Ticker: Decodable {
         previousDayClosingPrice = try? Double(values.decode(String.self, forKey: .previousDayClosingPrice))
         rateOfChange = try? Double(values.decode(String.self, forKey: .rateOfChange))
         amountOfChange = try? Double(values.decode(String.self, forKey: .amountOfChange))
-        executionPower = try? Double(values.decode(String.self, forKey: .executionPower))
+        volumePower = try? Double(values.decode(String.self, forKey: .volumePower))
     }
 }
