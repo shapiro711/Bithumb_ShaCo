@@ -7,9 +7,21 @@
 
 import Foundation
 
+enum CriteriaOfChange: String {
+    case thirtyMinutesAgo = "30M"
+    case oneHourAgo = "1H"
+    case twelveHoursAgo = "12H"
+    case twentyFourHoursAgo = "24H"
+    case yesterdayMidnight = "MID"
+    
+    var jsonValue: String {
+        return self.rawValue
+    }
+}
+
 struct Ticker {
     let symbol: String?
-    let criteriaOfChange: String?
+    let criteriaOfChange: CriteriaOfChange?
     let day: String?
     let time: String?
     let initialPrice: Double?
@@ -56,7 +68,7 @@ extension Ticker: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         symbol = try? values.decode(String.self, forKey: .symbol)
-        criteriaOfChange = try? values.decode(String.self, forKey: .criteriaOfChange)
+        criteriaOfChange = try? CriteriaOfChange(rawValue: values.decode(String.self, forKey: .criteriaOfChange))
         day = try? values.decode(String.self, forKey: .day)
         time = try? values.decode(String.self, forKey: .time)
         initialPrice = try? Double(values.decode(String.self, forKey: .initialPrice))
