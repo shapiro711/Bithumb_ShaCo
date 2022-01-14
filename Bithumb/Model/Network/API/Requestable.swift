@@ -18,6 +18,19 @@ enum RequestType {
     case transaction
     case assetStatus
     case candlestick
+    
+    var jsonValue: String {
+        switch self {
+        case .ticker:
+            return "ticker"
+        case .orderBook:
+            return "orderbookdepth"
+        case .transaction:
+            return "transaction"
+        default:
+            return ""
+        }
+    }
 }
 
 protocol Requestable {
