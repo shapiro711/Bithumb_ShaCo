@@ -38,7 +38,7 @@ extension OrderBookAPI: Requestable {
         }
     }
     
-    var queryParameters: [String : Any]? {
+    var queryParameters: [String: Any]? {
         switch self {
         case .lookUp(_, _, let listCount):
             var params = [String: Any]()
@@ -49,7 +49,7 @@ extension OrderBookAPI: Requestable {
         }
     }
     
-    var messageParameters: [String : Any]? {
+    var messageParameters: [String: Any]? {
         switch self {
         case .lookUp:
             return nil
@@ -59,6 +59,4 @@ extension OrderBookAPI: Requestable {
             return params
         }
     }
-    
-    
 }

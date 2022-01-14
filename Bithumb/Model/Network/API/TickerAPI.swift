@@ -38,11 +38,11 @@ extension TickerAPI: Requestable {
         }
     }
     
-    var queryParameters: [String : Any]? {
+    var queryParameters: [String: Any]? {
         return nil
     }
     
-    var messageParameters: [String : Any]? {
+    var messageParameters: [String: Any]? {
         switch self {
         case .lookUp:
             return nil

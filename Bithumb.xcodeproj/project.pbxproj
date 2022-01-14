@@ -12,6 +12,7 @@
 		3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29F2791918600AE2082 /* TickerAPI.swift */; };
 		3F52C2A22791C01C00AE2082 /* OrderBookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A12791C01C00AE2082 /* OrderBookAPI.swift */; };
 		3F52C2A42791C54700AE2082 /* TransactionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A32791C54700AE2082 /* TransactionAPI.swift */; };
+		3F52C2A62791CD3C00AE2082 /* CandlestickAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A52791CD3C00AE2082 /* CandlestickAPI.swift */; };
 		3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D863278F14C5006B08E8 /* AppDelegate.swift */; };
 		3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D865278F14C5006B08E8 /* SceneDelegate.swift */; };
 		3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		3F52C29F2791918600AE2082 /* TickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPI.swift; sourceTree = "<group>"; };
 		3F52C2A12791C01C00AE2082 /* OrderBookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookAPI.swift; sourceTree = "<group>"; };
 		3F52C2A32791C54700AE2082 /* TransactionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAPI.swift; sourceTree = "<group>"; };
+		3F52C2A52791CD3C00AE2082 /* CandlestickAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickAPI.swift; sourceTree = "<group>"; };
 		3F72D860278F14C5006B08E8 /* Bithumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bithumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D863278F14C5006B08E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F72D865278F14C5006B08E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				3F52C2A12791C01C00AE2082 /* OrderBookAPI.swift */,
 				3F52C2A32791C54700AE2082 /* TransactionAPI.swift */,
 				C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */,
+				3F52C2A52791CD3C00AE2082 /* CandlestickAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookAPI.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionAPI.swift in Sources */,
+				3F52C2A62791CD3C00AE2082 /* CandlestickAPI.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

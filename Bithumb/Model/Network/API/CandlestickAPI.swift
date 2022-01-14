@@ -1,30 +1,32 @@
 //
-//  AssetStatusAPI.swift
+//  CandlestickAPI.swift
 //  Bithumb
 //
-//  Created by JINHONG AN on 2022/01/14.
+//  Created by Kim Do hyung on 2022/01/15.
 //
 
 import Foundation
 
-enum AssetStatusAPI {
-    case lookUp(orderCurrency: String)
+enum CandlestickAPI {
+    case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: String)
 }
 
-extension AssetStatusAPI: Requestable {
+extension CandlestickAPI: Requestable {
     var apiType: APIType {
         return .rest
     }
     
     var requestType: RequestType {
-        return .assetStatus
+        return .candlestick
     }
     
     var pathParameters: [String: Any]? {
         switch self {
-        case .lookUp(let orderCurrency):
+        case .lookUp(let orderCurrency, let paymentCurrency, let chartIntervals):
             var params = [String: Any]()
             params["orderCurrency"] = orderCurrency
+            params["paymentCurrency"] = paymentCurrency
+            params["chartIntervals"] = chartIntervals
             return params
         }
     }
