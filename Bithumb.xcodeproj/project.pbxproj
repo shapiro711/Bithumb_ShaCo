@@ -23,12 +23,13 @@
 		3F72D885278F14C6006B08E8 /* BithumbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D884278F14C6006B08E8 /* BithumbUITests.swift */; };
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
 		C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AC23D127906C1600A359FB /* AssetStatus.swift */; };
-		C9DA6B64278F19C50021706D /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* Ticker.swift */; };
+		C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* WebSocketTicker.swift */; };
 		C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */; };
 		C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B67279016900021706D /* RestOrderBook.swift */; };
 		C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B69279046C20021706D /* RestTransaction.swift */; };
 		C9E59ED227918EA80093BD4A /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59ED127918EA80093BD4A /* Requestable.swift */; };
 		C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */; };
+		C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDB2791D20F0093BD4A /* RestTicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +70,13 @@
 		3F72D884278F14C6006B08E8 /* BithumbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITests.swift; sourceTree = "<group>"; };
 		3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C9AC23D127906C1600A359FB /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
-		C9DA6B63278F19C50021706D /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		C9DA6B63278F19C50021706D /* WebSocketTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTicker.swift; sourceTree = "<group>"; };
 		C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderBook.swift; sourceTree = "<group>"; };
 		C9DA6B67279016900021706D /* RestOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestOrderBook.swift; sourceTree = "<group>"; };
 		C9DA6B69279046C20021706D /* RestTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTransaction.swift; sourceTree = "<group>"; };
 		C9E59ED127918EA80093BD4A /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusAPI.swift; sourceTree = "<group>"; };
+		C9E59EDB2791D20F0093BD4A /* RestTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,10 @@
 		3F52C29E27918C4800AE2082 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				C9DA6B63278F19C50021706D /* Ticker.swift */,
+				C9DA6B63278F19C50021706D /* WebSocketTicker.swift */,
 				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
 				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
+				C9E59EDB2791D20F0093BD4A /* RestTicker.swift */,
 				C9DA6B67279016900021706D /* RestOrderBook.swift */,
 				C9DA6B69279046C20021706D /* RestTransaction.swift */,
 				3F52C29A279067D900AE2082 /* Candlestick.swift */,
@@ -331,7 +334,7 @@
 			files = (
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
-				C9DA6B64278F19C50021706D /* Ticker.swift in Sources */,
+				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
@@ -343,6 +346,7 @@
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookAPI.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionAPI.swift in Sources */,
+				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickAPI.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */,
 			);

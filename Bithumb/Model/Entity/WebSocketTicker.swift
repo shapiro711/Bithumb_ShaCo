@@ -1,5 +1,5 @@
 //
-//  Ticker.swift
+//  WebSocketTicker.swift
 //  Bithumb
 //
 //  Created by JINHONG AN on 2022/01/12.
@@ -19,7 +19,7 @@ enum CriteriaOfChange: String {
     }
 }
 
-struct Ticker {
+struct WebSocketTicker {
     let symbol: String?
     let criteriaOfChange: CriteriaOfChange?
     let day: String?
@@ -48,7 +48,7 @@ struct Ticker {
     }
 }
 
-extension Ticker: Decodable {
+extension WebSocketTicker: Decodable {
     enum CodingKeys: String, CodingKey {
         case symbol, time, lowPrice, highPrice, volumePower
         case criteriaOfChange = "tickType"
