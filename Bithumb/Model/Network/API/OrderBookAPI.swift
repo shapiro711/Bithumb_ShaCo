@@ -26,12 +26,12 @@ extension OrderBookAPI: Requestable {
         return .orderBook
     }
     
-    var pathParameters: [String]? {
+    var pathParameters: [String: Any]? {
         switch self {
         case .lookUp(let orderCurrency, let paymentCurrency, _):
-            var params = [String]()
-            params.append(orderCurrency)
-            params.append(paymentCurrency)
+            var params = [String: Any]()
+            params["orderCurrency"] = orderCurrency
+            params["paymentCurrency"] = paymentCurrency
             return params
         case .subscribe:
             return nil

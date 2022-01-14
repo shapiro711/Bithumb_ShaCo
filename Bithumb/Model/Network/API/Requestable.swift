@@ -23,7 +23,7 @@ enum RequestType {
 protocol Requestable {
     var apiType: APIType { get }
     var requestType: RequestType { get }
-    var pathParameters: [String]? { get }
+    var pathParameters: [String: Any]? { get }
     var queryParameters: [String: Any]? { get }
     var messageParameters: [String: Any]? { get }
 }
