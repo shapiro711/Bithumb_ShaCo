@@ -90,6 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F52C29E27918C4800AE2082 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C9DA6B63278F19C50021706D /* Ticker.swift */,
+				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
+				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
+				C9DA6B67279016900021706D /* RestOrderBook.swift */,
+				C9DA6B69279046C20021706D /* RestTransaction.swift */,
+				3F52C29A279067D900AE2082 /* Candlestick.swift */,
+				C9AC23D127906C1600A359FB /* AssetStatus.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		3F72D857278F14C5006B08E8 = {
 			isa = PBXGroup;
 			children = (
@@ -145,13 +159,7 @@
 		C9DA6B62278F19B40021706D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C9DA6B63278F19C50021706D /* Ticker.swift */,
-				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
-				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
-				C9DA6B67279016900021706D /* RestOrderBook.swift */,
-				C9DA6B69279046C20021706D /* RestTransaction.swift */,
-				3F52C29A279067D900AE2082 /* Candlestick.swift */,
-				C9AC23D127906C1600A359FB /* AssetStatus.swift */,
+				3F52C29E27918C4800AE2082 /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
