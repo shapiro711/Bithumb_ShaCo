@@ -9,7 +9,7 @@ import Foundation
 
 enum TickerAPI {
     case lookUp(orderCurrency: String, paymentCurrency: String)
-    case subscribe(symbols: [String], criteriaOfChange: [String])
+    case subscribe(symbols: [String], criteriaOfChange: [CriteriaOfChange])
 }
 
 extension TickerAPI: Requestable {
