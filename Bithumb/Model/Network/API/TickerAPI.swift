@@ -26,18 +26,31 @@ extension TickerAPI: Requestable {
         return .ticker
     }
     
-    var parameters: [String: Any]? {
-        var params = [String: Any]()
-        
+    var pathParameters: [String]? {
         switch self {
         case .lookUp(let orderCurrency, let paymentCurrency):
-            params["orderCurrency"] = orderCurrency
-            params["paymentCurrency"] = paymentCurrency
+            var params = [String]()
+            params.append(orderCurrency)
+            params.append(paymentCurrency)
+            return params
+        case .subscribe:
+            return nil
+        }
+    }
+    
+    var queryParameters: [String : Any]? {
+        return nil
+    }
+    
+    var messageParameters: [String : Any]? {
+        switch self {
+        case .lookUp:
+            return nil
         case .subscribe(let symbols, let criteriaOfChange):
+            var params = [String: Any]()
             params["symbols"] = symbols
             params["criteriaOfChange"] = criteriaOfChange
+            return params
         }
-        
-        return params
     }
 }
