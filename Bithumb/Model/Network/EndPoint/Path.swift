@@ -12,48 +12,34 @@ protocol PathRepresentable {
     var specializedPath: String { get }
 }
 
-enum RestPath {
-    case ticker
-    case orderBook
-    case transaction
-    case assetStatus
-    case candlestick
-}
-
-extension RestPath: PathRepresentable {
+struct RestPath: PathRepresentable {
     static var basicPath: String {
         return "public/"
     }
+    var specializedPath: String
     
-    var specializedPath: String {
-        switch self {
+    init(requestType: RequestType) {
+        switch requestType {
         case .ticker:
-            return Self.basicPath + "ticker/"
+            specializedPath =  Self.basicPath + "ticker/"
         case .orderBook:
-            return Self.basicPath + "orderbook/"
+            specializedPath =  Self.basicPath + "orderbook/"
         case .transaction:
-            return Self.basicPath + "transaction_history/"
+            specializedPath =  Self.basicPath + "transaction_history/"
         case .assetStatus:
-            return Self.basicPath + "assetsstatus/"
+            specializedPath =  Self.basicPath + "assetsstatus/"
         case .candlestick:
-            return Self.basicPath + "candlestick/"
+            specializedPath =  Self.basicPath + "candlestick/"
         }
     }
 }
 
-enum WebSocketPath {
-    case common
-}
-
-extension WebSocketPath: PathRepresentable {
+struct WebSocketPath: PathRepresentable {
     static var basicPath: String {
         return "pub/"
     }
     
     var specializedPath: String {
-        switch self {
-        case .common:
-            return Self.basicPath + "ws"
-        }
+        return Self.basicPath + "ws"
     }
 }
