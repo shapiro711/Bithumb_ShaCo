@@ -9,5 +9,5 @@ import Foundation
 
 struct WebSocketEndPoint: WebSocketEndPointable {
     var path: PathRepresentable
-    var messageParameters: [String : Any]?
+    var message: SubscribeMessage?
 }

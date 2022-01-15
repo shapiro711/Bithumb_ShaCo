@@ -42,15 +42,12 @@ extension TickerAPI: Requestable {
         return nil
     }
     
-    var messageParameters: [String: Any]? {
+    var message: SubscribeMessage? {
         switch self {
         case .lookUp:
             return nil
         case .subscribe(let symbols, let criteriaOfChange):
-            var params = [String: Any]()
-            params["symbols"] = symbols
-            params["criteriaOfChange"] = criteriaOfChange
-            return params
+            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: criteriaOfChange)
         }
     }
 }

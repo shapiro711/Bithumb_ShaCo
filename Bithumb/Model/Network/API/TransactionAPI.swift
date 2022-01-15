@@ -49,14 +49,12 @@ extension TransactionAPI: Requestable {
         }
     }
     
-    var messageParameters: [String: Any]? {
+    var message: SubscribeMessage? {
         switch self {
         case .lookUp:
             return nil
         case .subscribe(let symbols):
-            var params = [String: Any]()
-            params["symbols"] = symbols
-            return params
+            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: nil)
         }
     }
 }

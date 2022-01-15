@@ -23,12 +23,11 @@ protocol EndPointable {
 }
 
 protocol WebSocketEndPointable: EndPointable {
-    var messageParameters: [String: Any]? { get }
+    var message: SubscribeMessage? { get }
 }
 
 protocol RestEndPointable: EndPointable {
     var httpMethod: HTTPMethodType { get }
-    var pathParameters: [String: Any]? { get }
     var queryParameters: [String: Any]? { get }
 }
 

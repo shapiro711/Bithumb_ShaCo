@@ -33,7 +33,7 @@ extension AssetStatusAPI: Requestable {
         return nil
     }
     
-    var messageParameters: [String: Any]? {
+    var message: SubscribeMessage? {
         return nil
     }
 }

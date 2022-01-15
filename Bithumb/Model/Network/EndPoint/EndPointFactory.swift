@@ -10,10 +10,10 @@ import Foundation
 struct EndPointFactory {
     static func getRestEndPoint(request: Requestable) -> RestEndPointable {
         let path = RestPath(requestType: request.requestType, pathParameters: request.pathParameters)
-        return RestEndPoint(path: path, pathParameters: request.pathParameters, queryParameters: request.queryParameters)
+        return RestEndPoint(path: path, queryParameters: request.queryParameters)
     }
     
     static func getWebSocketEndPoint(request: Requestable) -> WebSocketEndPointable {
-        return WebSocketEndPoint(path: WebSocketPath(), messageParameters: request.messageParameters)
+        return WebSocketEndPoint(path: WebSocketPath(), message: request.message)
     }
 }
