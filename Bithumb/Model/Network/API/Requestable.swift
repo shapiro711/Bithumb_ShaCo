@@ -40,5 +40,3 @@ protocol Requestable {
     var queryParameters: [String: Any]? { get }
     var messageParameters: [String: Any]? { get }
 }
-
-
