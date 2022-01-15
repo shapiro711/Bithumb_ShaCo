@@ -26,12 +26,12 @@ extension TickerAPI: Requestable {
         return .ticker
     }
     
-    var pathParameters: [String: Any]? {
+    var pathParameters: [PathParameterType: String]? {
         switch self {
         case .lookUp(let orderCurrency, let paymentCurrency):
-            var params = [String: Any]()
-            params["orderCurrency"] = orderCurrency
-            params["paymentCurrency"] = paymentCurrency
+            var params = [PathParameterType: String]()
+            params[.orderCurrency] = orderCurrency
+            params[.paymentCurrency] = paymentCurrency
             return params
         case .subscribe:
             return nil

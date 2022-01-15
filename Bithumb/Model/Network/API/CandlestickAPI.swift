@@ -36,13 +36,13 @@ extension CandlestickAPI: Requestable {
         return .candlestick
     }
     
-    var pathParameters: [String: Any]? {
+    var pathParameters: [PathParameterType: String]? {
         switch self {
         case .lookUp(let orderCurrency, let paymentCurrency, let chartIntervals):
-            var params = [String: Any]()
-            params["orderCurrency"] = orderCurrency
-            params["paymentCurrency"] = paymentCurrency
-            params["chartIntervals"] = chartIntervals.pathValue
+            var params = [PathParameterType: String]()
+            params[.orderCurrency] = orderCurrency
+            params[.paymentCurrency] = paymentCurrency
+            params[.chartIntervals] = chartIntervals.pathValue
             return params
         }
     }

@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum PathParameterType: Hashable {
+    case orderCurrency
+    case paymentCurrency
+    case chartIntervals
+}
+
 protocol PathRepresentable {
     static var basicPath: String { get }
     var specializedPath: String { get }
@@ -18,44 +24,44 @@ struct RestPath: PathRepresentable {
     }
     var specializedPath: String
     
-    init(requestType: RequestType, pathParameters: [String: Any]?) {
+    init(requestType: RequestType, pathParameters: [PathParameterType: String]?) {
         var specializedPath = Self.basicPath
         
         switch requestType {
         case .ticker:
             specializedPath += "ticker/"
-            specializedPath.append(path: pathParameters?["orderCurrency"], alternativePath: "ALL")
+            specializedPath.append(path: pathParameters?[.orderCurrency], alternativePath: "ALL")
             specializedPath += "_"
-            specializedPath.append(path: pathParameters?["paymentCurrency"], alternativePath: "KRW")
+            specializedPath.append(path: pathParameters?[.paymentCurrency], alternativePath: "KRW")
         case .orderBook:
             specializedPath += "orderbook/"
-            specializedPath.append(path: pathParameters?["orderCurrency"], alternativePath: "ALL")
+            specializedPath.append(path: pathParameters?[.orderCurrency], alternativePath: "ALL")
             specializedPath += "_"
-            specializedPath.append(path: pathParameters?["paymentCurrency"], alternativePath: "KRW")
+            specializedPath.append(path: pathParameters?[.paymentCurrency], alternativePath: "KRW")
         case .transaction:
             specializedPath += "transaction_history/"
-            specializedPath.append(path: pathParameters?["orderCurrency"], alternativePath: "ALL")
+            specializedPath.append(path: pathParameters?[.orderCurrency], alternativePath: "ALL")
             specializedPath += "_"
-            specializedPath.append(path: pathParameters?["paymentCurrency"], alternativePath: "KRW")
+            specializedPath.append(path: pathParameters?[.paymentCurrency], alternativePath: "KRW")
         case .assetStatus:
             specializedPath += "assetsstatus/"
-            specializedPath.append(path: pathParameters?["orderCurrency"], alternativePath: "ALL")
+            specializedPath.append(path: pathParameters?[.orderCurrency], alternativePath: "ALL")
         case .candlestick:
             specializedPath += "candlestick/"
-            specializedPath.append(path: pathParameters?["orderCurrency"], alternativePath: "ALL")
+            specializedPath.append(path: pathParameters?[.orderCurrency], alternativePath: "ALL")
             specializedPath += "_"
-            specializedPath.append(path: pathParameters?["paymentCurrency"], alternativePath: "KRW")
+            specializedPath.append(path: pathParameters?[.paymentCurrency], alternativePath: "KRW")
             specializedPath += "/"
-            specializedPath.append(path: pathParameters?["chartIntervals"], alternativePath: "24h")
+            specializedPath.append(path: pathParameters?[.chartIntervals], alternativePath: "24h")
         }
         self.specializedPath = specializedPath
     }
 }
 
 private extension String {
-    mutating func append(path: Any?, alternativePath: String) {
+    mutating func append(path: String?, alternativePath: String) {
         if let path = path {
-            self += "\(path)"
+            self += path
         } else {
             self += alternativePath
         }

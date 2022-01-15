@@ -20,11 +20,11 @@ extension AssetStatusAPI: Requestable {
         return .assetStatus
     }
     
-    var pathParameters: [String: Any]? {
+    var pathParameters: [PathParameterType: String]? {
         switch self {
         case .lookUp(let orderCurrency):
-            var params = [String: Any]()
-            params["orderCurrency"] = orderCurrency
+            var params = [PathParameterType: String]()
+            params[.orderCurrency] = orderCurrency
             return params
         }
     }
