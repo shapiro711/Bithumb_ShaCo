@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3F008FF02792947000356C3F /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FEF2792947000356C3F /* Path.swift */; };
+		3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF12792999700356C3F /* RestEndPoint.swift */; };
+		3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */; };
 		3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2982790055000AE2082 /* WebSocketTransaction.swift */; };
 		3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29A279067D900AE2082 /* Candlestick.swift */; };
 		3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29F2791918600AE2082 /* TickerAPI.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		3F008FEF2792947000356C3F /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		3F008FF12792999700356C3F /* RestEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPoint.swift; sourceTree = "<group>"; };
+		3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndPoint.swift; sourceTree = "<group>"; };
 		3F52C2982790055000AE2082 /* WebSocketTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransaction.swift; sourceTree = "<group>"; };
 		3F52C29A279067D900AE2082 /* Candlestick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candlestick.swift; sourceTree = "<group>"; };
 		3F52C29F2791918600AE2082 /* TickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPI.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			children = (
 				3F008FEF2792947000356C3F /* Path.swift */,
 				C9E59EDD279296EE0093BD4A /* EndPoints.swift */,
+				3F008FF12792999700356C3F /* RestEndPoint.swift */,
+				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
+				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
 				3F52C2A82791DC7E00AE2082 /* SubscribeMessage.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
@@ -360,6 +367,7 @@
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
+				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
 				C9E59ED227918EA80093BD4A /* Requestable.swift in Sources */,
 				3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
