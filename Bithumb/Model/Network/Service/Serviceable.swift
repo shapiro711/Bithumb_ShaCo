@@ -11,4 +11,10 @@ protocol Serviceable {
     var networkConfigure: NetworkConfigurable { get }
 }
 
+protocol RestServiceable: Serviceable {
+    func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, Error>) -> Void)
+}
 
+enum NetworkError: Error {
+    case urlGeneration
+}
