@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum AssetStatusAPI {
+enum AssetStatusRequest {
     case lookUp(orderCurrency: String)
 }
 
-extension AssetStatusAPI: Requestable {
+extension AssetStatusRequest: Requestable {
     var apiType: APIType {
         return .rest
     }

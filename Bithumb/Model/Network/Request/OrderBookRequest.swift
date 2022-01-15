@@ -1,5 +1,5 @@
 //
-//  TickerAPI.swift
+//  OrderBookAPI.swift
 //  Bithumb
 //
 //  Created by Kim Do hyung on 2022/01/14.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum TickerAPI {
-    case lookUp(orderCurrency: String, paymentCurrency: String)
-    case subscribe(symbols: [String], criteriaOfChange: [CriteriaOfChange])
+enum OrderBookRequest {
+    case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 30)
+    case subscribe(symbols: [String])
 }
 
-extension TickerAPI: Requestable {
+extension OrderBookRequest: Requestable {
     var apiType: APIType {
         switch self {
         case .lookUp:
@@ -23,12 +23,12 @@ extension TickerAPI: Requestable {
     }
     
     var requestType: RequestType {
-        return .ticker
+        return .orderBook
     }
     
     var pathParameters: [PathParameterType: String]? {
         switch self {
-        case .lookUp(let orderCurrency, let paymentCurrency):
+        case .lookUp(let orderCurrency, let paymentCurrency, _):
             var params = [PathParameterType: String]()
             params[.orderCurrency] = orderCurrency
             params[.paymentCurrency] = paymentCurrency
@@ -39,15 +39,22 @@ extension TickerAPI: Requestable {
     }
     
     var queryParameters: [String: Any]? {
-        return nil
+        switch self {
+        case .lookUp(_, _, let listCount):
+            var params = [String: Any]()
+            params["count"] = listCount
+            return params
+        case .subscribe:
+            return nil
+        }
     }
     
     var message: SubscribeMessage? {
         switch self {
         case .lookUp:
             return nil
-        case .subscribe(let symbols, let criteriaOfChange):
-            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: criteriaOfChange)
+        case .subscribe(let symbols):
+            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: nil)
         }
     }
 }

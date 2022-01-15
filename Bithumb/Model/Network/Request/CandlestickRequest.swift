@@ -23,11 +23,11 @@ enum ChartInterval: String {
     }
 }
 
-enum CandlestickAPI {
+enum CandlestickRequest {
     case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: ChartInterval)
 }
 
-extension CandlestickAPI: Requestable {
+extension CandlestickRequest: Requestable {
     var apiType: APIType {
         return .rest
     }

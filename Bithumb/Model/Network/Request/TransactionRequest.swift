@@ -1,5 +1,5 @@
 //
-//  OrderBookAPI.swift
+//  TransactionAPI.swift
 //  Bithumb
 //
 //  Created by Kim Do hyung on 2022/01/14.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum OrderBookAPI {
-    case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 30)
+enum TransactionRequest {
+    case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 20)
     case subscribe(symbols: [String])
 }
 
-extension OrderBookAPI: Requestable {
+extension TransactionRequest: Requestable {
     var apiType: APIType {
         switch self {
         case .lookUp:
@@ -23,7 +23,7 @@ extension OrderBookAPI: Requestable {
     }
     
     var requestType: RequestType {
-        return .orderBook
+        return .transaction
     }
     
     var pathParameters: [PathParameterType: String]? {
