@@ -32,6 +32,7 @@
 		C9E59ED227918EA80093BD4A /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59ED127918EA80093BD4A /* Requestable.swift */; };
 		C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */; };
 		C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDB2791D20F0093BD4A /* RestTicker.swift */; };
+		C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDD279296EE0093BD4A /* EndPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		C9E59ED127918EA80093BD4A /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusAPI.swift; sourceTree = "<group>"; };
 		C9E59EDB2791D20F0093BD4A /* RestTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTicker.swift; sourceTree = "<group>"; };
+		C9E59EDD279296EE0093BD4A /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				3F008FEF2792947000356C3F /* Path.swift */,
+				C9E59EDD279296EE0093BD4A /* EndPoints.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
+				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
