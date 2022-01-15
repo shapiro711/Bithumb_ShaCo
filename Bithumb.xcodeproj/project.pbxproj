@@ -36,6 +36,7 @@
 		C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */; };
 		C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDB2791D20F0093BD4A /* RestTicker.swift */; };
 		C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDD279296EE0093BD4A /* EndPoints.swift */; };
+		C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		C9E59ED52791C6A60093BD4A /* AssetStatusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusAPI.swift; sourceTree = "<group>"; };
 		C9E59EDB2791D20F0093BD4A /* RestTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTicker.swift; sourceTree = "<group>"; };
 		C9E59EDD279296EE0093BD4A /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		C9E59ECF27918DDC0093BD4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C9E59EE12792AF6C0093BD4A /* NetworkConfigure */,
 				3F008FEE2792916E00356C3F /* EndPoint */,
 				C9E59ED027918DF10093BD4A /* API */,
 			);
@@ -225,6 +228,14 @@
 				3F52C2A52791CD3C00AE2082 /* CandlestickAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		C9E59EE12792AF6C0093BD4A /* NetworkConfigure */ = {
+			isa = PBXGroup;
+			children = (
+				C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */,
+			);
+			path = NetworkConfigure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
 				C9E59ED227918EA80093BD4A /* Requestable.swift in Sources */,
 				3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */,
+				C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookAPI.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionAPI.swift in Sources */,
