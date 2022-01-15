@@ -1,5 +1,5 @@
 //
-//  SubscribeMessage.swift
+//  SubscriptionMessage.swift
 //  Bithumb
 //
 //  Created by Kim Do hyung on 2022/01/15.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct SubscribeMessage {
+struct SubscriptionMessage {
     let type: RequestType
     let symbols: [String]
     let criteriaOfChange: [CriteriaOfChange]?
 }
 
-extension SubscribeMessage: Encodable {
+extension SubscriptionMessage: Encodable {
     enum CodingKeys: String, CodingKey {
         case type, symbols
         case criteriaOfChange = "tickTypes"

@@ -20,7 +20,7 @@
 		3F52C2A22791C01C00AE2082 /* OrderBookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A12791C01C00AE2082 /* OrderBookRequest.swift */; };
 		3F52C2A42791C54700AE2082 /* TransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A32791C54700AE2082 /* TransactionRequest.swift */; };
 		3F52C2A62791CD3C00AE2082 /* CandlestickRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A52791CD3C00AE2082 /* CandlestickRequest.swift */; };
-		3F52C2A82791DC7E00AE2082 /* SubscribeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A72791DC7E00AE2082 /* SubscribeMessage.swift */; };
+		3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2A72791DC7E00AE2082 /* SubscriptionMessage.swift */; };
 		3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D863278F14C5006B08E8 /* AppDelegate.swift */; };
 		3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D865278F14C5006B08E8 /* SceneDelegate.swift */; };
 		3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* ViewController.swift */; };
@@ -73,7 +73,7 @@
 		3F52C2A12791C01C00AE2082 /* OrderBookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookRequest.swift; sourceTree = "<group>"; };
 		3F52C2A32791C54700AE2082 /* TransactionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRequest.swift; sourceTree = "<group>"; };
 		3F52C2A52791CD3C00AE2082 /* CandlestickRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickRequest.swift; sourceTree = "<group>"; };
-		3F52C2A72791DC7E00AE2082 /* SubscribeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeMessage.swift; sourceTree = "<group>"; };
+		3F52C2A72791DC7E00AE2082 /* SubscriptionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionMessage.swift; sourceTree = "<group>"; };
 		3F72D860278F14C5006B08E8 /* Bithumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bithumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D863278F14C5006B08E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F72D865278F14C5006B08E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,18 +146,34 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		3F52C29E27918C4800AE2082 /* Entity */ = {
+		3F008FFE279342B600356C3F /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				C9DA6B63278F19C50021706D /* WebSocketTicker.swift */,
-				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
-				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
 				C9E59EDB2791D20F0093BD4A /* RestTicker.swift */,
 				C9DA6B67279016900021706D /* RestOrderBook.swift */,
 				C9DA6B69279046C20021706D /* RestTransaction.swift */,
 				3F52C29A279067D900AE2082 /* Candlestick.swift */,
 				C9AC23D127906C1600A359FB /* AssetStatus.swift */,
-				3F52C2A72791DC7E00AE2082 /* SubscribeMessage.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		3F008FFF279342BD00356C3F /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C9DA6B63278F19C50021706D /* WebSocketTicker.swift */,
+				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
+				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
+				3F52C2A72791DC7E00AE2082 /* SubscriptionMessage.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		3F52C29E27918C4800AE2082 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FFF279342BD00356C3F /* WebSocket */,
+				3F008FFE279342B600356C3F /* Rest */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -391,7 +407,7 @@
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
-				3F52C2A82791DC7E00AE2082 /* SubscribeMessage.swift in Sources */,
+				3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,

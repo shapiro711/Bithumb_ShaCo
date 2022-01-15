@@ -49,12 +49,12 @@ extension OrderBookRequest: Requestable {
         }
     }
     
-    var message: SubscribeMessage? {
+    var message: SubscriptionMessage? {
         switch self {
         case .lookUp:
             return nil
         case .subscribe(let symbols):
-            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: nil)
+            return SubscriptionMessage(type: requestType, symbols: symbols, criteriaOfChange: nil)
         }
     }
 }

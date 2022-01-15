@@ -51,7 +51,7 @@ extension CandlestickRequest: Requestable {
         return nil
     }
     
-    var message: SubscribeMessage? {
+    var message: SubscriptionMessage? {
         return nil
     }
 }

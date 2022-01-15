@@ -42,12 +42,12 @@ extension TickerRequest: Requestable {
         return nil
     }
     
-    var message: SubscribeMessage? {
+    var message: SubscriptionMessage? {
         switch self {
         case .lookUp:
             return nil
         case .subscribe(let symbols, let criteriaOfChange):
-            return SubscribeMessage(type: requestType, symbols: symbols, criteriaOfChange: criteriaOfChange)
+            return SubscriptionMessage(type: requestType, symbols: symbols, criteriaOfChange: criteriaOfChange)
         }
     }
 }

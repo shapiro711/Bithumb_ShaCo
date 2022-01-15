@@ -38,5 +38,5 @@ protocol Requestable {
     var requestType: RequestType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
-    var message: SubscribeMessage? { get }
+    var message: SubscriptionMessage? { get }
 }

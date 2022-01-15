@@ -23,7 +23,7 @@ protocol EndPointable {
 }
 
 protocol WebSocketEndPointable: EndPointable {
-    var message: SubscribeMessage? { get }
+    var message: SubscriptionMessage? { get }
 }
 
 protocol RestEndPointable: EndPointable {
