@@ -7,8 +7,24 @@
 
 import Foundation
 
+enum ChartInterval: String {
+    case oneMinute = "1m"
+    case threeMinutes = "3m"
+    case fiveMinutes = "5m"
+    case tenMinutes = "10m"
+    case thirtyMinutes = "30m"
+    case oneHour = "1h"
+    case sixHours = "6h"
+    case twelveHours = "12h"
+    case twentyFourHours = "24h"
+    
+    var pathValue: String {
+        return self.rawValue
+    }
+}
+
 enum CandlestickAPI {
-    case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: String)
+    case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: ChartInterval)
 }
 
 extension CandlestickAPI: Requestable {
@@ -26,7 +42,7 @@ extension CandlestickAPI: Requestable {
             var params = [String: Any]()
             params["orderCurrency"] = orderCurrency
             params["paymentCurrency"] = paymentCurrency
-            params["chartIntervals"] = chartIntervals
+            params["chartIntervals"] = chartIntervals.pathValue
             return params
         }
     }

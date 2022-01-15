@@ -9,7 +9,7 @@ import Foundation
 
 struct EndPointFactory {
     static func getRestEndPoint(request: Requestable) -> RestEndPointable {
-        let path = RestPath(requestType: request.requestType)
+        let path = RestPath(requestType: request.requestType, pathParameters: request.pathParameters)
         return RestEndPoint(path: path, pathParameters: request.pathParameters, queryParameters: request.queryParameters)
     }
     
