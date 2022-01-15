@@ -10,6 +10,7 @@
 		3F008FF02792947000356C3F /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FEF2792947000356C3F /* Path.swift */; };
 		3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF12792999700356C3F /* RestEndPoint.swift */; };
 		3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */; };
+		3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF52792AD2500356C3F /* EndPointFactory.swift */; };
 		3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2982790055000AE2082 /* WebSocketTransaction.swift */; };
 		3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29A279067D900AE2082 /* Candlestick.swift */; };
 		3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29F2791918600AE2082 /* TickerAPI.swift */; };
@@ -58,6 +59,7 @@
 		3F008FEF2792947000356C3F /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		3F008FF12792999700356C3F /* RestEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndPoint.swift; sourceTree = "<group>"; };
+		3F008FF52792AD2500356C3F /* EndPointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointFactory.swift; sourceTree = "<group>"; };
 		3F52C2982790055000AE2082 /* WebSocketTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransaction.swift; sourceTree = "<group>"; };
 		3F52C29A279067D900AE2082 /* Candlestick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candlestick.swift; sourceTree = "<group>"; };
 		3F52C29F2791918600AE2082 /* TickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPI.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				C9E59EDD279296EE0093BD4A /* EndPoints.swift */,
 				3F008FF12792999700356C3F /* RestEndPoint.swift */,
 				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
+				3F008FF52792AD2500356C3F /* EndPointFactory.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickAPI.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */,
+				3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
