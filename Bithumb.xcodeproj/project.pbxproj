@@ -11,6 +11,9 @@
 		3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF12792999700356C3F /* RestEndPoint.swift */; };
 		3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */; };
 		3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF52792AD2500356C3F /* EndPointFactory.swift */; };
+		3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF82792BCF700356C3F /* Serviceable.swift */; };
+		3F008FFB2792BE4300356C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFA2792BE4300356C3F /* RestService.swift */; };
+		3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFC2792BE5300356C3F /* WebSocketService.swift */; };
 		3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2982790055000AE2082 /* WebSocketTransaction.swift */; };
 		3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29A279067D900AE2082 /* Candlestick.swift */; };
 		3F52C2A02791918600AE2082 /* TickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29F2791918600AE2082 /* TickerAPI.swift */; };
@@ -61,6 +64,9 @@
 		3F008FF12792999700356C3F /* RestEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF52792AD2500356C3F /* EndPointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointFactory.swift; sourceTree = "<group>"; };
+		3F008FF82792BCF700356C3F /* Serviceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serviceable.swift; sourceTree = "<group>"; };
+		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
+		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		3F52C2982790055000AE2082 /* WebSocketTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransaction.swift; sourceTree = "<group>"; };
 		3F52C29A279067D900AE2082 /* Candlestick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candlestick.swift; sourceTree = "<group>"; };
 		3F52C29F2791918600AE2082 /* TickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerAPI.swift; sourceTree = "<group>"; };
@@ -128,6 +134,16 @@
 				3F008FF52792AD2500356C3F /* EndPointFactory.swift */,
 			);
 			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		3F008FF72792BCCC00356C3F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FF82792BCF700356C3F /* Serviceable.swift */,
+				3F008FFA2792BE4300356C3F /* RestService.swift */,
+				3F008FFC2792BE5300356C3F /* WebSocketService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3F52C29E27918C4800AE2082 /* Entity */ = {
@@ -210,6 +226,7 @@
 		C9E59ECF27918DDC0093BD4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3F008FF72792BCCC00356C3F /* Service */,
 				C9E59EE12792AF6C0093BD4A /* NetworkConfigure */,
 				3F008FEE2792916E00356C3F /* EndPoint */,
 				C9E59ED027918DF10093BD4A /* API */,
@@ -369,6 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */,
+				3F008FFB2792BE4300356C3F /* RestService.swift in Sources */,
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
@@ -392,6 +411,7 @@
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickAPI.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetStatusAPI.swift in Sources */,
+				3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */,
 				3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
