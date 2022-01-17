@@ -24,12 +24,16 @@ enum ChartInterval: String {
 }
 
 enum CandlestickRequest {
-    case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: ChartInterval)
+    case lookUp(orderCurrency: String = "BTC", paymentCurrency: String = "KRW", chartIntervals: ChartInterval = .twentyFourHours)
 }
 
 extension CandlestickRequest: RestRequestable {
     var requestType: RequestType {
         return .candlestick
+    }
+    
+    var basicPath: String {
+        return "candlestick/"
     }
     
     var httpMethod: HTTPMethodType {

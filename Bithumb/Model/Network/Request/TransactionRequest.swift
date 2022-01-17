@@ -8,12 +8,16 @@
 import Foundation
 
 enum TransactionRequest {
-    case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 20)
+    case lookUp(orderCurrency: String = "BTC", paymentCurrency: String = "KRW", listCount: Int = 20)
 }
 
 extension TransactionRequest: RestRequestable {
     var requestType: RequestType {
         return .transaction
+    }
+    
+    var basicPath: String {
+        return "transaction_history/"
     }
     
     var httpMethod: HTTPMethodType {

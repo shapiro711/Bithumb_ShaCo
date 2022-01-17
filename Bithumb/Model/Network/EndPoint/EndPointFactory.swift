@@ -9,7 +9,31 @@ import Foundation
 
 struct EndPointFactory {
     static func getRestEndPoint(request: RestRequestable) -> RestEndPointable {
-        let path = RestPath(requestType: request.requestType, pathParameters: request.pathParameters)
-        return RestEndPoint(path: path, queryParameters: request.queryParameters)
+        let fullPath = mergeRestPaths(basicPath: request.basicPath, pathParameters: request.pathParameters)
+        return RestEndPoint(path: fullPath, httpMethod: request.httpMethod, queryParameters: request.queryParameters)
+    }
+    
+    private static func mergeRestPaths(basicPath: String, pathParameters: [PathParameterType: String]?) -> String {
+        guard let pathParameters = pathParameters else {
+            return basicPath
+        }
+        
+        let underScore = "_"
+        let slash = "/"
+        var fullPath = basicPath
+        
+        if let orderCurrency = pathParameters[.orderCurrency] {
+            fullPath += orderCurrency
+        }
+        if let paymentCurrency = pathParameters[.paymentCurrency] {
+            fullPath += underScore
+            fullPath += paymentCurrency
+        }
+        if let chartIntervals = pathParameters[.chartIntervals] {
+            fullPath += slash
+            fullPath += chartIntervals
+        }
+        
+        return fullPath
     }
 }

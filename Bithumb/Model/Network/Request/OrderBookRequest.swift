@@ -8,12 +8,16 @@
 import Foundation
 
 enum OrderBookRequest {
-    case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 30)
+    case lookUp(orderCurrency: String = "BTC", paymentCurrency: String = "KRW", listCount: Int = 30)
 }
 
 extension OrderBookRequest: RestRequestable {
     var requestType: RequestType {
         return .orderBook
+    }
+    
+    var basicPath: String {
+        return "orderbook/"
     }
     
     var httpMethod: HTTPMethodType {

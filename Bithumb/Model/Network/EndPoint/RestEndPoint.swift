@@ -8,7 +8,7 @@
 import Foundation
 
 struct RestEndPoint: RestEndPointable {
-    var path: PathRepresentable
-    var httpMethod: HTTPMethodType = .get
+    var path: String
+    var httpMethod: HTTPMethodType
     var queryParameters: [String : Any]?
 }

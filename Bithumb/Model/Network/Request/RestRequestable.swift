@@ -47,6 +47,7 @@ enum PathParameterType: Hashable {
 
 protocol RestRequestable {
     var requestType: RequestType { get }
+    var basicPath: String { get }
     var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }

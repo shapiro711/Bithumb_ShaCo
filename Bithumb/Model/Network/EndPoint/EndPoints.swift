@@ -8,11 +8,10 @@
 import Foundation
 
 protocol EndPointable {
-    var path: PathRepresentable { get }
+    var path: String { get }
 }
 
 protocol WebSocketEndPointable: EndPointable {
-    var message: SubscriptionMessage? { get }
 }
 
 protocol RestEndPointable: EndPointable {

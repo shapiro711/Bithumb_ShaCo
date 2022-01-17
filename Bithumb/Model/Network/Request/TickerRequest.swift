@@ -8,12 +8,16 @@
 import Foundation
 
 enum TickerRequest {
-    case lookUp(orderCurrency: String, paymentCurrency: String)
+    case lookUp(orderCurrency: String = "BTC", paymentCurrency: String = "KRW")
 }
 
 extension TickerRequest: RestRequestable {
     var requestType: RequestType {
         return .ticker
+    }
+    
+    var basicPath: String {
+        return "ticker/"
     }
     
     var httpMethod: HTTPMethodType {

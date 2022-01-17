@@ -41,7 +41,7 @@ struct RestService: RestServiceable {
     
     private func generateURL(endPoint: RestEndPointable) throws -> URL {
         let baseURL = networkConfigure.baseURLString
-        let fullPath = baseURL + endPoint.path.specializedPath
+        let fullPath = baseURL + endPoint.path
         var urlComponents = URLComponents(string: fullPath)
         var urlQueryItems = [URLQueryItem]()
         let queryParameters = endPoint.queryParameters

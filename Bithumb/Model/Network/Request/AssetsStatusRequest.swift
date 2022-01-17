@@ -8,12 +8,16 @@
 import Foundation
 
 enum AssetsStatusRequest {
-    case lookUp(orderCurrency: String)
+    case lookUp(orderCurrency: String = "BTC")
 }
 
 extension AssetsStatusRequest: RestRequestable {
     var requestType: RequestType {
         return .assetStatus
+    }
+    
+    var basicPath: String {
+        return "assetsstatus/"
     }
     
     var httpMethod: HTTPMethodType {

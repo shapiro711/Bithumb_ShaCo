@@ -8,6 +8,5 @@
 import Foundation
 
 struct WebSocketEndPoint: WebSocketEndPointable {
-    var path: PathRepresentable
-    var message: SubscriptionMessage?
+    var path: String
 }
