@@ -9,21 +9,18 @@ import Foundation
 
 enum TickerRequest {
     case lookUp(orderCurrency: String, paymentCurrency: String)
-    case subscribe(symbols: [String], criteriaOfChange: [CriteriaOfChange])
 }
 
-extension TickerRequest: Requestable {
-    var apiType: APIType {
-        switch self {
-        case .lookUp:
-            return .rest
-        case .subscribe:
-            return .webSocket
-        }
-    }
-    
+extension TickerRequest: RestRequestable {
     var requestType: RequestType {
         return .ticker
+    }
+    
+    var httpMethod: HTTPMethodType {
+        switch self {
+        case .lookUp:
+            return .get
+        }
     }
     
     var pathParameters: [PathParameterType: String]? {
@@ -33,21 +30,10 @@ extension TickerRequest: Requestable {
             params[.orderCurrency] = orderCurrency
             params[.paymentCurrency] = paymentCurrency
             return params
-        case .subscribe:
-            return nil
         }
     }
     
     var queryParameters: [String: Any]? {
         return nil
-    }
-    
-    var message: SubscriptionMessage? {
-        switch self {
-        case .lookUp:
-            return nil
-        case .subscribe(let symbols, let criteriaOfChange):
-            return SubscriptionMessage(type: requestType, symbols: symbols, criteriaOfChange: criteriaOfChange)
-        }
     }
 }

@@ -9,21 +9,18 @@ import Foundation
 
 enum OrderBookRequest {
     case lookUp(orderCurrency: String, paymentCurrency: String, listCount: Int = 30)
-    case subscribe(symbols: [String])
 }
 
-extension OrderBookRequest: Requestable {
-    var apiType: APIType {
-        switch self {
-        case .lookUp:
-            return .rest
-        case .subscribe:
-            return .webSocket
-        }
-    }
-    
+extension OrderBookRequest: RestRequestable {
     var requestType: RequestType {
         return .orderBook
+    }
+    
+    var httpMethod: HTTPMethodType {
+        switch self {
+        case .lookUp:
+            return .get
+        }
     }
     
     var pathParameters: [PathParameterType: String]? {
@@ -33,8 +30,6 @@ extension OrderBookRequest: Requestable {
             params[.orderCurrency] = orderCurrency
             params[.paymentCurrency] = paymentCurrency
             return params
-        case .subscribe:
-            return nil
         }
     }
     
@@ -44,17 +39,6 @@ extension OrderBookRequest: Requestable {
             var params = [String: Any]()
             params["count"] = listCount
             return params
-        case .subscribe:
-            return nil
-        }
-    }
-    
-    var message: SubscriptionMessage? {
-        switch self {
-        case .lookUp:
-            return nil
-        case .subscribe(let symbols):
-            return SubscriptionMessage(type: requestType, symbols: symbols, criteriaOfChange: nil)
         }
     }
 }

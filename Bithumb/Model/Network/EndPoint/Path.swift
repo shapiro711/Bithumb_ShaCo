@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum PathParameterType: Hashable {
-    case orderCurrency
-    case paymentCurrency
-    case chartIntervals
-}
-
 protocol PathRepresentable {
     static var basicPath: String { get }
     var specializedPath: String { get }

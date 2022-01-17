@@ -7,17 +7,6 @@
 
 import Foundation
 
-enum HTTPMethodType: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
-    
-    var methodName: String {
-        return self.rawValue
-    }
-}
-
 protocol EndPointable {
     var path: PathRepresentable { get }
 }

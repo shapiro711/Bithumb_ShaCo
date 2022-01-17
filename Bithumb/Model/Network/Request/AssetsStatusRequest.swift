@@ -7,17 +7,20 @@
 
 import Foundation
 
-enum AssetStatusRequest {
+enum AssetsStatusRequest {
     case lookUp(orderCurrency: String)
 }
 
-extension AssetStatusRequest: Requestable {
-    var apiType: APIType {
-        return .rest
-    }
-    
+extension AssetsStatusRequest: RestRequestable {
     var requestType: RequestType {
         return .assetStatus
+    }
+    
+    var httpMethod: HTTPMethodType {
+        switch self {
+        case .lookUp:
+            return .get
+        }
     }
     
     var pathParameters: [PathParameterType: String]? {
@@ -30,10 +33,6 @@ extension AssetStatusRequest: Requestable {
     }
     
     var queryParameters: [String: Any]? {
-        return nil
-    }
-    
-    var message: SubscriptionMessage? {
         return nil
     }
 }

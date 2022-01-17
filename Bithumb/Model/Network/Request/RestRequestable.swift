@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum APIType {
-    case rest
-    case webSocket
-}
-
 enum RequestType {
     case ticker
     case orderBook
@@ -33,10 +28,26 @@ enum RequestType {
     }
 }
 
-protocol Requestable {
-    var apiType: APIType { get }
+enum HTTPMethodType: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+    
+    var methodName: String {
+        return self.rawValue
+    }
+}
+
+enum PathParameterType: Hashable {
+    case orderCurrency
+    case paymentCurrency
+    case chartIntervals
+}
+
+protocol RestRequestable {
     var requestType: RequestType { get }
+    var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
-    var message: SubscriptionMessage? { get }
 }

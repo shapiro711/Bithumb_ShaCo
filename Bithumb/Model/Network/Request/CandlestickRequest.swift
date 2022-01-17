@@ -27,13 +27,16 @@ enum CandlestickRequest {
     case lookUp(orderCurrency: String, paymentCurrency: String, chartIntervals: ChartInterval)
 }
 
-extension CandlestickRequest: Requestable {
-    var apiType: APIType {
-        return .rest
-    }
-    
+extension CandlestickRequest: RestRequestable {
     var requestType: RequestType {
         return .candlestick
+    }
+    
+    var httpMethod: HTTPMethodType {
+        switch self {
+        case .lookUp:
+            return .get
+        }
     }
     
     var pathParameters: [PathParameterType: String]? {
@@ -48,10 +51,6 @@ extension CandlestickRequest: Requestable {
     }
     
     var queryParameters: [String: Any]? {
-        return nil
-    }
-    
-    var message: SubscriptionMessage? {
         return nil
     }
 }
