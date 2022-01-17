@@ -17,4 +17,6 @@ protocol RestServiceable: Serviceable {
 
 enum NetworkError: Error {
     case urlGeneration
+    case abnormalResponse
+    case notExistData
 }

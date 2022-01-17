@@ -8,14 +8,35 @@
 import Foundation
 
 struct RestService: RestServiceable {
-    var networkConfigure: NetworkConfigurable
+    let networkConfigure: NetworkConfigurable
+    private let sessionManager: RestSessionManageable
     
-    init(networkConfigure: NetworkConfigurable = RestConfigure()) {
+    init(
+        networkConfigure: NetworkConfigurable = RestConfigure(),
+        sessionMaanger: RestSessionManageable = RestSessionManager()
+    ) {
         self.networkConfigure = networkConfigure
+        self.sessionManager = sessionMaanger
     }
     
     func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, Error>) -> Void) {
-        
+        do {
+            let urlRequest = try generateURLRequest(endPoint: endPoint)
+            sessionManager.request(urlRequest: urlRequest) { data, response, error in
+                if let error = error {
+                    return completion(.failure(error))
+                }
+                guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
+                    return completion(.failure(NetworkError.abnormalResponse))
+                }
+                guard let data = data else {
+                    return completion(.failure(NetworkError.notExistData))
+                }
+                completion(.success(data))
+            }
+        } catch {
+            completion(.failure(error))
+        }
     }
     
     private func generateURL(endPoint: RestEndPointable) throws -> URL {
