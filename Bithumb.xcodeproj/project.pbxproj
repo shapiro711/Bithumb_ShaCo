@@ -40,6 +40,7 @@
 		C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDB2791D20F0093BD4A /* RestTicker.swift */; };
 		C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EDD279296EE0093BD4A /* EndPoints.swift */; };
 		C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */; };
+		C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE8279540A50093BD4A /* RestSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		C9E59EDB2791D20F0093BD4A /* RestTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTicker.swift; sourceTree = "<group>"; };
 		C9E59EDD279296EE0093BD4A /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
+		C9E59EE8279540A50093BD4A /* RestSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		C9E59ECF27918DDC0093BD4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C9E59EE7279540910093BD4A /* SessionManager */,
 				3F008FF72792BCCC00356C3F /* Service */,
 				C9E59EE12792AF6C0093BD4A /* NetworkConfigure */,
 				3F008FEE2792916E00356C3F /* EndPoint */,
@@ -269,6 +272,14 @@
 				C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */,
 			);
 			path = NetworkConfigure;
+			sourceTree = "<group>";
+		};
+		C9E59EE7279540910093BD4A /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				C9E59EE8279540A50093BD4A /* RestSessionManager.swift */,
+			);
+			path = SessionManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +425,7 @@
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
+				C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
 				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
