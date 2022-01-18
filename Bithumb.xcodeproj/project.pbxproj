@@ -14,6 +14,7 @@
 		3F008FFB2792BE4300356C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFA2792BE4300356C3F /* RestService.swift */; };
 		3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFC2792BE5300356C3F /* WebSocketService.swift */; };
 		3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */; };
+		3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */; };
 		3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C2982790055000AE2082 /* WebSocketTransaction.swift */; };
 		3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29A279067D900AE2082 /* Candlestick.swift */; };
 		3F52C2A02791918600AE2082 /* TickerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F52C29F2791918600AE2082 /* TickerRequest.swift */; };
@@ -70,6 +71,7 @@
 		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookDTO.swift; sourceTree = "<group>"; };
+		3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusDTO.swift; sourceTree = "<group>"; };
 		3F52C2982790055000AE2082 /* WebSocketTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTransaction.swift; sourceTree = "<group>"; };
 		3F52C29A279067D900AE2082 /* Candlestick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candlestick.swift; sourceTree = "<group>"; };
 		3F52C29F2791918600AE2082 /* TickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerRequest.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				C9E59F262796E5CF0093BD4A /* TickerDTO.swift */,
 				3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */,
 				C9E59F282796F85A0093BD4A /* TransactionDTO.swift */,
+				3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */,
+				3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */,
 				3F008FFB2792BE4300356C3F /* RestService.swift in Sources */,
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
