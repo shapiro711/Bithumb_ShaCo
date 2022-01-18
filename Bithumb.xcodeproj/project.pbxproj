@@ -42,6 +42,7 @@
 		C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */; };
 		C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE8279540A50093BD4A /* RestSessionManager.swift */; };
 		C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F262796E5CF0093BD4A /* TickerDTO.swift */; };
+		C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F282796F85A0093BD4A /* TransactionDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		C9E59EE22792AFC40093BD4A /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
 		C9E59EE8279540A50093BD4A /* RestSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSessionManager.swift; sourceTree = "<group>"; };
 		C9E59F262796E5CF0093BD4A /* TickerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDTO.swift; sourceTree = "<group>"; };
+		C9E59F282796F85A0093BD4A /* TransactionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 			children = (
 				C9E59F262796E5CF0093BD4A /* TickerDTO.swift */,
 				3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */,
+				C9E59F282796F85A0093BD4A /* TransactionDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
+				C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */,
 				3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
