@@ -54,3 +54,12 @@ extension RestTicker: Decodable {
         dateTime = try? values.decode(String.self, forKey: .dateTime)
     }
 }
+
+extension RestTicker {
+    func toDomain(symbol: String?) -> TickerDTO {
+        return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
+                                                 rateOfChange: rateOfChange,
+                                                 amountOfChange: amountOfChange,
+                                                 accumulatedTransactionAmount: accumulatedTransactionAmount24Hours))
+    }
+}

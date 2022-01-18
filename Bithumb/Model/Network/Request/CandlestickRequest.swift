@@ -58,9 +58,9 @@ extension CandlestickRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> [CandlestickDTO] {
+    var parser: (Data) -> Result<[CandlestickDTO], Error> {
         return { _ in
-            return []
+            return .failure(NSError())
         }
     }
 }

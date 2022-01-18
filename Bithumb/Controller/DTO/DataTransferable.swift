@@ -8,3 +8,5 @@
 import Foundation
 
 protocol DataTransferable { }
+
+extension Array: DataTransferable where Element: DataTransferable { }

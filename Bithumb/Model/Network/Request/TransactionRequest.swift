@@ -46,9 +46,9 @@ extension TransactionRequest: RestRequestable {
         }
     }
     
-    var parser: (Data) -> [TransactionDTO] {
+    var parser: (Data) -> Result<[TransactionDTO], Error> {
         return { _ in
-            return []
+            return .failure(NSError())
         }
     }
 }

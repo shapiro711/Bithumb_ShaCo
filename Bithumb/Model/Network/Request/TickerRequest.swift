@@ -41,9 +41,9 @@ extension TickerRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> [TickerDTO] {
+    var parser: (Data) -> Result<[TickerDTO], Error> {
         return { _ in
-            return []
+            return .failure(NSError())
         }
     }
 }

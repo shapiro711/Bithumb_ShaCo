@@ -53,7 +53,7 @@ protocol RestRequestable {
     var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
-    var parser: (Data) -> TargetDTO { get }
+    var parser: (Data) -> Result<TargetDTO, Error> { get }
 }
 
-extension Array: DataTransferable where Element: DataTransferable { }
+

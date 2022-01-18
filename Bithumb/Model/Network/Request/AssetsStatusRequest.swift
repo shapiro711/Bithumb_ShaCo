@@ -40,9 +40,9 @@ extension AssetsStatusRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> [AssetStatusDTO] {
+    var parser: (Data) -> Result<[AssetStatusDTO], Error> {
         return { _ in
-            return []
+            return .failure(NSError())
         }
     }
 }
