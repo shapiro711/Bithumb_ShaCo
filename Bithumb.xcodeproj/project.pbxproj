@@ -44,6 +44,7 @@
 		C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59EE8279540A50093BD4A /* RestSessionManager.swift */; };
 		C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F262796E5CF0093BD4A /* TickerDTO.swift */; };
 		C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F282796F85A0093BD4A /* TransactionDTO.swift */; };
+		C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		C9E59EE8279540A50093BD4A /* RestSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSessionManager.swift; sourceTree = "<group>"; };
 		C9E59F262796E5CF0093BD4A /* TickerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDTO.swift; sourceTree = "<group>"; };
 		C9E59F282796F85A0093BD4A /* TransactionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTO.swift; sourceTree = "<group>"; };
+		C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 				3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */,
 				C9E59F282796F85A0093BD4A /* TransactionDTO.swift */,
 				3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */,
+				C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				3F52C2A22791C01C00AE2082 /* OrderBookRequest.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionRequest.swift in Sources */,
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
+				C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickRequest.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetsStatusRequest.swift in Sources */,
 				3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */,
