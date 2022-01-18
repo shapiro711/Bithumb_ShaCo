@@ -46,6 +46,7 @@
 		C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F262796E5CF0093BD4A /* TickerDTO.swift */; };
 		C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F282796F85A0093BD4A /* TransactionDTO.swift */; };
 		C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */; };
+		C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2D279708730093BD4A /* RestResponseData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		C9E59F262796E5CF0093BD4A /* TickerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDTO.swift; sourceTree = "<group>"; };
 		C9E59F282796F85A0093BD4A /* TransactionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTO.swift; sourceTree = "<group>"; };
 		C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickDTO.swift; sourceTree = "<group>"; };
+		C9E59F2D279708730093BD4A /* RestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 		C9E59ED027918DF10093BD4A /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				C9E59F2C279708550093BD4A /* ResponseData */,
 				C9E59ED127918EA80093BD4A /* RestRequestable.swift */,
 				3F52C29F2791918600AE2082 /* TickerRequest.swift */,
 				3F52C2A12791C01C00AE2082 /* OrderBookRequest.swift */,
@@ -311,6 +314,14 @@
 				C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		C9E59F2C279708550093BD4A /* ResponseData */ = {
+			isa = PBXGroup;
+			children = (
+				C9E59F2D279708730093BD4A /* RestResponseData.swift */,
+			);
+			path = ResponseData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +475,7 @@
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
 				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
 				C9E59ED227918EA80093BD4A /* RestRequestable.swift in Sources */,
+				C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */,
 				3F52C2A02791918600AE2082 /* TickerRequest.swift in Sources */,
 				C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */,
 				C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */,
