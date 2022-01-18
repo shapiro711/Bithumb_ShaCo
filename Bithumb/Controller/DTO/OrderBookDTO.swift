@@ -8,12 +8,12 @@
 import Foundation
 
 struct OrderBookDepthDTO: DataTransferable {
-    let bids: [OrderBookData]
-    let asks: [OrderBookData]
+    let bids: [OrderBookData]?
+    let asks: [OrderBookData]?
     
     struct OrderBookData {
-        let type: OrderType
-        let price: Double
-        let quantity: Double
+        let type: OrderType?
+        let price: Double?
+        let quantity: Double?
     }
 }
