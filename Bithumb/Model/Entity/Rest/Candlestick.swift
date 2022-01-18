@@ -7,29 +7,6 @@
 
 import Foundation
 
-struct CandlestickHistory {
-    let list: [[Double]]
-    
-    var candlesticks: [Candlestick] {
-        return list.map { candleData in
-            Candlestick(
-                dateTime: candleData[0],
-                initialPrice: candleData[1],
-                finalPrice: candleData[2],
-                highPrice: candleData[3],
-                lowPrice: candleData[4],
-                volume: candleData[5]
-            )
-        }
-    }
-}
-
-extension CandlestickHistory: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case list = "data"
-    }
-}
-
 struct Candlestick {
     let dateTime: Double
     let initialPrice: Double
@@ -37,4 +14,23 @@ struct Candlestick {
     let highPrice: Double
     let lowPrice: Double
     let volume: Double
+    
+    var date: Date {
+        return Date(timeIntervalSince1970: dateTime / 1000)
+    }
+    
+    init(data: [Double]) {
+        dateTime = data[0]
+        initialPrice = data[1]
+        finalPrice = data[2]
+        highPrice = data[3]
+        lowPrice = data[4]
+        volume = data[5]
+    }
+}
+
+extension Candlestick {
+    func toDomain() -> CandlestickDTO {
+        return CandlestickDTO(date: date, initialPrice: initialPrice, finalPrice: finalPrice, highPrice: highPrice, lowPrice: lowPrice, volume: volume)
+    }
 }
