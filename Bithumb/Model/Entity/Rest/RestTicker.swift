@@ -56,7 +56,7 @@ extension RestTicker: Decodable {
 }
 
 extension RestTicker {
-    func toDomain(symbol: String?) -> TickerDTO {
+    func toDomain(symbol: String) -> TickerDTO {
         return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
                                                  rateOfChange: rateOfChange,
                                                  amountOfChange: amountOfChange,

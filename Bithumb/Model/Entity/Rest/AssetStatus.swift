@@ -10,6 +10,15 @@ import Foundation
 enum Possibility: Int {
     case possible = 1
     case impossible = 0
+    
+    var isAvailable: Bool {
+        switch self {
+        case .possible:
+            return true
+        case .impossible:
+            return false
+        }
+    }
 }
 
 struct AssetStatus {
@@ -29,3 +38,11 @@ extension AssetStatus: Decodable {
         withdrawalStatus = try? Possibility(rawValue: values.decode(Int.self, forKey: .withdrawalStatus))
     }
 }
+
+extension AssetStatus {
+    func toDomain(symbol: String) -> AssetStatusDTO {
+        return AssetStatusDTO(symbol: symbol, data: .init(isDepositAvailable: depositStatus?.isAvailable, isWithdrawalAvailable: withdrawalStatus?.isAvailable))
+    }
+}
+
+

@@ -12,7 +12,7 @@ struct AssetStatusDTO: DataTransferable {
     let data: AssetStatusData
     
     struct AssetStatusData {
-        let depositStatus: Possibility
-        let withdrawalStatus: Possibility
+        let isDepositAvailable: Bool?
+        let isWithdrawalAvailable: Bool?
     }
 }
