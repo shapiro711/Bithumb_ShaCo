@@ -46,7 +46,7 @@ extension OrderBookRequest: RestRequestable {
         }
     }
     
-    var parser: (Data) -> Result<[OrderBookDepthDTO], Error> {
+    var parser: (Data) -> Result<OrderBookDepthDTO, Error> {
         return { _ in
             return .failure(NSError())
         }

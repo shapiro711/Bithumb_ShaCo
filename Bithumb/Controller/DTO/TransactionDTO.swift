@@ -8,8 +8,8 @@
 import Foundation
 
 struct TransactionDTO: DataTransferable {
-    let date: Date
-    let price: Double
-    let quantity: Double
-    let type: OrderType
+    let date: Date?
+    let price: Double?
+    let quantity: Double?
+    let type: OrderType?
 }
