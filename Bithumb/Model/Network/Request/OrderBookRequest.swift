@@ -45,4 +45,10 @@ extension OrderBookRequest: RestRequestable {
             return params
         }
     }
+    
+    var parser: (Data) -> OrderBookDepthDTO {
+        return { _ in
+            return OrderBookDepthDTO(bids: [], asks: [])
+        }
+    }
 }

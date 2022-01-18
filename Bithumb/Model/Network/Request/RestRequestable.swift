@@ -46,9 +46,14 @@ enum PathParameterType: Hashable {
 }
 
 protocol RestRequestable {
+    associatedtype TargetDTO: DataTransferable
+    
     var requestType: RequestType { get }
     var basicPath: String { get }
     var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
+    var parser: (Data) -> TargetDTO { get }
 }
+
+extension Array: DataTransferable where Element: DataTransferable { }

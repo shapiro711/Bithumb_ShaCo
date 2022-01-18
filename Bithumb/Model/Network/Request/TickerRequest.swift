@@ -40,4 +40,10 @@ extension TickerRequest: RestRequestable {
     var queryParameters: [String: Any]? {
         return nil
     }
+    
+    var parser: (Data) -> [TickerDTO] {
+        return { _ in
+            return []
+        }
+    }
 }

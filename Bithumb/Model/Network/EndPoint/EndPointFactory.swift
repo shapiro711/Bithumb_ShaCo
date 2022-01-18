@@ -8,7 +8,7 @@
 import Foundation
 
 struct EndPointFactory {
-    static func getRestEndPoint(request: RestRequestable) -> RestEndPointable {
+    static func getRestEndPoint<Request: RestRequestable>(request: Request) -> RestEndPointable {
         let fullPath = mergeRestPaths(basicPath: request.basicPath, pathParameters: request.pathParameters)
         return RestEndPoint(path: fullPath, httpMethod: request.httpMethod, queryParameters: request.queryParameters)
     }

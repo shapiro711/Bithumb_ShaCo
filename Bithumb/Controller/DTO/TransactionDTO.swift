@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TransactionDTO {
+struct TransactionDTO: DataTransferable {
     let date: Date
     let price: Double
     let quantity: Double

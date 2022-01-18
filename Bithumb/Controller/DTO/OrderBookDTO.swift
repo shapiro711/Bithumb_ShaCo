@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderBookDepthDTO {
+struct OrderBookDepthDTO: DataTransferable {
     let bids: [OrderBookData]
     let asks: [OrderBookData]
     

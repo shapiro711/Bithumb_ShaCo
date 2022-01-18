@@ -57,4 +57,10 @@ extension CandlestickRequest: RestRequestable {
     var queryParameters: [String: Any]? {
         return nil
     }
+    
+    var parser: (Data) -> [CandlestickDTO] {
+        return { _ in
+            return []
+        }
+    }
 }

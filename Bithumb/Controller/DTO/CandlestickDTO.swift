@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CandlestickDTO {
+struct CandlestickDTO: DataTransferable {
     let date: Date
     let initialPrice: Double
     let finalPrice: Double

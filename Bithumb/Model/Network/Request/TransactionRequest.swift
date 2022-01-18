@@ -45,4 +45,10 @@ extension TransactionRequest: RestRequestable {
             return params
         }
     }
+    
+    var parser: (Data) -> [TransactionDTO] {
+        return { _ in
+            return []
+        }
+    }
 }

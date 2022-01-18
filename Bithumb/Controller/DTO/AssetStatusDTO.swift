@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AssetStatusDTO {
+struct AssetStatusDTO: DataTransferable {
     let symbol: String
     let data: AssetStatusData
     
