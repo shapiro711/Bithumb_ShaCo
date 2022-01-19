@@ -19,10 +19,12 @@ struct RestTransaction {
             return nil
         }
         
+        let nineHoursInSeconds: TimeInterval = 32400
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        return dateFormatter.date(from: dateTime)
+        var date = dateFormatter.date(from: dateTime)
+        date?.addTimeInterval(nineHoursInSeconds)
+        return date
     }
 }
 
