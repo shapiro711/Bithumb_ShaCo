@@ -47,8 +47,18 @@ extension OrderBookRequest: RestRequestable {
     }
     
     var parser: (Data) -> Result<OrderBookDepthDTO, Error> {
-        return { _ in
-            return .failure(NSError())
+        return parseOrderBook
+    }
+}
+
+extension OrderBookRequest {
+    private func parseOrderBook(from data: Data) -> Result<OrderBookDepthDTO, Error> {
+        let parsedResult = RestResponseData<RestOrderBook>.decode(data: data)
+        switch parsedResult {
+        case .success(let orderBook):
+            return .success(orderBook.toDomain())
+        case .failure(let error):
+            return .failure(error)
         }
     }
 }
