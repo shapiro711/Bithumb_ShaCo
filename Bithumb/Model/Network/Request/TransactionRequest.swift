@@ -47,8 +47,18 @@ extension TransactionRequest: RestRequestable {
     }
     
     var parser: (Data) -> Result<[TransactionDTO], Error> {
-        return { _ in
-            return .failure(NSError())
+        return parseTransactions
+    }
+}
+
+extension TransactionRequest {
+    private func parseTransactions(from data: Data) -> Result<[TransactionDTO], Error> {
+        let parsedResult = RestResponseData<[RestTransaction]>.decode(data: data)
+        switch parsedResult {
+        case .success(let transactions):
+            return .success(transactions.map { $0.toDomain() })
+        case .failure(let error):
+            return .failure(error)
         }
     }
 }
