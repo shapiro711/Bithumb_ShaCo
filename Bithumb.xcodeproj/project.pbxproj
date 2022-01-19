@@ -48,6 +48,7 @@
 		C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */; };
 		C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2D279708730093BD4A /* RestResponseData.swift */; };
 		C9E59F312797D4850093BD4A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F302797D4850093BD4A /* Repository.swift */; };
+		C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF257427984FF700FFC876 /* WebSocketRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickDTO.swift; sourceTree = "<group>"; };
 		C9E59F2D279708730093BD4A /* RestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponseData.swift; sourceTree = "<group>"; };
 		C9E59F302797D4850093BD4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		C9FF257427984FF700FFC876 /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				3F52C2A32791C54700AE2082 /* TransactionRequest.swift */,
 				C9E59ED52791C6A60093BD4A /* AssetsStatusRequest.swift */,
 				3F52C2A52791CD3C00AE2082 /* CandlestickRequest.swift */,
+				C9FF257427984FF700FFC876 /* WebSocketRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */,
 				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
+				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
