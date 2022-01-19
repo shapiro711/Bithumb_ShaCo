@@ -33,8 +33,8 @@ extension RestTicker: Decodable {
         case previousDayClosingPrice = "prev_closing_price"
         case accumulatedTransactionVolume24Hours = "units_traded_24H"
         case accumulatedTransactionAmount24Hours = "acc_trade_value_24H"
-        case amountOfChange = "flucate_24H"
-        case rateOfChange = "flucate_rate_24H"
+        case amountOfChange = "fluctate_24H"
+        case rateOfChange = "fluctate_rate_24H"
         case dateTime = "date"
     }
     

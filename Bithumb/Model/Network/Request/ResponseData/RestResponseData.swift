@@ -29,7 +29,8 @@ struct RestResponseData<Entity: Decodable> {
     static func deserialize(data: Data) -> Result<[String: Entity], Error> {
         do {
             let container = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            let data = container?["data"] as? [String: Any]
+            var data = container?["data"] as? [String: Any]
+            data?.removeValue(forKey: "date")
             let result = try data?.mapValues { (value: Any) -> Entity in
                 let valueData = try JSONSerialization.data(withJSONObject: value, options: [])
                 return try JSONDecoder().decode(Entity.self, from: valueData)
