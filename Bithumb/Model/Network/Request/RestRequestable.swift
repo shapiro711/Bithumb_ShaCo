@@ -50,10 +50,15 @@ protocol RestRequestable {
     
     var requestType: RequestType { get }
     var basicPath: String { get }
+    var specificPath: String { get }
     var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
     var parser: (Data) -> Result<TargetDTO, Error> { get }
 }
 
-
+extension RestRequestable {
+    var basicPath: String {
+        return "public/"
+    }
+}

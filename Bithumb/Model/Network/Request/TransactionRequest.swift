@@ -16,7 +16,7 @@ extension TransactionRequest: RestRequestable {
         return .transaction
     }
     
-    var basicPath: String {
+    var specificPath: String {
         return "transaction_history/"
     }
     

@@ -16,7 +16,7 @@ extension OrderBookRequest: RestRequestable {
         return .orderBook
     }
     
-    var basicPath: String {
+    var specificPath: String {
         return "orderbook/"
     }
     

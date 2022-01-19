@@ -9,18 +9,18 @@ import Foundation
 
 struct EndPointFactory {
     static func getRestEndPoint<Request: RestRequestable>(request: Request) -> RestEndPointable {
-        let fullPath = mergeRestPaths(basicPath: request.basicPath, pathParameters: request.pathParameters)
+        let fullPath = mergeRestPaths(defaultPath: request.basicPath + request.specificPath, pathParameters: request.pathParameters)
         return RestEndPoint(path: fullPath, httpMethod: request.httpMethod, queryParameters: request.queryParameters)
     }
     
-    private static func mergeRestPaths(basicPath: String, pathParameters: [PathParameterType: String]?) -> String {
+    private static func mergeRestPaths(defaultPath: String, pathParameters: [PathParameterType: String]?) -> String {
         guard let pathParameters = pathParameters else {
-            return basicPath
+            return defaultPath
         }
         
         let underScore = "_"
         let slash = "/"
-        var fullPath = basicPath
+        var fullPath = defaultPath
         
         if let orderCurrency = pathParameters[.orderCurrency] {
             fullPath += orderCurrency

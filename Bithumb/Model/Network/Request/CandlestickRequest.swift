@@ -32,7 +32,7 @@ extension CandlestickRequest: RestRequestable {
         return .candlestick
     }
     
-    var basicPath: String {
+    var specificPath: String {
         return "candlestick/"
     }
     
