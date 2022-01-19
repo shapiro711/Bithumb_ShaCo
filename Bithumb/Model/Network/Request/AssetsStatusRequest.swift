@@ -8,7 +8,7 @@
 import Foundation
 
 enum AssetsStatusRequest {
-    case lookUp(orderCurrency: String = "BTC")
+    case lookUpAll
 }
 
 extension AssetsStatusRequest: RestRequestable {
@@ -22,16 +22,16 @@ extension AssetsStatusRequest: RestRequestable {
     
     var httpMethod: HTTPMethodType {
         switch self {
-        case .lookUp:
+        case .lookUpAll:
             return .get
         }
     }
     
     var pathParameters: [PathParameterType: String]? {
         switch self {
-        case .lookUp(let orderCurrency):
+        case .lookUpAll:
             var params = [PathParameterType: String]()
-            params[.orderCurrency] = orderCurrency
+            params[.orderCurrency] = "ALL"
             return params
         }
     }
@@ -41,8 +41,18 @@ extension AssetsStatusRequest: RestRequestable {
     }
     
     var parser: (Data) -> Result<[AssetStatusDTO], Error> {
-        return { _ in
-            return .failure(NSError())
+        return parseAssetsStatus
+    }
+}
+
+extension AssetsStatusRequest {
+    private func parseAssetsStatus(from data: Data) -> Result<[AssetStatusDTO], Error> {
+        let parsedResult = RestResponseData<AssetStatus>.deserialize(data: data)
+        switch parsedResult {
+        case .success(let assetsStatus):
+            return .success(assetsStatus.map { $0.value.toDomain(symbol: $0.key) })
+        case .failure(let error):
+            return .failure(error)
         }
     }
 }
