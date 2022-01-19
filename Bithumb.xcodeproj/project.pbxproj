@@ -47,6 +47,7 @@
 		C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F282796F85A0093BD4A /* TransactionDTO.swift */; };
 		C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */; };
 		C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2D279708730093BD4A /* RestResponseData.swift */; };
+		C9E59F312797D4850093BD4A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F302797D4850093BD4A /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		C9E59F282796F85A0093BD4A /* TransactionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTO.swift; sourceTree = "<group>"; };
 		C9E59F2A2796FE470093BD4A /* CandlestickDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandlestickDTO.swift; sourceTree = "<group>"; };
 		C9E59F2D279708730093BD4A /* RestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponseData.swift; sourceTree = "<group>"; };
+		C9E59F302797D4850093BD4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 		C9DA6B62278F19B40021706D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9E59F2F2797D45C0093BD4A /* Repository */,
 				C9E59ECF27918DDC0093BD4A /* Network */,
 				3F52C29E27918C4800AE2082 /* Entity */,
 			);
@@ -322,6 +325,14 @@
 				C9E59F2D279708730093BD4A /* RestResponseData.swift */,
 			);
 			path = ResponseData;
+			sourceTree = "<group>";
+		};
+		C9E59F2F2797D45C0093BD4A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C9E59F302797D4850093BD4A /* Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
 				3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */,
+				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
