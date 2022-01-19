@@ -9,9 +9,9 @@ import Foundation
 
 struct CandlestickDTO: DataTransferable {
     let date: Date
-    let initialPrice: Double
-    let finalPrice: Double
-    let highPrice: Double
-    let lowPrice: Double
-    let volume: Double
+    let initialPrice: Double?
+    let finalPrice: Double?
+    let highPrice: Double?
+    let lowPrice: Double?
+    let volume: Double?
 }

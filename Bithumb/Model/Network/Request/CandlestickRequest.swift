@@ -59,8 +59,18 @@ extension CandlestickRequest: RestRequestable {
     }
     
     var parser: (Data) -> Result<[CandlestickDTO], Error> {
-        return { _ in
-            return .failure(NSError())
+        return parseCandlestick
+    }
+}
+
+extension CandlestickRequest {
+    private func parseCandlestick(from data: Data) -> Result<[CandlestickDTO], Error> {
+        let parsedResult = RestResponseData<[Candlestick]>.decode(data: data)
+        switch parsedResult {
+        case .success(let candlesticks):
+            return .success(candlesticks.map { $0.toDomain() })
+        case .failure(let error):
+            return .failure(error)
         }
     }
 }

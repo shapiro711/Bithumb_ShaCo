@@ -9,28 +9,37 @@ import Foundation
 
 struct Candlestick {
     let dateTime: Double
-    let initialPrice: Double
-    let finalPrice: Double
-    let highPrice: Double
-    let lowPrice: Double
-    let volume: Double
+    let initialPrice: String
+    let finalPrice: String
+    let highPrice: String
+    let lowPrice: String
+    let volume: String
     
     var date: Date {
-        return Date(timeIntervalSince1970: dateTime / 1000)
+        let nineHoursInSeconds: TimeInterval = 32400
+        return Date(timeIntervalSince1970: dateTime / 1000 + nineHoursInSeconds)
     }
-    
-    init(data: [Double]) {
-        dateTime = data[0]
-        initialPrice = data[1]
-        finalPrice = data[2]
-        highPrice = data[3]
-        lowPrice = data[4]
-        volume = data[5]
+}
+
+extension Candlestick: Decodable {
+    init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        dateTime = try container.decode(Double.self)
+        initialPrice = try container.decode(String.self)
+        finalPrice = try container.decode(String.self)
+        highPrice = try container.decode(String.self)
+        lowPrice = try container.decode(String.self)
+        volume = try container.decode(String.self)
     }
 }
 
 extension Candlestick {
     func toDomain() -> CandlestickDTO {
-        return CandlestickDTO(date: date, initialPrice: initialPrice, finalPrice: finalPrice, highPrice: highPrice, lowPrice: lowPrice, volume: volume)
+        return CandlestickDTO(date: date,
+                              initialPrice: Double(initialPrice),
+                              finalPrice: Double(finalPrice),
+                              highPrice: Double(highPrice),
+                              lowPrice: Double(lowPrice),
+                              volume: Double(volume))
     }
 }
