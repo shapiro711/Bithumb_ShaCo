@@ -41,7 +41,7 @@ final class WebSocketService: WebSocketServiceable {
         let baseURL = networkConfigure.baseURLString
         let fullPath = baseURL + endPoint.path
         guard let url = URL(string: fullPath) else {
-            throw NetworkError.urlGeneration
+            throw WebSocketError.urlGeneration
         }
         return url
     }
@@ -54,7 +54,7 @@ final class WebSocketService: WebSocketServiceable {
 }
 
 extension WebSocketService: WebSocketSessionDelegate {
-    func didReceive(_ result: Result<URLSessionWebSocketTask.Message, WebSocketMessageError>) {
+    func didReceive(_ event: WebSocketSessionEvent) {
         
     }
 }

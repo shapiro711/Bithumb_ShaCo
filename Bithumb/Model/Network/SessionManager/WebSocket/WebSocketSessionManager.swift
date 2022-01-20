@@ -7,13 +7,19 @@
 
 import Foundation
 
+enum WebSocketSessionEvent {
+    case disconnected
+    case error(WebSocketMessageError)
+    case receive(URLSessionWebSocketTask.Message)
+}
+
 enum WebSocketMessageError: Error {
     case sendingFailed(Error)
     case receivingFailed(Error)
 }
 
 protocol WebSocketSessionDelegate: AnyObject {
-    func didReceive(_ result: Result<URLSessionWebSocketTask.Message, WebSocketMessageError>)
+    func didReceive(_ event: WebSocketSessionEvent)
 }
 
 protocol WebSocketSessionManageable {
@@ -45,7 +51,7 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     func send(data: Data) {
         webSocketTask?.send(.data(data)) { [weak self] error in
             if let error = error {
-                self?.delegate?.didReceive(.failure(.sendingFailed(error)))
+                self?.delegate?.didReceive(.error(.sendingFailed(error)))
             }
         }
     }
@@ -54,11 +60,10 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
         webSocketTask?.receive { [weak self] result in
             switch result {
             case .success(let message):
-                self?.delegate?.didReceive(.success(message))
+                self?.delegate?.didReceive(.receive(message))
             case .failure(let error):
-                self?.delegate?.didReceive(.failure(.receivingFailed(error)))
+                self?.delegate?.didReceive(.error(.receivingFailed(error)))
             }
-            
             self?.receive()
         }
     }
@@ -66,6 +71,7 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
 
 extension WebSocketSessionManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        delegate?.didReceive(.disconnected)
         self.webSocketTask = nil
     }
 }

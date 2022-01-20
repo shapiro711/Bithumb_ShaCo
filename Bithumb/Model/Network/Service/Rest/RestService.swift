@@ -27,10 +27,10 @@ struct RestService: RestServiceable {
                     return completion(.failure(error))
                 }
                 guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                    return completion(.failure(NetworkError.abnormalResponse))
+                    return completion(.failure(RestNetworkError.abnormalResponse))
                 }
                 guard let data = data else {
-                    return completion(.failure(NetworkError.notExistData))
+                    return completion(.failure(RestNetworkError.notExistData))
                 }
                 completion(.success(data))
             }
@@ -51,7 +51,7 @@ struct RestService: RestServiceable {
         }
         urlComponents?.queryItems = !urlQueryItems.isEmpty ? urlQueryItems : nil
         guard let url = urlComponents?.url else {
-            throw NetworkError.urlGeneration
+            throw RestNetworkError.urlGeneration
         }
         return url
     }
