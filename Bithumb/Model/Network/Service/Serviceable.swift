@@ -15,6 +15,10 @@ protocol RestServiceable: Serviceable {
     func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
+protocol WebSocketServiceable: Serviceable {
+    
+}
+
 enum NetworkError: Error {
     case urlGeneration
     case abnormalResponse
