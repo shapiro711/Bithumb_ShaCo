@@ -8,7 +8,7 @@
 import Foundation
 
 struct SubscriptionMessage {
-    let type: RequestType
+    let type: String
     let symbols: [String]
     let criteriaOfChange: [CriteriaOfChange]?
 }
@@ -21,7 +21,7 @@ extension SubscriptionMessage: Encodable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(type.jsonValue, forKey: .type)
+        try container.encode(type, forKey: .type)
         try container.encode(symbols, forKey: .symbols)
         try container.encodeIfPresent(criteriaOfChange?.map { $0.jsonValue }, forKey: .criteriaOfChange)
     }

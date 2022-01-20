@@ -20,7 +20,7 @@ enum WebSocketType {
 }
 
 enum MessageType {
-    case ticker(symbols: [String], tickTypes: [CriteriaOfChange])
+    case ticker(symbols: [String], tickTypes: [CriteriaOfChange] = [.yesterdayMidnight])
     case transaction(symbols: [String])
     case orderBookDepth(symbols: [String])
 }
