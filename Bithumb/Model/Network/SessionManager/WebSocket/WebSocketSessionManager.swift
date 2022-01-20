@@ -7,15 +7,28 @@
 
 import Foundation
 
+enum WebSocketMessageError: Error {
+    case sendingFailed(Error)
+    case receivingFailed(Error)
+}
+
+protocol WebSocketSessionDelegate: AnyObject {
+    func didReceive(_ result: Result<URLSessionWebSocketTask.Message, WebSocketMessageError>)
+}
+
 protocol WebSocketSessionManageable {
-    
+    func register(delegate: WebSocketSessionDelegate?)
+    func start(request: URLRequest)
+    func stop()
+    func send(data: Data)
 }
 
 final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     private var webSocketTask: URLSessionWebSocketTask?
+    private weak var delegate: WebSocketSessionDelegate?
     
-    func register() {
-        
+    func register(delegate: WebSocketSessionDelegate?) {
+        self.delegate = delegate
     }
     
     func start(request: URLRequest) {
@@ -29,34 +42,25 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
         webSocketTask?.cancel()
     }
     
-    func send() {
-        
+    func send(data: Data) {
+        webSocketTask?.send(.data(data)) { [weak self] error in
+            if let error = error {
+                self?.delegate?.didReceive(.failure(.sendingFailed(error)))
+            }
+        }
     }
     
     private func receive() {
         webSocketTask?.receive { [weak self] result in
             switch result {
             case .success(let message):
-                self?.propagate(message)
+                self?.delegate?.didReceive(.success(message))
             case .failure(let error):
-                self?.propagate(error)
+                self?.delegate?.didReceive(.failure(.receivingFailed(error)))
             }
-    
+            
             self?.receive()
         }
-    }
-    
-    private func propagate(_ message: URLSessionWebSocketTask.Message) {
-        switch message {
-        case .data(let data):
-            break
-        case .string(let string):
-            break
-        }
-    }
-    
-    private func propagate(_ error: Error) {
-        
     }
 }
 
