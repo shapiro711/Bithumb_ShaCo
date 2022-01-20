@@ -148,10 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				C9E59EDD279296EE0093BD4A /* EndPoints.swift */,
-				3F008FF12792999700356C3F /* RestEndPoint.swift */,
-				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
-				3F008FF52792AD2500356C3F /* EndPointFactory.swift */,
-				3F549FA92799288300692C0A /* MessageFactory.swift */,
+				C9FF25802799375600FFC876 /* Rest */,
+				C9FF257F2799374F00FFC876 /* WebSocket */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -160,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				3F008FF82792BCF700356C3F /* Serviceable.swift */,
-				3F008FFA2792BE4300356C3F /* RestService.swift */,
-				3F008FFC2792BE5300356C3F /* WebSocketService.swift */,
+				C9FF257D279936CA00FFC876 /* Rest */,
+				C9FF257E279936CE00FFC876 /* WebSocket */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -192,8 +190,8 @@
 		3F52C29E27918C4800AE2082 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3F008FFF279342BD00356C3F /* WebSocket */,
 				3F008FFE279342B600356C3F /* Rest */,
+				3F008FFF279342BD00356C3F /* WebSocket */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -254,6 +252,7 @@
 		C9DA6B62278F19B40021706D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9E59ED027918DF10093BD4A /* Request */,
 				C9E59F2F2797D45C0093BD4A /* Repository */,
 				C9E59ECF27918DDC0093BD4A /* Network */,
 				3F52C29E27918C4800AE2082 /* Entity */,
@@ -264,11 +263,10 @@
 		C9E59ECF27918DDC0093BD4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				C9E59EE7279540910093BD4A /* SessionManager */,
 				3F008FF72792BCCC00356C3F /* Service */,
+				C9E59EE7279540910093BD4A /* SessionManager */,
 				C9E59EE12792AF6C0093BD4A /* NetworkConfigure */,
 				3F008FEE2792916E00356C3F /* EndPoint */,
-				C9E59ED027918DF10093BD4A /* Request */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -276,14 +274,9 @@
 		C9E59ED027918DF10093BD4A /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				C9FF2583279937DB00FFC876 /* Rest */,
+				C9FF2582279937D500FFC876 /* WebSocket */,
 				C9E59F2C279708550093BD4A /* ResponseData */,
-				C9E59ED127918EA80093BD4A /* RestRequestable.swift */,
-				3F52C29F2791918600AE2082 /* TickerRequest.swift */,
-				3F52C2A12791C01C00AE2082 /* OrderBookRequest.swift */,
-				3F52C2A32791C54700AE2082 /* TransactionRequest.swift */,
-				C9E59ED52791C6A60093BD4A /* AssetsStatusRequest.swift */,
-				3F52C2A52791CD3C00AE2082 /* CandlestickRequest.swift */,
-				C9FF257427984FF700FFC876 /* WebSocketRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -337,8 +330,71 @@
 			isa = PBXGroup;
 			children = (
 				C9E59F302797D4850093BD4A /* Repository.swift */,
+				C9FF25812799379F00FFC876 /* Factory */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		C9FF257D279936CA00FFC876 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FFA2792BE4300356C3F /* RestService.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		C9FF257E279936CE00FFC876 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FFC2792BE5300356C3F /* WebSocketService.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		C9FF257F2799374F00FFC876 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		C9FF25802799375600FFC876 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FF12792999700356C3F /* RestEndPoint.swift */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		C9FF25812799379F00FFC876 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				3F008FF52792AD2500356C3F /* EndPointFactory.swift */,
+				3F549FA92799288300692C0A /* MessageFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		C9FF2582279937D500FFC876 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF257427984FF700FFC876 /* WebSocketRequest.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		C9FF2583279937DB00FFC876 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				C9E59ED127918EA80093BD4A /* RestRequestable.swift */,
+				3F52C29F2791918600AE2082 /* TickerRequest.swift */,
+				3F52C2A12791C01C00AE2082 /* OrderBookRequest.swift */,
+				3F52C2A32791C54700AE2082 /* TransactionRequest.swift */,
+				C9E59ED52791C6A60093BD4A /* AssetsStatusRequest.swift */,
+				3F52C2A52791CD3C00AE2082 /* CandlestickRequest.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

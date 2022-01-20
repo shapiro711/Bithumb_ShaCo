@@ -11,13 +11,10 @@ protocol EndPointable {
     var path: String { get }
 }
 
-protocol WebSocketEndPointable: EndPointable {
-}
-
 protocol RestEndPointable: EndPointable {
     var httpMethod: HTTPMethodType { get }
     var queryParameters: [String: Any]? { get }
 }
 
-
-
+protocol WebSocketEndPointable: EndPointable {
+}
