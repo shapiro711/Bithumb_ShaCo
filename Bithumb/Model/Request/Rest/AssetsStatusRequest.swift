@@ -17,7 +17,7 @@ extension AssetsStatusRequest: RestRequestable {
     }
     
     var specificPath: String {
-        return "assetsstatus/"
+        return "/assetsstatus"
     }
     
     var httpMethod: HTTPMethodType {

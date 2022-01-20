@@ -8,21 +8,32 @@
 import Foundation
 
 struct EndPointFactory {
-    static func getRestEndPoint<Request: RestRequestable>(request: Request) -> RestEndPointable {
-        let fullPath = mergeRestPaths(defaultPath: request.basicPath + request.specificPath, pathParameters: request.pathParameters)
-        return RestEndPoint(path: fullPath, httpMethod: request.httpMethod, queryParameters: request.queryParameters)
+    static func makeRestEndPoint<Request: RestRequestable>(from request: Request) -> RestEndPointable {
+        let fullPath = mergeRestPaths(basicPath: request.basicPath,
+                                      specificPath: request.specificPath,
+                                      pathParameters: request.pathParameters)
+        return RestEndPoint(path: fullPath,
+                            httpMethod: request.httpMethod,
+                            queryParameters: request.queryParameters)
     }
     
-    private static func mergeRestPaths(defaultPath: String, pathParameters: [PathParameterType: String]?) -> String {
-        guard let pathParameters = pathParameters else {
-            return defaultPath
-        }
-        
+    static func makeWebSocketEndPoint(from webSocketType: WebSocketType) -> WebSocketEndPointable {
+        return WebSocketEndPoint(path: webSocketType.path + webSocketType.specificPath)
+    }
+    
+    private static func mergeRestPaths(basicPath: String,
+                                       specificPath: String,
+                                       pathParameters: [PathParameterType: String]?) -> String {
         let underScore = "_"
         let slash = "/"
-        var fullPath = defaultPath
+        var fullPath = basicPath + specificPath
+        
+        guard let pathParameters = pathParameters else {
+            return fullPath
+        }
         
         if let orderCurrency = pathParameters[.orderCurrency] {
+            fullPath += slash
             fullPath += orderCurrency
         }
         if let paymentCurrency = pathParameters[.paymentCurrency] {

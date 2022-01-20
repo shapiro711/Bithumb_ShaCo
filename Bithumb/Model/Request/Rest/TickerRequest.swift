@@ -18,7 +18,7 @@ extension TickerRequest: RestRequestable {
     }
     
     var specificPath: String {
-        return "ticker/"
+        return "/ticker"
     }
     
     var httpMethod: HTTPMethodType {

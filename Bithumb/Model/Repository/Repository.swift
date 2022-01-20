@@ -21,7 +21,7 @@ final class Repository: Repositoryable {
     }
     
     func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, Error>) -> Void) {
-        let endPoint = EndPointFactory.getRestEndPoint(request: request)
+        let endPoint = EndPointFactory.makeRestEndPoint(from: request)
         restService.request(endPoint: endPoint) { result in
             switch result {
             case .success(let data):

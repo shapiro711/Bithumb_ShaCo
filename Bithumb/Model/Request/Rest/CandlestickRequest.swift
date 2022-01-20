@@ -33,7 +33,7 @@ extension CandlestickRequest: RestRequestable {
     }
     
     var specificPath: String {
-        return "candlestick/"
+        return "/candlestick"
     }
     
     var httpMethod: HTTPMethodType {

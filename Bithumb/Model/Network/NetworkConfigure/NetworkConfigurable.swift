@@ -11,10 +11,10 @@ protocol NetworkConfigurable {
     var baseURLString: String { get }
 }
 
-struct WebSocketConfigure: NetworkConfigurable {
-    let baseURLString = "wss://pubwss.bithumb.com"
+struct RestConfigure: NetworkConfigurable {
+    let baseURLString = "https://api.bithumb.com"
 }
 
-struct RestConfigure: NetworkConfigurable {
-    let baseURLString = "https://api.bithumb.com/"
+struct WebSocketConfigure: NetworkConfigurable {
+    let baseURLString = "wss://pubwss.bithumb.com"
 }

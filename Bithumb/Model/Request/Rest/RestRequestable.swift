@@ -46,6 +46,6 @@ protocol RestRequestable {
 
 extension RestRequestable {
     var basicPath: String {
-        return "public/"
+        return "/public"
     }
 }
