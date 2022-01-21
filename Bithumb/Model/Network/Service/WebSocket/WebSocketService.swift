@@ -8,7 +8,10 @@
 import Foundation
 
 protocol WebSocketServiceDelegate: AnyObject {
-    func didReceive(_ event: WebSocketEvent)
+    func didReceive(_ connectionEvent: WebSocketConnectionEvent)
+    func didReceive(_ messageEvent: WebSocketResponseMessage)
+    func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent)
+    func didReceive(_ error: WebSocketCommonError)
 }
 
 final class WebSocketService: WebSocketServiceable {
@@ -34,7 +37,7 @@ final class WebSocketService: WebSocketServiceable {
             sessionManager.register(delegate: self)
             sessionManager.start(request: request)
         } catch {
-            delegate?.didReceive(.error(.urlGeneration))
+            delegate?.didReceive(.urlGeneration)
         }
     }
     
@@ -47,7 +50,7 @@ final class WebSocketService: WebSocketServiceable {
             let data = try JSONEncoder().encode(message)
             sessionManager.send(data: data)
         } catch {
-            delegate?.didReceive(.error(.encodingFailed))
+            delegate?.didReceive(.encodingFailed)
         }
     }
     
@@ -55,7 +58,7 @@ final class WebSocketService: WebSocketServiceable {
         let baseURL = networkConfigure.baseURLString
         let fullPath = baseURL + endPoint.path
         guard let url = URL(string: fullPath) else {
-            throw WebSocketError.urlGeneration
+            throw WebSocketCommonError.urlGeneration
         }
         return url
     }
@@ -68,15 +71,22 @@ final class WebSocketService: WebSocketServiceable {
 }
 
 extension WebSocketService: WebSocketSessionDelegate {
-    func didReceive(_ event: WebSocketSessionEvent) {
-        switch event {
-        case .disconnected:
-            delegate?.didReceive(.disconnected)
-        case .error(let webSocketMessageError):
-            delegate?.didReceive(.error(.messageError(webSocketMessageError)))
-        case .receive(let message):
-            let event = WebSocketMessageHandler.parse(message)
-            delegate?.didReceive(event)
+    func didReceive(_ messageError: WebSocketMessageError) {
+        delegate?.didReceive(.messageError(messageError))
+    }
+    
+    func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
+        delegate?.didReceive(connectionEvent)
+    }
+    
+    func didReceive(_ messageEvent: URLSessionWebSocketTask.Message) {
+        switch WebSocketMessageHandler.parse(messageEvent) {
+        case .error(let errorEvent):
+            delegate?.didReceive(errorEvent)
+        case .message(let messageEvent):
+            delegate?.didReceive(messageEvent)
+        case .subscription(let subsctiprionEvent):
+            delegate?.didReceive(subsctiprionEvent)
         }
     }
 }

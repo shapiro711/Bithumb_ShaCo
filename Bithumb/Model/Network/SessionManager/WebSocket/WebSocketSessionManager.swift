@@ -7,23 +7,14 @@
 
 import Foundation
 
-enum WebSocketSessionEvent {
-    case disconnected
-    case error(WebSocketMessageError)
-    case receive(URLSessionWebSocketTask.Message)
-}
-
-enum WebSocketMessageError: Error {
-    case sendingFailed(Error)
-    case receivingFailed(Error)
-}
-
 protocol WebSocketSessionDelegate: AnyObject {
-    func didReceive(_ event: WebSocketSessionEvent)
+    func didReceive(_ connectionEvent: WebSocketConnectionEvent)
+    func didReceive(_ messageEvent: URLSessionWebSocketTask.Message)
+    func didReceive(_ messageError: WebSocketMessageError)
 }
 
 protocol WebSocketSessionManageable {
-    func register(delegate: WebSocketSessionDelegate?)
+    func register(delegate: WebSocketSessionDelegate)
     func start(request: URLRequest)
     func stop()
     func send(data: Data)
@@ -45,13 +36,13 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     }
     
     func stop() {
-        webSocketTask?.cancel()
+        webSocketTask?.cancel(with: .normalClosure, reason: nil)
     }
     
     func send(data: Data) {
         webSocketTask?.send(.data(data)) { [weak self] error in
             if let error = error {
-                self?.delegate?.didReceive(.error(.sendingFailed(error)))
+                self?.delegate?.didReceive(.sendingFailed(error))
             }
         }
     }
@@ -60,9 +51,9 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
         webSocketTask?.receive { [weak self] result in
             switch result {
             case .success(let message):
-                self?.delegate?.didReceive(.receive(message))
+                self?.delegate?.didReceive(message)
             case .failure(let error):
-                self?.delegate?.didReceive(.error(.receivingFailed(error)))
+                self?.delegate?.didReceive(.receivingFailed(error))
             }
             self?.receive()
         }

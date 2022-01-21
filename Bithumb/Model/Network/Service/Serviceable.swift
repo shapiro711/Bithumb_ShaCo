@@ -24,27 +24,3 @@ enum RestNetworkError: Error {
     case abnormalResponse
     case notExistData
 }
-
-enum WebSocketEvent {
-    case connected
-    case subscribed
-    case disconnected
-    case receive(WebSocketResponseMessage)
-    case error(WebSocketError)
-}
-
-enum WebSocketResponseMessage {
-    case ticker(TickerDTO)
-    case orderBook(OrderBookDepthDTO)
-    case transaction([TransactionDTO])
-    case unsupported
-}
-
-enum WebSocketError: Error {
-    case urlGeneration
-    case messageError(WebSocketMessageError)
-    case encodingFailed
-    case decodingFailed
-    case connectionFailed
-    case subscriptionFailed
-}

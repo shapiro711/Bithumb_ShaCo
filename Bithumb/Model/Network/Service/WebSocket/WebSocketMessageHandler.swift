@@ -7,60 +7,64 @@
 
 import Foundation
 
+enum MessageParsingResult {
+    case message(WebSocketResponseMessage)
+    case subscription(WebSocketSubscriptionEvent)
+    case error(WebSocketCommonError)
+}
+
 struct WebSocketMessageHandler {
-    static func parse(_ message: URLSessionWebSocketTask.Message) -> WebSocketEvent {
+    static func parse(_ message: URLSessionWebSocketTask.Message) -> MessageParsingResult {
         switch message {
         case .string(let stringMessage):
             guard let data = stringMessage.data(using: .utf8) else {
-                return .receive(.unsupported)
+                return .message(.unsupported)
             }
             if stringMessage.contains("status") {
-                return checkConnection(from: data)
+                return checkSubscription(from: data)
             } else if stringMessage.contains("type") {
                 return decode(from: data)
             } else {
-                return .receive(.unsupported)
+                return .message(.unsupported)
             }
         default:
-            return .receive(.unsupported)
+            return .message(.unsupported)
         }
     }
     
-    private static func checkConnection(from data: Data) -> WebSocketEvent {
+    private static func checkSubscription(from data: Data) -> MessageParsingResult {
         do {
             let parsedResult = try JSONDecoder().decode(ConnectionMessage.self, from: data)
             switch parsedResult.messageContent {
-            case .connectedSuccessfully:
-                return .connected
             case .subscribedSuccessfully:
-                return .subscribed
+                return .subscription(.subscribedSuccessfully)
             case .failedToSubscribe:
-                return .error(.subscriptionFailed)
+                return .subscription(.failedToSubscribe)
             default:
-                return .receive(.unsupported)
+                return .message(.unsupported)
             }
         } catch {
             return .error(.decodingFailed)
         }
     }
     
-    private static func decode(from data: Data) -> WebSocketEvent {
+    private static func decode(from data: Data) -> MessageParsingResult {
         do {
             let deserializedResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             let entityType = deserializedResult?["type"] as? String
             switch entityType {
             case "ticker":
                 let tickerEntity = try WebSocketResponseData<WebSocketTicker>.decode(data: data)
-                return .receive(.ticker(tickerEntity.toDomain()))
+                return .message(.ticker(tickerEntity.toDomain()))
             case "transaction":
                 let transactionEntities = try WebSocketResponseData<WebSocketTransactionHistory>.decode(data: data)
                 let transactionDTOs = transactionEntities.transactions?.map { $0.toDomain() } ?? []
-                return .receive(.transaction(transactionDTOs))
+                return .message(.transaction(transactionDTOs))
             case "orderbookdepth":
                 let orderBookEntity = try WebSocketResponseData<WebSocketOrderBook>.decode(data: data)
-                return .receive(.orderBook(orderBookEntity.toDomain()))
+                return .message(.orderBook(orderBookEntity.toDomain()))
             default:
-                return .receive(.unsupported)
+                return .message(.unsupported)
             }
         } catch {
             return .error(.decodingFailed)
