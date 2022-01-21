@@ -51,6 +51,7 @@
 		C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F2D279708730093BD4A /* RestResponseData.swift */; };
 		C9E59F312797D4850093BD4A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F302797D4850093BD4A /* Repository.swift */; };
 		C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF257427984FF700FFC876 /* WebSocketRequest.swift */; };
+		C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		C9E59F2D279708730093BD4A /* RestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponseData.swift; sourceTree = "<group>"; };
 		C9E59F302797D4850093BD4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		C9FF257427984FF700FFC876 /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
+		C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */,
 				3F52C2982790055000AE2082 /* WebSocketTransaction.swift */,
 				3F52C2A72791DC7E00AE2082 /* SubscriptionMessage.swift */,
+				C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */,
 				3F008FFB2792BE4300356C3F /* RestService.swift in Sources */,
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
+				C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */,
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F549FAA2799288300692C0A /* MessageFactory.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
