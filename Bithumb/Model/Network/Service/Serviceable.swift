@@ -16,7 +16,10 @@ protocol RestServiceable: Serviceable {
 }
 
 protocol WebSocketServiceable: Serviceable {
-    
+    func register(delegate: WebSocketServiceDelegate)
+    func connect(endPoint: WebSocketEndPointable)
+    func disconnect()
+    func write(message: SubscriptionMessage)
 }
 
 enum RestNetworkError: Error {
