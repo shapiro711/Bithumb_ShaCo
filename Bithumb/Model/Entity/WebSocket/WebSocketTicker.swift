@@ -84,3 +84,12 @@ extension WebSocketTicker: Decodable {
         volumePower = try? Double(values.decode(String.self, forKey: .volumePower))
     }
 }
+
+extension WebSocketTicker {
+    func toDomain() -> TickerDTO {
+        return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
+                                                 rateOfChange: rateOfChange,
+                                                 amountOfChange: amountOfChange,
+                                                 accumulatedTransactionAmount: accumulatedTransactionAmount))
+    }
+}

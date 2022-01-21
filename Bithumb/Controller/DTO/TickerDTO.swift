@@ -8,7 +8,7 @@
 import Foundation
 
 struct TickerDTO: DataTransferable {
-    let symbol: String
+    let symbol: String?
     let data: TickerData
     
     struct TickerData {
