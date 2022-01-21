@@ -50,11 +50,15 @@ struct WebSocketMessageHandler {
             let entityType = deserializedResult?["type"] as? String
             switch entityType {
             case "ticker":
-                return .receive(.unsupported)
+                let tickerEntity = try WebSocketResponseData<WebSocketTicker>.decode(data: data)
+                return .receive(.ticker(tickerEntity.toDomain()))
             case "transaction":
-                return .receive(.unsupported)
+                let transactionEntities = try WebSocketResponseData<WebSocketTransactionHistory>.decode(data: data)
+                let transactionDTOs = transactionEntities.transactions?.map { $0.toDomain() } ?? []
+                return .receive(.transaction(transactionDTOs))
             case "orderbookdepth":
-                return .receive(.unsupported)
+                let orderBookEntity = try WebSocketResponseData<WebSocketOrderBook>.decode(data: data)
+                return .receive(.orderBook(orderBookEntity.toDomain()))
             default:
                 return .receive(.unsupported)
             }
