@@ -43,7 +43,8 @@ enum WebSocketResponseMessage {
 enum WebSocketError: Error {
     case urlGeneration
     case messageError(WebSocketMessageError)
-    case parsingFailed
+    case encodingFailed
+    case decodingFailed
     case connectionFailed
     case subscriptionFailed
 }

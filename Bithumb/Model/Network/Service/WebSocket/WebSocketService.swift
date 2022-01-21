@@ -7,8 +7,13 @@
 
 import Foundation
 
+protocol WebSocketServiceDelegate: AnyObject {
+    func didReceive(_ event: WebSocketEvent)
+}
+
 final class WebSocketService: WebSocketServiceable {
     let networkConfigure: NetworkConfigurable
+    private weak var delegate: WebSocketServiceDelegate?
     private let sessionManager: WebSocketSessionManageable
     
     init(
@@ -19,22 +24,31 @@ final class WebSocketService: WebSocketServiceable {
         self.sessionManager = sessionManager
     }
     
+    func register(delegate: WebSocketServiceDelegate) {
+        self.delegate = delegate
+    }
+    
     func connect(endPoint: WebSocketEndPointable) {
         do {
             let request = try generateURLRequest(endPoint: endPoint)
             sessionManager.register(delegate: self)
             sessionManager.start(request: request)
         } catch {
-            
+            delegate?.didReceive(.error(.urlGeneration))
         }
     }
     
     func disconnect() {
-        sessionManager.register(delegate: nil)
+        sessionManager.stop()
     }
     
-    func write() {
-        
+    func write(message: SubscriptionMessage) {
+        do {
+            let data = try JSONEncoder().encode(message)
+            sessionManager.send(data: data)
+        } catch {
+            delegate?.didReceive(.error(.encodingFailed))
+        }
     }
     
     private func generateURL(endPoint: WebSocketEndPointable) throws -> URL {
@@ -55,6 +69,14 @@ final class WebSocketService: WebSocketServiceable {
 
 extension WebSocketService: WebSocketSessionDelegate {
     func didReceive(_ event: WebSocketSessionEvent) {
-        
+        switch event {
+        case .disconnected:
+            delegate?.didReceive(.disconnected)
+        case .error(let webSocketMessageError):
+            delegate?.didReceive(.error(.messageError(webSocketMessageError)))
+        case .receive(let message):
+            let event = WebSocketMessageHandler.parse(message)
+            delegate?.didReceive(event)
+        }
     }
 }

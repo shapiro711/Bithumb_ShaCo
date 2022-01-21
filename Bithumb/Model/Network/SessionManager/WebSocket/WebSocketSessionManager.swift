@@ -33,7 +33,7 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     private var webSocketTask: URLSessionWebSocketTask?
     private weak var delegate: WebSocketSessionDelegate?
     
-    func register(delegate: WebSocketSessionDelegate?) {
+    func register(delegate: WebSocketSessionDelegate) {
         self.delegate = delegate
     }
     

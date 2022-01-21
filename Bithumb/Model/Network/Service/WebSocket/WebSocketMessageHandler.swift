@@ -40,7 +40,7 @@ struct WebSocketMessageHandler {
                 return .receive(.unsupported)
             }
         } catch {
-            return .error(.parsingFailed)
+            return .error(.decodingFailed)
         }
     }
     
@@ -63,7 +63,7 @@ struct WebSocketMessageHandler {
                 return .receive(.unsupported)
             }
         } catch {
-            return .error(.parsingFailed)
+            return .error(.decodingFailed)
         }
     }
 }
