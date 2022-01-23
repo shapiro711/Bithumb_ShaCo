@@ -87,6 +87,8 @@ extension WebSocketService: WebSocketSessionDelegate {
             delegate?.didReceive(messageEvent)
         case .subscription(let subsctiprionEvent):
             delegate?.didReceive(subsctiprionEvent)
+        case .connectionEstablished:
+            delegate?.didReceive(.connectedSuccessfully)
         }
     }
 }

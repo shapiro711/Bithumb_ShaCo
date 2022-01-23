@@ -8,6 +8,7 @@
 import Foundation
 
 enum MessageParsingResult {
+    case connectionEstablished
     case message(WebSocketResponseMessage)
     case subscription(WebSocketSubscriptionEvent)
     case error(WebSocketCommonError)
@@ -21,7 +22,7 @@ struct WebSocketMessageHandler {
                 return .message(.unsupported)
             }
             if stringMessage.contains("status") {
-                return checkSubscription(from: data)
+                return checkConnection(from: data)
             } else if stringMessage.contains("type") {
                 return decode(from: data)
             } else {
@@ -32,7 +33,7 @@ struct WebSocketMessageHandler {
         }
     }
     
-    private static func checkSubscription(from data: Data) -> MessageParsingResult {
+    private static func checkConnection(from data: Data) -> MessageParsingResult {
         do {
             let parsedResult = try JSONDecoder().decode(ConnectionMessage.self, from: data)
             switch parsedResult.messageContent {
@@ -40,6 +41,8 @@ struct WebSocketMessageHandler {
                 return .subscription(.subscribedSuccessfully)
             case .failedToSubscribe:
                 return .subscription(.failedToSubscribe)
+            case .connectedSuccessfully:
+                return .connectionEstablished
             default:
                 return .message(.unsupported)
             }
@@ -74,7 +77,7 @@ struct WebSocketMessageHandler {
 
 private struct WebSocketResponseData<Entity: Decodable> {
     struct CommonResponse: Decodable {
-        let status: String
+        let type: String
         let content: Entity
     }
     
