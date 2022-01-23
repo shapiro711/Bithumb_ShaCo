@@ -11,7 +11,7 @@ protocol Repositoryable {
     var restService: RestServiceable { get }
     var webSocketService: WebSocketServiceable { get }
     
-    func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, Error>) -> Void)
+    func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, RestError>) -> Void)
     func execute(request: WebSocketRequest)
 }
 
@@ -34,7 +34,7 @@ final class Repository: Repositoryable {
 }
 
 extension Repository {
-    func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, Error>) -> Void) {
+    func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, RestError>) -> Void) {
         let endPoint = EndPointFactory.makeRestEndPoint(from: request)
         restService.request(endPoint: endPoint) { result in
             switch result {

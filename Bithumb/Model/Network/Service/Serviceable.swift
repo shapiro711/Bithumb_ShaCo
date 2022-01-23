@@ -12,7 +12,7 @@ protocol Serviceable {
 }
 
 protocol RestServiceable: Serviceable {
-    func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, Error>) -> Void)
+    func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, RestError>) -> Void)
 }
 
 protocol WebSocketServiceable: Serviceable {
@@ -20,10 +20,4 @@ protocol WebSocketServiceable: Serviceable {
     func connect(endPoint: WebSocketEndPointable)
     func disconnect()
     func write(message: SubscriptionMessage)
-}
-
-enum RestNetworkError: Error {
-    case urlGeneration
-    case abnormalResponse
-    case notExistData
 }

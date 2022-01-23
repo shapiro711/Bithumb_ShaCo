@@ -46,13 +46,13 @@ extension OrderBookRequest: RestRequestable {
         }
     }
     
-    var parser: (Data) -> Result<OrderBookDepthDTO, Error> {
+    var parser: (Data) -> Result<OrderBookDepthDTO, RestError> {
         return parseOrderBook
     }
 }
 
 extension OrderBookRequest {
-    private func parseOrderBook(from data: Data) -> Result<OrderBookDepthDTO, Error> {
+    private func parseOrderBook(from data: Data) -> Result<OrderBookDepthDTO, RestError> {
         let parsedResult = RestResponseData<RestOrderBook>.decode(data: data)
         switch parsedResult {
         case .success(let orderBook):

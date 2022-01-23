@@ -58,13 +58,13 @@ extension CandlestickRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> Result<[CandlestickDTO], Error> {
+    var parser: (Data) -> Result<[CandlestickDTO], RestError> {
         return parseCandlestick
     }
 }
 
 extension CandlestickRequest {
-    private func parseCandlestick(from data: Data) -> Result<[CandlestickDTO], Error> {
+    private func parseCandlestick(from data: Data) -> Result<[CandlestickDTO], RestError> {
         let parsedResult = RestResponseData<[Candlestick]>.decode(data: data)
         switch parsedResult {
         case .success(let candlesticks):

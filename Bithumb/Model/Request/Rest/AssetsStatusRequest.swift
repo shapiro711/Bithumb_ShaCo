@@ -40,13 +40,13 @@ extension AssetsStatusRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> Result<[AssetStatusDTO], Error> {
+    var parser: (Data) -> Result<[AssetStatusDTO], RestError> {
         return parseAssetsStatus
     }
 }
 
 extension AssetsStatusRequest {
-    private func parseAssetsStatus(from data: Data) -> Result<[AssetStatusDTO], Error> {
+    private func parseAssetsStatus(from data: Data) -> Result<[AssetStatusDTO], RestError> {
         let parsedResult = RestResponseData<AssetStatus>.deserialize(data: data)
         switch parsedResult {
         case .success(let assetsStatus):

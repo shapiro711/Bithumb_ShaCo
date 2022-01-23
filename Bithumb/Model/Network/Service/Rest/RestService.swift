@@ -19,23 +19,25 @@ struct RestService: RestServiceable {
         self.sessionManager = sessionMaanger
     }
     
-    func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, Error>) -> Void) {
+    func request(endPoint: RestEndPointable, completion: @escaping (Result<Data, RestError>) -> Void) {
         do {
             let urlRequest = try generateURLRequest(endPoint: endPoint)
             sessionManager.request(urlRequest: urlRequest) { data, response, error in
                 if let error = error {
-                    return completion(.failure(error))
+                    return completion(.failure(.undefined(error)))
                 }
                 guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                    return completion(.failure(RestNetworkError.abnormalResponse))
+                    return completion(.failure(RestError.abnormalResponse))
                 }
                 guard let data = data else {
-                    return completion(.failure(RestNetworkError.notExistData))
+                    return completion(.failure(RestError.notExistData))
                 }
                 completion(.success(data))
             }
+        } catch RestError.urlGeneration {
+            completion(.failure(.urlGeneration))
         } catch {
-            completion(.failure(error))
+            completion(.failure(.undefined(error)))
         }
     }
     
@@ -51,7 +53,7 @@ struct RestService: RestServiceable {
         }
         urlComponents?.queryItems = !urlQueryItems.isEmpty ? urlQueryItems : nil
         guard let url = urlComponents?.url else {
-            throw RestNetworkError.urlGeneration
+            throw RestError.urlGeneration
         }
         return url
     }

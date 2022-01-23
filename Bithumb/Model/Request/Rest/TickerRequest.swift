@@ -49,7 +49,7 @@ extension TickerRequest: RestRequestable {
         return nil
     }
     
-    var parser: (Data) -> Result<[TickerDTO], Error> {
+    var parser: (Data) -> Result<[TickerDTO], RestError> {
         switch self {
         case .lookUpAll:
             return parseAllTicker
@@ -79,7 +79,7 @@ extension TickerRequest {
         }
     }
     
-    private func parseAllTicker(from data: Data) ->  Result<[TickerDTO], Error> {
+    private func parseAllTicker(from data: Data) ->  Result<[TickerDTO], RestError> {
         let parsedResult = RestResponseData<RestTicker>.deserialize(data: data)
         switch parsedResult {
         case .success(let restTickers):
@@ -91,7 +91,7 @@ extension TickerRequest {
         }
     }
     
-    private func parseTicker(from data: Data) -> Result<[TickerDTO], Error> {
+    private func parseTicker(from data: Data) -> Result<[TickerDTO], RestError> {
         let parsedResult = RestResponseData<RestTicker>.decode(data: data)
         switch parsedResult {
         case .success(let restTicker):

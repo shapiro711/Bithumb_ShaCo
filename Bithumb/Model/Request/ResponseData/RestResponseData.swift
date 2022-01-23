@@ -7,26 +7,22 @@
 
 import Foundation
 
-enum ParsingError: Error {
-    case failedToDeserialize
-}
-
 struct RestResponseData<Entity: Decodable> {
     struct CommonResponse: Decodable {
         let status: String
         let data: Entity
     }
     
-    static func decode(data: Data) -> Result<Entity, Error> {
+    static func decode(data: Data) -> Result<Entity, RestError> {
         do {
             let result = try JSONDecoder().decode(CommonResponse.self, from: data)
             return .success(result.data)
         } catch  {
-            return .failure(error)
+            return .failure(.parsingFailed)
         }
     }
     
-    static func deserialize(data: Data) -> Result<[String: Entity], Error> {
+    static func deserialize(data: Data) -> Result<[String: Entity], RestError> {
         do {
             let container = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             var data = container?["data"] as? [String: Any]
@@ -36,11 +32,11 @@ struct RestResponseData<Entity: Decodable> {
                 return try JSONDecoder().decode(Entity.self, from: valueData)
             }
             guard let result = result else {
-                throw ParsingError.failedToDeserialize
+                throw RestError.parsingFailed
             }
             return .success(result)
         } catch {
-            return .failure(error)
+            return .failure(.parsingFailed)
         }
     }
 }

@@ -41,7 +41,7 @@ protocol RestRequestable {
     var httpMethod: HTTPMethodType { get }
     var pathParameters: [PathParameterType: String]? { get }
     var queryParameters: [String: Any]? { get }
-    var parser: (Data) -> Result<TargetDTO, Error> { get }
+    var parser: (Data) -> Result<TargetDTO, RestError> { get }
 }
 
 extension RestRequestable {
