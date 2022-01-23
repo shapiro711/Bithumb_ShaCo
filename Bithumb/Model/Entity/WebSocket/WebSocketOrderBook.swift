@@ -64,3 +64,25 @@ extension WebSocketOrder: Decodable {
         totalCount = try? Int(values.decode(String.self, forKey: .totalCount))
     }
 }
+
+extension WebSocketOrderBook {
+    func toDomain() -> OrderBookDepthDTO {
+        guard let orders = orders else {
+            return OrderBookDepthDTO(bids: nil, asks: nil)
+        }
+        var bids: [OrderBookDepthDTO.OrderBookData] = []
+        var asks: [OrderBookDepthDTO.OrderBookData] = []
+        
+        for order in orders {
+            switch order.orderType {
+            case .ask:
+                asks.append(.init(type: order.orderType, price: order.price, quantity: order.quantity))
+            case .bid:
+                bids.append(.init(type: order.orderType, price: order.price, quantity: order.quantity))
+            default:
+                break
+            }
+        }
+        return OrderBookDepthDTO(bids: bids, asks: asks)
+    }
+}

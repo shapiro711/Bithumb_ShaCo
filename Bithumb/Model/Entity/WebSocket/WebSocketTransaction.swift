@@ -64,3 +64,9 @@ extension WebSocketTransaction: Decodable {
         trend = try? Trend(rawValue: values.decode(String.self, forKey: .trend))
     }
 }
+
+extension WebSocketTransaction {
+    func toDomain() -> TransactionDTO {
+        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType)
+    }
+}

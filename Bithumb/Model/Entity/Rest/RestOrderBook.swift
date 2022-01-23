@@ -49,3 +49,15 @@ extension RestOrder: Decodable {
         price = try? Double(values.decode(String.self, forKey: .price))
     }
 }
+
+extension RestOrderBook {
+    func toDomain() -> OrderBookDepthDTO {
+        let bids = bids?.map { bid in
+            OrderBookDepthDTO.OrderBookData(type: .bid, price: bid.price, quantity: bid.quantity)
+        }
+        let asks = asks?.map { ask in
+            OrderBookDepthDTO.OrderBookData(type: .ask, price: ask.price, quantity: ask.quantity)
+        }
+        return OrderBookDepthDTO(bids: bids, asks: asks)
+    }
+}

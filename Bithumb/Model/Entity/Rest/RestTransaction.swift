@@ -7,16 +7,6 @@
 
 import Foundation
 
-struct RestTransactionHistory {
-    let transactions: [RestTransaction]?
-}
-
-extension RestTransactionHistory: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case transactions = "data"
-    }
-}
-
 struct RestTransaction {
     let dateTime: String?
     let executionType: OrderType?
@@ -29,9 +19,12 @@ struct RestTransaction {
             return nil
         }
         
+        let nineHoursInSeconds: TimeInterval = 32400
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter.date(from: dateTime)
+        var date = dateFormatter.date(from: dateTime)
+        date?.addTimeInterval(nineHoursInSeconds)
+        return date
     }
 }
 
@@ -51,5 +44,11 @@ extension RestTransaction: Decodable {
         quantity = try? Double(values.decode(String.self, forKey: .quantity))
         price = try? Double(values.decode(String.self, forKey: .price))
         amount = try? Double(values.decode(String.self, forKey: .amount))
+    }
+}
+
+extension RestTransaction {
+    func toDomain() -> TransactionDTO {
+        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType)
     }
 }
