@@ -28,6 +28,7 @@
 		3F549FB0279AA14200692C0A /* WebSocketMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */; };
 		3F549FB3279AF1D900692C0A /* WebSocketEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F549FB2279AF1D900692C0A /* WebSocketEvent.swift */; };
 		3F58DD73279D8ED9002DE43D /* RestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58DD72279D8ED9002DE43D /* RestError.swift */; };
+		3F58DD75279DC4A5002DE43D /* TickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */; };
 		3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D863278F14C5006B08E8 /* AppDelegate.swift */; };
 		3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D865278F14C5006B08E8 /* SceneDelegate.swift */; };
 		3F72D868278F14C5006B08E8 /* TickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* TickerViewController.swift */; };
@@ -98,6 +99,7 @@
 		3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessageHandler.swift; sourceTree = "<group>"; };
 		3F549FB2279AF1D900692C0A /* WebSocketEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEvent.swift; sourceTree = "<group>"; };
 		3F58DD72279D8ED9002DE43D /* RestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestError.swift; sourceTree = "<group>"; };
+		3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTableViewCell.swift; sourceTree = "<group>"; };
 		3F72D860278F14C5006B08E8 /* Bithumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bithumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D863278F14C5006B08E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F72D865278F14C5006B08E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 			children = (
 				3F72D869278F14C5006B08E8 /* Main.storyboard */,
 				3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */,
+				3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
+				3F58DD75279DC4A5002DE43D /* TickerTableViewCell.swift in Sources */,
 				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
 				C9E59ED227918EA80093BD4A /* RestRequestable.swift in Sources */,
 				3F58DD73279D8ED9002DE43D /* RestError.swift in Sources */,
