@@ -54,6 +54,7 @@
 		C9E59F312797D4850093BD4A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E59F302797D4850093BD4A /* Repository.swift */; };
 		C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF257427984FF700FFC876 /* WebSocketRequest.swift */; };
 		C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */; };
+		C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		C9E59F302797D4850093BD4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		C9FF257427984FF700FFC876 /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
 		C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMessage.swift; sourceTree = "<group>"; };
+		C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 		C9E59ECF27918DDC0093BD4A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */,
 				3F549FB1279AF1C900692C0A /* Event */,
 				3F008FF72792BCCC00356C3F /* Service */,
 				C9E59EE7279540910093BD4A /* SessionManager */,
@@ -577,6 +580,7 @@
 				3F549FAE27993A1700692C0A /* WebSocketSessionManager.swift in Sources */,
 				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
+				C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */,
 				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,

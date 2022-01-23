@@ -62,7 +62,11 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
 
 extension WebSocketSessionManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        delegate?.didReceive(.disconnected)
-        self.webSocketTask = nil
+        switch closeCode {
+        case .normalClosure:
+            delegate?.didReceive(.disconnected)
+        default:
+            delegate?.didReceive(.unintentionalDisconnection)
+        }
     }
 }
