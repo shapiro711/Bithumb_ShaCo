@@ -31,10 +31,17 @@ final class Repository: Repositoryable {
         self.restService = restService
         self.webSocketService = webSocketService
     }
+    
+    private func isInternetConnected() -> Bool {
+        return NetworkMonitor.shared.isConnected
+    }
 }
 
 extension Repository {
     func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, RestError>) -> Void) {
+        guard isInternetConnected() else {
+            return completion(.failure(.internetProblem))
+        }
         let endPoint = EndPointFactory.makeRestEndPoint(from: request)
         restService.request(endPoint: endPoint) { result in
             switch result {
@@ -57,6 +64,10 @@ extension Repository: WebSocketServiceDelegate {
     func execute(request: WebSocketRequest) {
         switch request {
         case .connect(let target):
+            guard isInternetConnected() else {
+                delegate?.didReceive(.failedToConnect)
+                return 
+            }
             let endPoint = EndPointFactory.makeWebSocketEndPoint(from: target)
             webSocketService.register(delegate: self)
             webSocketService.connect(endPoint: endPoint)
