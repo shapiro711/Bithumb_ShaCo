@@ -16,6 +16,7 @@ final class TickerViewController: UIViewController {
         super.viewDidLoad()
         setUpTableView()
         requestRestTickerAPI(paymentCurrency: "KRW")
+        repository.register(delegate: self)
     }
 }
 
@@ -36,9 +37,44 @@ extension TickerViewController {
                 DispatchQueue.main.async {
                     self?.tickerTableView.reloadData()
                 }
+                let symbols = tickers.compactMap { $0.symbol }
+                self?.requestWebSocketTickerAPI(symbols: symbols)
             case .failure(_):
                 break
             }
         }
+    }
+    
+    private func requestWebSocketTickerAPI(symbols: [String]) {
+        repository.execute(request: .connect(target: .bitumbPublic))
+        repository.execute(request: .send(message: .ticker(symbols: symbols)))
+    }
+}
+
+extension TickerViewController: WebSocketDelegate {
+    func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
+
+    }
+    
+    func didReceive(_ messageEvent: WebSocketResponseMessage) {
+        switch messageEvent {
+        case .ticker(let tickerDTO):
+            guard let index = tickerTableViewDataSource.update(by: tickerDTO) else {
+                break
+            }
+            DispatchQueue.main.async {
+                self.tickerTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+            }
+        default:
+            break
+        }
+    }
+    
+    func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
+        
+    }
+    
+    func didReceive(_ error: WebSocketCommonError) {
+        
     }
 }

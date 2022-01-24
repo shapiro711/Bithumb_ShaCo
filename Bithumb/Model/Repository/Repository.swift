@@ -13,6 +13,7 @@ protocol Repositoryable {
     
     func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, RestError>) -> Void)
     func execute(request: WebSocketRequest)
+    func register(delegate: WebSocketDelegate)
 }
 
 protocol WebSocketDelegate: AnyObject {
@@ -25,7 +26,7 @@ protocol WebSocketDelegate: AnyObject {
 final class Repository: Repositoryable {
     let restService: RestServiceable
     let webSocketService: WebSocketServiceable
-    weak var delegate: WebSocketDelegate?
+    private weak var delegate: WebSocketDelegate?
     
     init(restService: RestServiceable = RestService(), webSocketService: WebSocketServiceable = WebSocketService()) {
         self.restService = restService
@@ -61,6 +62,10 @@ extension Repository {
 }
 
 extension Repository: WebSocketServiceDelegate {
+    func register(delegate: WebSocketDelegate) {
+        self.delegate = delegate
+    }
+    
     func execute(request: WebSocketRequest) {
         switch request {
         case .connect(let target):
