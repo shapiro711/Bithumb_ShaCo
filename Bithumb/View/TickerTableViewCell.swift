@@ -16,7 +16,7 @@ final class TickerTableViewCell: UITableViewCell {
         tickerInformationStackView.axis = .horizontal
         tickerInformationStackView.alignment = .firstBaseline
         tickerInformationStackView.distribution = .fill
-        tickerInformationStackView.spacing = 8
+        tickerInformationStackView.spacing = 10
         return tickerInformationStackView
     }()
     private let identityStackView: UIStackView = {
@@ -48,21 +48,27 @@ final class TickerTableViewCell: UITableViewCell {
         let currentPriceLabel = UILabel()
         currentPriceLabel.font = .preferredFont(forTextStyle: .body)
         currentPriceLabel.textAlignment = .right
+        currentPriceLabel.numberOfLines = 0
         return currentPriceLabel
     }()
     private let fluctuatedRateLabel: UILabel = {
         let fluctuatedRateLabel = UILabel()
         fluctuatedRateLabel.font = .preferredFont(forTextStyle: .body)
+        fluctuatedRateLabel.textAlignment = .right
+        fluctuatedRateLabel.numberOfLines = 0
         return fluctuatedRateLabel
     }()
     private let fluctuatedPriceLabel: UILabel = {
         let fluctuatedPriceLabel = UILabel()
         fluctuatedPriceLabel.font = .preferredFont(forTextStyle: .caption1)
+        fluctuatedPriceLabel.textAlignment = .right
         return fluctuatedPriceLabel
     }()
     private let transactionAmountLabel: UILabel = {
         let transactionAmountLabel = UILabel()
         transactionAmountLabel.font = .preferredFont(forTextStyle: .body)
+        transactionAmountLabel.textAlignment = .right
+        transactionAmountLabel.numberOfLines = 0
         return transactionAmountLabel
     }()
     
@@ -101,18 +107,40 @@ extension TickerTableViewCell {
             tickerInformationStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin),
             tickerInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
             
-            identityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
-            currentPriceLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
-            fluctuationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.15)
+            identityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.24),
+            currentPriceLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.24),
+            fluctuationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.17)
         ])
     }
     
     func configure(by tickerInformation: TickerDTO) {
         nameLabel.text = tickerInformation.symbol
-        symbolLabel.text = tickerInformation.symbol
-        currentPriceLabel.text = tickerInformation.data.currentPrice?.description ?? "-"
-        fluctuatedRateLabel.text = tickerInformation.data.rateOfChange?.description ?? "-"
-        fluctuatedPriceLabel.text = tickerInformation.data.amountOfChange?.description ?? "-"
-        transactionAmountLabel.text = tickerInformation.data.accumulatedTransactionAmount?.description ?? "-"
+        symbolLabel.text = tickerInformation.formattedSymbol
+        currentPriceLabel.text = tickerInformation.data.formattedCurrentPrice
+        fluctuatedRateLabel.text = tickerInformation.data.formattedRateOfChange
+        fluctuatedPriceLabel.text = tickerInformation.data.formattedAmountOfChange
+        transactionAmountLabel.text = tickerInformation.data.formattedTransactionAmount
+        
+        choiceColor(by: tickerInformation.data.rateOfChange)
+    }
+    
+    private func choiceColor(by fluctuation: Double?) {
+        currentPriceLabel.textColor = .label
+        fluctuatedRateLabel.textColor = .label
+        fluctuatedPriceLabel.textColor = .label
+        
+        guard let fluctuation = fluctuation else {
+            return
+        }
+        
+        if fluctuation > 0 {
+            currentPriceLabel.textColor = .systemRed
+            fluctuatedRateLabel.textColor = .systemRed
+            fluctuatedPriceLabel.textColor = .systemRed
+        } else if fluctuation < 0 {
+            currentPriceLabel.textColor = .systemBlue
+            fluctuatedRateLabel.textColor = .systemBlue
+            fluctuatedPriceLabel.textColor = .systemBlue
+        }
     }
 }
