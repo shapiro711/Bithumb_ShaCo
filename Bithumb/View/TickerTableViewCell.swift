@@ -8,6 +8,8 @@
 import UIKit
 
 final class TickerTableViewCell: UITableViewCell {
+    static let identifier = String(describing: TickerTableViewCell.self)
+    
     private let tickerInformationStackView: UIStackView = {
         let tickerInformationStackView = UIStackView()
         tickerInformationStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,5 +86,14 @@ extension TickerTableViewCell {
         
         fluctuationStackView.addArrangedSubview(fluctuatedRateLabel)
         fluctuationStackView.addArrangedSubview(fluctuatedPriceLabel)
+    }
+    
+    func configure(by tickerInformation: TickerDTO) {
+        nameLabel.text = tickerInformation.symbol
+        symbolLabel.text = tickerInformation.symbol
+        currentPriceLabel.text = tickerInformation.data.currentPrice?.description ?? "-"
+        fluctuatedRateLabel.text = tickerInformation.data.rateOfChange?.description ?? "-"
+        fluctuatedPriceLabel.text = tickerInformation.data.amountOfChange?.description ?? "-"
+        transactionAmountLabel.text = tickerInformation.data.accumulatedTransactionAmount?.description ?? "-"
     }
 }

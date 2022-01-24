@@ -21,6 +21,11 @@ extension TickerTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TickerTableViewCell.identifier, for: indexPath) as? TickerTableViewCell else {
+            return UITableViewCell()
+        }
+        let ticker = tickers[indexPath.row]
+        cell.configure(by: ticker)
+        return cell
     }
 }
