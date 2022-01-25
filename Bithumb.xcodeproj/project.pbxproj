@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7475367A66F898CA088F4E /* Pods_Bithumb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */; };
 		3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF12792999700356C3F /* RestEndPoint.swift */; };
 		3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */; };
 		3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF52792AD2500356C3F /* EndPointFactory.swift */; };
@@ -38,6 +39,7 @@
 		3F72D87B278F14C6006B08E8 /* BithumbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D87A278F14C6006B08E8 /* BithumbTests.swift */; };
 		3F72D885278F14C6006B08E8 /* BithumbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D884278F14C6006B08E8 /* BithumbUITests.swift */; };
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
+		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
 		C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AC23D127906C1600A359FB /* AssetStatus.swift */; };
 		C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* WebSocketTicker.swift */; };
 		C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */; };
@@ -58,6 +60,7 @@
 		C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */; };
 		C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */; };
 		C9FF258C279DB7A300FFC876 /* TickerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */; };
+		FEDD67D61DBED91993C875B1 /* Pods_Bithumb_BithumbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.debug.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.debug.xcconfig"; sourceTree = "<group>"; };
+		17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-BithumbUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F008FF12792999700356C3F /* RestEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF52792AD2500356C3F /* EndPointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointFactory.swift; sourceTree = "<group>"; };
@@ -113,6 +119,12 @@
 		3F72D880278F14C6006B08E8 /* BithumbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D884278F14C6006B08E8 /* BithumbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITests.swift; sourceTree = "<group>"; };
 		3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.release.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.release.xcconfig"; sourceTree = "<group>"; };
+		6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.release.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-BithumbUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_BithumbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BithumbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AC23D127906C1600A359FB /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		C9DA6B63278F19C50021706D /* WebSocketTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTicker.swift; sourceTree = "<group>"; };
 		C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderBook.swift; sourceTree = "<group>"; };
@@ -140,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7475367A66F898CA088F4E /* Pods_Bithumb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,12 +168,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEDD67D61DBED91993C875B1 /* Pods_Bithumb_BithumbUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		287DE80827C6490D0465D562 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */,
+				660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */,
+				17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */,
+				AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */,
+				14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */,
+				6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3F008FEE2792916E00356C3F /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +274,8 @@
 				3F72D879278F14C6006B08E8 /* BithumbTests */,
 				3F72D883278F14C6006B08E8 /* BithumbUITests */,
 				3F72D861278F14C5006B08E8 /* Products */,
+				287DE80827C6490D0465D562 /* Pods */,
+				7DECAA86AA75E27EB03961DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,6 +318,16 @@
 				3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */,
 			);
 			path = BithumbUITests;
+			sourceTree = "<group>";
+		};
+		7DECAA86AA75E27EB03961DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */,
+				ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */,
+				B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C9DA6B62278F19B40021706D /* Model */ = {
@@ -460,9 +501,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D88A278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "Bithumb" */;
 			buildPhases = (
+				4DD3FA30285F7ECF8269BDB9 /* [CP] Check Pods Manifest.lock */,
 				3F72D85C278F14C5006B08E8 /* Sources */,
 				3F72D85D278F14C5006B08E8 /* Frameworks */,
 				3F72D85E278F14C5006B08E8 /* Resources */,
+				05A4A578E52A64B17AD4ADA2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -477,6 +520,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D88D278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "BithumbTests" */;
 			buildPhases = (
+				71DF3E9DD74AEF97403E42DB /* [CP] Check Pods Manifest.lock */,
 				3F72D872278F14C6006B08E8 /* Sources */,
 				3F72D873278F14C6006B08E8 /* Frameworks */,
 				3F72D874278F14C6006B08E8 /* Resources */,
@@ -495,9 +539,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D890278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "BithumbUITests" */;
 			buildPhases = (
+				2B06BFF6BC4489F0E8261A7D /* [CP] Check Pods Manifest.lock */,
 				3F72D87C278F14C6006B08E8 /* Sources */,
 				3F72D87D278F14C6006B08E8 /* Frameworks */,
 				3F72D87E278F14C6006B08E8 /* Resources */,
+				F739B02E6B2DED9C6564ACE2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -578,6 +624,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05A4A578E52A64B17AD4ADA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B06BFF6BC4489F0E8261A7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-BithumbUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DD3FA30285F7ECF8269BDB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71DF3E9DD74AEF97403E42DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BithumbTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F739B02E6B2DED9C6564ACE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F72D85C278F14C5006B08E8 /* Sources */ = {
@@ -802,6 +951,7 @@
 		};
 		3F72D88B278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -830,6 +980,7 @@
 		};
 		3F72D88C278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -858,6 +1009,7 @@
 		};
 		3F72D88E278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -883,6 +1035,7 @@
 		};
 		3F72D88F278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -908,6 +1061,7 @@
 		};
 		3F72D891278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -931,6 +1085,7 @@
 		};
 		3F72D892278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
