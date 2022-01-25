@@ -116,10 +116,10 @@ extension TickerTableViewCell {
     func configure(by tickerInformation: TickerDTO) {
         nameLabel.text = tickerInformation.symbol
         symbolLabel.text = tickerInformation.formattedSymbol
-        currentPriceLabel.text = tickerInformation.data.formattedCurrentPrice
-        fluctuatedRateLabel.text = tickerInformation.data.formattedRateOfChange
-        fluctuatedPriceLabel.text = tickerInformation.data.formattedAmountOfChange
-        transactionAmountLabel.text = tickerInformation.data.formattedTransactionAmount
+        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
+        fluctuatedRateLabel.text = tickerInformation.formattedRateOfChange
+        fluctuatedPriceLabel.text = tickerInformation.formattedAmountOfChange
+        transactionAmountLabel.text = tickerInformation.formattedTransactionAmount
         
         choiceColor(by: tickerInformation.data.rateOfChange)
     }
