@@ -28,6 +28,10 @@ final class TickerTableViewDataSource: NSObject {
         tickers[index] = ticker
         return index
     }
+    
+    func findSymbol(by index: Int) -> String? {
+        return tickers[index].symbol
+    }
 }
 
 extension TickerTableViewDataSource: UITableViewDataSource {

@@ -63,7 +63,18 @@ extension ExchangeDetailHeaderView {
             tickerInformationStackView.topAnchor.constraint(equalTo: topAnchor),
             tickerInformationStackView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
-        
+    }
+    
+    func configure(by tickerInformation: TickerDTO?) {
+        guard let tickerInformation = tickerInformation else {
+            currentPriceLabel.text = "-"
+            fluctatedRateLabel.text = "-"
+            fluctatedPriceLabel.text = "-"
+            return
+        }
+        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
+        fluctatedRateLabel.text = tickerInformation.formattedRateOfChange
+        fluctatedPriceLabel.text = tickerInformation.formattedAmountOfChange
     }
 }
 

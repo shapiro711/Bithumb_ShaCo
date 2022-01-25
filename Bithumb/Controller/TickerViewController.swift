@@ -103,9 +103,13 @@ extension TickerViewController: IndicatorInfoProvider {
 
 extension TickerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let exchangeDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ExchangeDetailViewController") else {
+        guard let exchangeDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ExchangeDetailViewController") as? ExchangeDetailViewController else {
             return
         }
+        
+        let symbol = tickerTableViewDataSource.findSymbol(by: indexPath.row)
+        exchangeDetailViewController.register(symbol: symbol)
+        
         navigationController?.pushViewController(exchangeDetailViewController, animated: true)
     }
 }
