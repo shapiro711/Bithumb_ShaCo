@@ -1,43 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--거래소-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TickerViewController" customModule="Bithumb" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ExchangeViewContorller" customModule="Bithumb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Sx-lyO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yIh-37-7vc" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="88" width="414" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="djf-LP-khS">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r9E-EL-Amx" customClass="ButtonBarViewCell" customModule="XLPagerTabStrip">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OKm-bx-ljh">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpK-fM-xCm">
+                                <rect key="frame" x="0.0" y="133" width="414" height="680"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F4L-Sx-lyO" secondAttribute="trailing" id="7j6-sm-hmO"/>
-                            <constraint firstItem="F4L-Sx-lyO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="K9O-cB-shu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F4L-Sx-lyO" secondAttribute="bottom" id="UvI-R8-2zc"/>
-                            <constraint firstItem="F4L-Sx-lyO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lKu-ms-VYb"/>
+                            <constraint firstAttribute="trailing" secondItem="cpK-fM-xCm" secondAttribute="trailing" id="0XT-fc-l3T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yIh-37-7vc" secondAttribute="trailing" id="44M-lu-Frn"/>
+                            <constraint firstItem="cpK-fM-xCm" firstAttribute="top" secondItem="yIh-37-7vc" secondAttribute="bottom" id="Bjv-VD-bpP"/>
+                            <constraint firstItem="yIh-37-7vc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Et6-w9-0Yc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cpK-fM-xCm" secondAttribute="bottom" id="OBd-je-WYd"/>
+                            <constraint firstItem="cpK-fM-xCm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PVi-Bj-5K1"/>
+                            <constraint firstItem="yIh-37-7vc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="ZlN-rR-qfs"/>
+                            <constraint firstItem="yIh-37-7vc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kdL-gE-pJY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="거래소" id="YQv-4X-fFm"/>
                     <connections>
-                        <outlet property="tickerTableView" destination="F4L-Sx-lyO" id="aTu-hH-LOS"/>
+                        <outlet property="buttonBarView" destination="yIh-37-7vc" id="7XJ-x3-Vfx"/>
+                        <outlet property="containerView" destination="cpK-fM-xCm" id="Pr8-5e-ktC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="-627"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="-627.45535714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="H75-Ih-kGc">
@@ -128,6 +153,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsV-tj-ahq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1051" y="917"/>
+        </scene>
+        <!--Ticker View Controller-->
+        <scene sceneID="7VR-fh-nlB">
+            <objects>
+                <viewController storyboardIdentifier="TickerViewController" id="po0-YH-FPN" customClass="TickerViewController" customModule="Bithumb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0zc-wz-4Ql">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NOE-zk-eqt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WhK-mt-5pF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NOE-zk-eqt" firstAttribute="leading" secondItem="WhK-mt-5pF" secondAttribute="leading" id="L1j-re-nOe"/>
+                            <constraint firstItem="NOE-zk-eqt" firstAttribute="top" secondItem="WhK-mt-5pF" secondAttribute="top" id="Xii-Dv-mWI"/>
+                            <constraint firstItem="WhK-mt-5pF" firstAttribute="trailing" secondItem="NOE-zk-eqt" secondAttribute="trailing" id="i4m-7m-WzI"/>
+                            <constraint firstItem="WhK-mt-5pF" firstAttribute="bottom" secondItem="NOE-zk-eqt" secondAttribute="bottom" id="qbb-pG-oJ0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tickerTableView" destination="NOE-zk-eqt" id="ia9-AZ-ez0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPy-zZ-fkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799" y="-627"/>
         </scene>
     </scenes>
     <resources>

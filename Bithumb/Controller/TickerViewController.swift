@@ -6,17 +6,23 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 final class TickerViewController: UIViewController {
     @IBOutlet private weak var tickerTableView: UITableView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
+    private var tickerCriteria: TickerCriteria = .krw
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        requestRestTickerAPI(paymentCurrency: "KRW")
+        requestRestTickerAPI()
         repository.register(delegate: self)
+    }
+    
+    func register(tickerCriteria: TickerCriteria) {
+        self.tickerCriteria = tickerCriteria
     }
 }
 
@@ -28,8 +34,8 @@ extension TickerViewController {
 }
 
 extension TickerViewController {
-    private func requestRestTickerAPI(paymentCurrency: String) {
-        let tickerRequest = TickerRequest.lookUpAll(paymentCurrency: paymentCurrency)
+    private func requestRestTickerAPI() {
+        let tickerRequest = tickerCriteria.reqeustBasedOnCriteria
         repository.execute(request: tickerRequest) { [weak self] result in
             switch result {
             case .success(let tickers):
@@ -53,7 +59,7 @@ extension TickerViewController {
 
 extension TickerViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
-
+        
     }
     
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
@@ -76,5 +82,11 @@ extension TickerViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension TickerViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: tickerCriteria.rawValue)
     }
 }

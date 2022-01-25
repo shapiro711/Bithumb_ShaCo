@@ -14,6 +14,7 @@
 		3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF82792BCF700356C3F /* Serviceable.swift */; };
 		3F008FFB2792BE4300356C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFA2792BE4300356C3F /* RestService.swift */; };
 		3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFC2792BE5300356C3F /* WebSocketService.swift */; };
+		3F3DA7CD279FD21E0033B0DF /* ExchangeViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA7CC279FD21E0033B0DF /* ExchangeViewContorller.swift */; };
 		3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */; };
 		3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */; };
 		3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */; };
@@ -90,6 +91,7 @@
 		3F008FF82792BCF700356C3F /* Serviceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serviceable.swift; sourceTree = "<group>"; };
 		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		3F3DA7CC279FD21E0033B0DF /* ExchangeViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeViewContorller.swift; path = ../../../../../../Documents/ExchangeViewContorller.swift; sourceTree = "<group>"; };
 		3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookDTO.swift; sourceTree = "<group>"; };
 		3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusDTO.swift; sourceTree = "<group>"; };
 		3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferable.swift; sourceTree = "<group>"; };
@@ -185,7 +187,6 @@
 				14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */,
 				6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -384,6 +385,7 @@
 		C9E59F242796E5B30093BD4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3F3DA7CC279FD21E0033B0DF /* ExchangeViewContorller.swift */,
 				3F72D867278F14C5006B08E8 /* TickerViewController.swift */,
 				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
 				C9E59F252796E5BB0093BD4A /* DTO */,
@@ -770,6 +772,7 @@
 				C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookRequest.swift in Sources */,
+				3F3DA7CD279FD21E0033B0DF /* ExchangeViewContorller.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionRequest.swift in Sources */,
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */,
