@@ -17,8 +17,17 @@ final class TickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        requestRestTickerAPI()
         repository.register(delegate: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestRestTickerAPI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        repository.execute(request: .disconnect)
     }
     
     func register(tickerCriteria: TickerCriteria) {
@@ -87,6 +96,6 @@ extension TickerViewController: WebSocketDelegate {
 
 extension TickerViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: tickerCriteria.rawValue)
+        return IndicatorInfo(title: tickerCriteria.title)
     }
 }
