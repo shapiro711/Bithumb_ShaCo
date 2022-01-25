@@ -38,6 +38,7 @@ final class TickerViewController: UIViewController {
 extension TickerViewController {
     private func setUpTableView() {
         tickerTableView.dataSource = tickerTableViewDataSource
+        tickerTableView.delegate = self
         tickerTableView.register(TickerTableViewCell.self, forCellReuseIdentifier: TickerTableViewCell.identifier)
     }
 }
@@ -97,5 +98,14 @@ extension TickerViewController: WebSocketDelegate {
 extension TickerViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: tickerCriteria.title)
+    }
+}
+
+extension TickerViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let exchangeDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ExchangeDetailViewController") else {
+            return
+        }
+        navigationController?.pushViewController(exchangeDetailViewController, animated: true)
     }
 }

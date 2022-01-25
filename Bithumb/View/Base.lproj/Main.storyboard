@@ -171,6 +171,59 @@
             </objects>
             <point key="canvasLocation" x="2799" y="-627"/>
         </scene>
+        <!--Exchange Detail View Controller-->
+        <scene sceneID="hnh-QZ-05g">
+            <objects>
+                <viewController storyboardIdentifier="ExchangeDetailViewController" id="Ksa-wB-dv6" customClass="ExchangeDetailViewController" customModule="Bithumb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n9I-K3-nMy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bm0-WX-5g1" customClass="ExchangeDetailHeaderView" customModule="Bithumb" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="89.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S5v-Ak-dsD" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="138.5" width="414" height="36"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pqt-od-Yfi">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECQ-yF-PST">
+                                <rect key="frame" x="0.0" y="174.5" width="414" height="687.5"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rD8-qh-WNG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rD8-qh-WNG" firstAttribute="trailing" secondItem="Bm0-WX-5g1" secondAttribute="trailing" id="1Ba-Ms-uyC"/>
+                            <constraint firstItem="S5v-Ak-dsD" firstAttribute="leading" secondItem="rD8-qh-WNG" secondAttribute="leading" id="6Vg-ql-Nfs"/>
+                            <constraint firstItem="ECQ-yF-PST" firstAttribute="leading" secondItem="rD8-qh-WNG" secondAttribute="leading" id="7My-mh-trV"/>
+                            <constraint firstItem="ECQ-yF-PST" firstAttribute="top" secondItem="S5v-Ak-dsD" secondAttribute="bottom" id="M2u-8s-3Sa"/>
+                            <constraint firstItem="Bm0-WX-5g1" firstAttribute="height" secondItem="n9I-K3-nMy" secondAttribute="height" multiplier="0.1" id="NRm-OI-HYI"/>
+                            <constraint firstItem="S5v-Ak-dsD" firstAttribute="top" secondItem="Bm0-WX-5g1" secondAttribute="bottom" constant="5" id="U5X-xg-XRh"/>
+                            <constraint firstItem="S5v-Ak-dsD" firstAttribute="height" secondItem="n9I-K3-nMy" secondAttribute="height" multiplier="0.04" id="VXa-f4-jbh"/>
+                            <constraint firstItem="Bm0-WX-5g1" firstAttribute="leading" secondItem="rD8-qh-WNG" secondAttribute="leading" id="Ww3-Fv-eae"/>
+                            <constraint firstItem="rD8-qh-WNG" firstAttribute="trailing" secondItem="ECQ-yF-PST" secondAttribute="trailing" id="ezt-20-GWj"/>
+                            <constraint firstItem="Bm0-WX-5g1" firstAttribute="top" secondItem="rD8-qh-WNG" secondAttribute="top" id="hY7-Ye-nco"/>
+                            <constraint firstItem="rD8-qh-WNG" firstAttribute="bottom" secondItem="ECQ-yF-PST" secondAttribute="bottom" id="q3s-HI-m0C"/>
+                            <constraint firstItem="rD8-qh-WNG" firstAttribute="trailing" secondItem="S5v-Ak-dsD" secondAttribute="trailing" id="yAr-zA-CBv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="S5v-Ak-dsD" id="Dqp-PA-Z5R"/>
+                        <outlet property="containerView" destination="ECQ-yF-PST" id="Hd0-ru-P3L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zh-5Y-zuT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3639" y="-627"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.left.arrow.right" catalog="system" width="119" height="128"/>

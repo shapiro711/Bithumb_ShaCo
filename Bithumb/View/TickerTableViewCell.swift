@@ -108,7 +108,7 @@ extension TickerTableViewCell {
             tickerInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
             
             identityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.24),
-            currentPriceLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.24),
+            currentPriceLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
             fluctuationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.17)
         ])
     }
