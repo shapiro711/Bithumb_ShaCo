@@ -17,6 +17,7 @@ final class OrderBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        repository.register(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,14 +63,16 @@ extension OrderBookViewController {
                 DispatchQueue.main.async {
                     self?.orderBookTableView.reloadData()
                 }
+                self?.requestWebSocketOrderBookAPI(symbol: symbol)
             case .failure(_):
                 break
             }
         }
     }
     
-    private func requestWebSocketOrderBookAPI() {
-        
+    private func requestWebSocketOrderBookAPI(symbol: String) {
+        repository.execute(request: .connect(target: .bitumbPublic))
+        repository.execute(request: .send(message: .orderBookDepth(symbols: [symbol])))
     }
 }
 
@@ -77,4 +80,32 @@ extension OrderBookViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "호가")
     }
+}
+
+extension OrderBookViewController: WebSocketDelegate {
+    func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
+        
+    }
+    
+    func didReceive(_ messageEvent: WebSocketResponseMessage) {
+        switch messageEvent {
+        case .orderBook(let orderBookDepthDTO):
+            orderBookTableViewDataSource.update(by: orderBookDepthDTO)
+            DispatchQueue.main.async {
+                self.orderBookTableView.reloadData()
+            }
+        default:
+            break
+        }
+    }
+    
+    func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
+        
+    }
+    
+    func didReceive(_ error: WebSocketCommonError) {
+        
+    }
+    
+    
 }
