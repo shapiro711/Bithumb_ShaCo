@@ -38,6 +38,7 @@ extension OrderBookViewController {
         orderBookTableView.dataSource = orderBookTableViewDataSource
         orderBookTableView.register(OrderBookAskTableViewCell.self, forCellReuseIdentifier: OrderBookAskTableViewCell.identifier)
         orderBookTableView.register(OrderBookBidTableViewCell.self, forCellReuseIdentifier: OrderBookBidTableViewCell.identifier)
+        orderBookTableView.separatorStyle = .none
     }
 }
 
