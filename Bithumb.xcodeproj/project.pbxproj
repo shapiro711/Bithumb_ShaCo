@@ -46,6 +46,9 @@
 		C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24927A0357300C99A14 /* ChartViewController.swift */; };
 		C951F24D27A0359C00C99A14 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24C27A0359C00C99A14 /* TransactionViewController.swift */; };
 		C951F24F27A039DF00C99A14 /* ExchangeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */; };
+		C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */; };
+		C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */; };
+		C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */; };
 		C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AC23D127906C1600A359FB /* AssetStatus.swift */; };
 		C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* WebSocketTicker.swift */; };
 		C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */; };
@@ -137,6 +140,9 @@
 		C951F24927A0357300C99A14 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		C951F24C27A0359C00C99A14 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailHeaderView.swift; sourceTree = "<group>"; };
+		C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookTableViewDataSource.swift; sourceTree = "<group>"; };
+		C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookAskTableViewCell.swift; sourceTree = "<group>"; };
+		C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookBidTableViewCell.swift; sourceTree = "<group>"; };
 		C9AC23D127906C1600A359FB /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		C9DA6B63278F19C50021706D /* WebSocketTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTicker.swift; sourceTree = "<group>"; };
 		C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderBook.swift; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
 				C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */,
 				C951F24727A0352300C99A14 /* OrderBookViewController.swift */,
+				C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */,
 				C951F24927A0357300C99A14 /* ChartViewController.swift */,
 				C951F24C27A0359C00C99A14 /* TransactionViewController.swift */,
 				C9E59F252796E5BB0093BD4A /* DTO */,
@@ -507,6 +514,8 @@
 				3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */,
 				3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */,
 				C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */,
+				C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */,
+				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -768,6 +777,7 @@
 				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
+				C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */,
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */,
 				C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */,
@@ -788,11 +798,13 @@
 				C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */,
 				3F549FB3279AF1D900692C0A /* WebSocketEvent.swift in Sources */,
 				C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */,
+				C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookRequest.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionRequest.swift in Sources */,
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */,
+				C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */,
 				C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickRequest.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetsStatusRequest.swift in Sources */,

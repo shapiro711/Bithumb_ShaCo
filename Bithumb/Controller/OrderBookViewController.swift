@@ -9,7 +9,7 @@ import UIKit
 import XLPagerTabStrip
 
 final class OrderBookViewController: UIViewController {
-    
+    @IBOutlet private weak var orderBookTableView: UITableView!
 }
 
 extension OrderBookViewController: IndicatorInfoProvider {

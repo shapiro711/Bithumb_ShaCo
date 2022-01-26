@@ -33,7 +33,9 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let orderBookViewController = OrderBookViewController()
+        guard let orderBookViewController = storyboard?.instantiateViewController(withIdentifier: "OrderBookViewController") else {
+            return []
+        }
         let chartViewController = ChartViewController()
         let transactionViewController = TransactionViewController()
         
