@@ -61,6 +61,20 @@ struct TickerDTO: DataTransferable {
         
         return formattedAmountOfChange
     }
+    var formattedAccurateFluctuation: String {
+        guard let symbol = symbol,
+              symbol.hasSuffix("BTC"),
+              let amountOfChange = data.amountOfChange else {
+            return formattedAmountOfChange
+        }
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 8
+        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.numberStyle = .none
+       
+        return numberFormatter.string(from: NSNumber(value: amountOfChange)) ?? .hypen
+    }
     var formattedTransactionAmount: String {
         guard var accumulatedTransactionAmount = data.accumulatedTransactionAmount,
               let symbol = symbol else {

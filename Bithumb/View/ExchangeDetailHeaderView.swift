@@ -57,7 +57,7 @@ final class ExchangeDetailHeaderView: UIView {
         }
         
         currentPriceLabel.text = tickerInformation.formattedCurrentPrice
-        fluctatedPriceLabel.text = tickerInformation.formattedAmountOfChange
+        fluctatedPriceLabel.text = tickerInformation.formattedAccurateFluctuation
         fluctatedRateLabel.text = generateArrow(by: tickerInformation.data.rateOfChange) + tickerInformation.formattedRateOfChange
         
         paint(by: tickerInformation.data.rateOfChange)
