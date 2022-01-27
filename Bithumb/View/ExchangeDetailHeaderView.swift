@@ -11,18 +11,20 @@ final class ExchangeDetailHeaderView: UIView {
     private let tickerInformationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     private let fluctuationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.spacing = 5
         return stackView
     }()
     private let currentPriceLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title2)
-        label.textAlignment = .right
+        label.textAlignment = .left
         return label
     }()
     private let fluctatedRateLabel: UILabel = {
@@ -45,6 +47,21 @@ final class ExchangeDetailHeaderView: UIView {
         buildHierachy()
         laysOutConstraints()
     }
+    
+    func configure(by tickerInformation: TickerDTO?) {
+        guard let tickerInformation = tickerInformation else {
+            currentPriceLabel.text = "-"
+            fluctatedPriceLabel.text = "-"
+            fluctatedRateLabel.text = "-"
+            return
+        }
+        
+        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
+        fluctatedPriceLabel.text = tickerInformation.formattedAmountOfChange
+        fluctatedRateLabel.text = generateArrow(by: tickerInformation.data.rateOfChange) + tickerInformation.formattedRateOfChange
+        
+        paint(by: tickerInformation.data.rateOfChange)
+    }
 }
 
 extension ExchangeDetailHeaderView {
@@ -60,21 +77,41 @@ extension ExchangeDetailHeaderView {
     
     private func laysOutConstraints() {
         NSLayoutConstraint.activate([
-            tickerInformationStackView.topAnchor.constraint(equalTo: topAnchor),
-            tickerInformationStackView.leadingAnchor.constraint(equalTo: leadingAnchor)
+            tickerInformationStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            tickerInformationStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5)
         ])
     }
     
-    func configure(by tickerInformation: TickerDTO?) {
-        guard let tickerInformation = tickerInformation else {
-            currentPriceLabel.text = "-"
-            fluctatedRateLabel.text = "-"
-            fluctatedPriceLabel.text = "-"
+    private func paint(by fluctuation: Double?) {
+        currentPriceLabel.textColor = .label
+        fluctatedRateLabel.textColor = .label
+        fluctatedPriceLabel.textColor = .label
+        
+        guard let fluctuation = fluctuation else {
             return
         }
-        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
-        fluctatedRateLabel.text = tickerInformation.formattedRateOfChange
-        fluctatedPriceLabel.text = tickerInformation.formattedAmountOfChange
+        
+        if fluctuation > 0 {
+            currentPriceLabel.textColor = .systemRed
+            fluctatedRateLabel.textColor = .systemRed
+            fluctatedPriceLabel.textColor = .systemRed
+        } else if fluctuation < 0 {
+            currentPriceLabel.textColor = .systemBlue
+            fluctatedRateLabel.textColor = .systemBlue
+            fluctatedPriceLabel.textColor = .systemBlue
+        }
+    }
+    
+    private func generateArrow(by fluctuation: Double?) -> String {
+        guard let fluctuation = fluctuation, fluctuation != 0 else {
+            return ""
+        }
+
+        if fluctuation > 0 {
+            return "▲"
+        } else {
+            return "▼"
+        }
     }
 }
 

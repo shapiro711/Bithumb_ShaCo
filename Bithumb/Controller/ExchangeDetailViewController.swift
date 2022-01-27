@@ -19,8 +19,10 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     private weak var closingPriceReceiver: ClosingPriceReceivable?
     
     override func viewDidLoad() {
+        setUpButtonBar()
         super.viewDidLoad()
         repository.register(delegate: self)
+        setUpNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +51,19 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         let transactionViewController = TransactionViewController()
         
         return [orderBookViewController, chartViewController, transactionViewController]
+    }
+}
+
+extension ExchangeDetailViewController {
+    private func setUpButtonBar() {
+        settings.style.buttonBarItemBackgroundColor = .systemBackground
+        settings.style.buttonBarItemTitleColor = .label
+        settings.style.selectedBarBackgroundColor = UIColor(red: 1, green: 0.6, blue: 0.2, alpha: 1)
+        settings.style.buttonBarMinimumLineSpacing = 40
+    }
+    
+    private func setUpNavigationBar() {
+        navigationItem.title = symbol?.replacingOccurrences(of: String.underScore, with: String.slash)
     }
 }
 
@@ -108,6 +123,4 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     func didReceive(_ error: WebSocketCommonError) {
         
     }
-    
-    
 }
