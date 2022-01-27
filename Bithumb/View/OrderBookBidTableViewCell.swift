@@ -62,10 +62,11 @@ final class OrderBookBidTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    func configure(by bidInformation: OrderBookDepthDTO.OrderBookData) {
+    func configure(by bidInformation: OrderBookDepthDTO.OrderBookData, fluctuation: Double?) {
         priceLabel.text = bidInformation.price?.description
         quantityLabel.text = bidInformation.quantity?.description
-        fluctuatedRateLabel.text = "15.0%"
+        fluctuatedRateLabel.text = format(fluctuation: fluctuation)
+        paintLabels(fluctuation: fluctuation)
     }
 }
 
@@ -109,5 +110,35 @@ extension OrderBookBidTableViewCell {
         
         priceStackView.backgroundColor = redColor
         quantityStackView.backgroundColor = redColor
+    }
+    
+    private func paintLabels(fluctuation: Double?) {
+        priceLabel.textColor = .label
+        fluctuatedRateLabel.textColor = .label
+        
+        guard let fluctuation = fluctuation else {
+            return
+        }
+        
+        if fluctuation < 1 {
+            priceLabel.textColor = .systemBlue
+            fluctuatedRateLabel.textColor = .systemBlue
+        } else if fluctuation > 1 {
+            priceLabel.textColor = .systemRed
+            fluctuatedRateLabel.textColor = .systemRed
+        }
+    }
+    
+    private func format(fluctuation: Double?) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.numberStyle = .percent
+        
+        guard let fluctuation = fluctuation, let formattedFluctuation = numberFormatter.string(from: NSNumber(value: fluctuation - 1)) else {
+            return ""
+        }
+        
+        return formattedFluctuation
     }
 }

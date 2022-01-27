@@ -93,6 +93,7 @@ struct TickerDTO: DataTransferable {
         let rateOfChange: Double?
         let amountOfChange: Double?
         let accumulatedTransactionAmount: Double?
+        let previousDayClosingPrice: Double?
     }
 }
 

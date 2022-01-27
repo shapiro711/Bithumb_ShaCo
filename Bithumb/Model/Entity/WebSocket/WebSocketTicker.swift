@@ -88,8 +88,9 @@ extension WebSocketTicker: Decodable {
 extension WebSocketTicker {
     func toDomain() -> TickerDTO {
         return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
-                                                 rateOfChange: rateOfChange,
-                                                 amountOfChange: amountOfChange,
-                                                 accumulatedTransactionAmount: accumulatedTransactionAmount))
+                                                     rateOfChange: rateOfChange,
+                                                     amountOfChange: amountOfChange,
+                                                     accumulatedTransactionAmount: accumulatedTransactionAmount,
+                                                     previousDayClosingPrice: previousDayClosingPrice))
     }
 }

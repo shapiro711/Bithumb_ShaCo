@@ -10,6 +10,7 @@ import UIKit
 final class OrderBookTableViewDataSource: NSObject {
     private var asks: [OrderBookDepthDTO.OrderBookData] = []
     private var bids: [OrderBookDepthDTO.OrderBookData] = []
+    private var previousDayClosingPrice: Double?
     
     func configure(orderBookDepth: OrderBookDepthDTO) {
         asks = orderBookDepth.asks?.reversed() ?? []
@@ -17,7 +18,24 @@ final class OrderBookTableViewDataSource: NSObject {
     }
     
     func update(by orderBookDepth: OrderBookDepthDTO) {
-        updateAskBook(using: orderBookDepth.asks)
+        let newAsks = updateOrderBook(using: orderBookDepth.asks, oldOrderBook: asks)
+        let newBids = updateOrderBook(using: orderBookDepth.bids, oldOrderBook: bids)
+        
+        if newAsks.count > 30 {
+            asks = newAsks.reversed().prefix(30).reversed()
+        } else {
+            asks = newAsks
+        }
+        
+        if newBids.count > 30 {
+            bids = Array(newBids.prefix(30))
+        } else {
+            bids = newBids
+        }
+    }
+    
+    func receive(previousDayClosingPrice: Double?) {
+        self.previousDayClosingPrice = previousDayClosingPrice
     }
 }
 
@@ -40,7 +58,8 @@ extension OrderBookTableViewDataSource: UITableViewDataSource {
                 return UITableViewCell()
             }
             let askOrder = asks[indexPath.row]
-            cell.configure(by: askOrder)
+            let fluctuation = calculateFluctuation(orderPrice: askOrder.price)
+            cell.configure(by: askOrder, fluctuation: fluctuation)
             
             return cell
         } else {
@@ -49,7 +68,8 @@ extension OrderBookTableViewDataSource: UITableViewDataSource {
                   }
             
             let bidOrder = bids[indexPath.row]
-            cell.configure(by: bidOrder)
+            let fluctuation = calculateFluctuation(orderPrice: bidOrder.price)
+            cell.configure(by: bidOrder, fluctuation: fluctuation)
             
             return cell
         }
@@ -57,57 +77,65 @@ extension OrderBookTableViewDataSource: UITableViewDataSource {
 }
 
 extension OrderBookTableViewDataSource {
-    private func updateAskBook(using newAskBook: [OrderBookDepthDTO.OrderBookData]?) {
-        let newAskBook = newAskBook?.sorted { $0.price ?? 0 > $1.price ?? 0 } ?? []
+    private func updateOrderBook(using newOrderBook: [OrderBookDepthDTO.OrderBookData]?, oldOrderBook: [OrderBookDepthDTO.OrderBookData]) -> [OrderBookDepthDTO.OrderBookData] {
+        let newOrderBook = newOrderBook?.sorted { $0.price ?? 0 > $1.price ?? 0 } ?? []
         
-        var mergedAskBook = [OrderBookDepthDTO.OrderBookData]()
+        var mergedBook = [OrderBookDepthDTO.OrderBookData]()
         
-        var oldAskBookIndex = 0
-        var newAskBookIndex = 0
+        var oldBookIndex = 0
+        var newBookIndex = 0
         
-        while newAskBookIndex < newAskBook.count && oldAskBookIndex < asks.count {
-            guard let newAskPrice = newAskBook[newAskBookIndex].price else {
-                newAskBookIndex += 1
+        while newBookIndex < newOrderBook.count && oldBookIndex < oldOrderBook.count {
+            guard let newOrderPrice = newOrderBook[newBookIndex].price else {
+                newBookIndex += 1
                 continue
             }
-            guard let oldAskPrice = asks[oldAskBookIndex].price else {
-                oldAskBookIndex += 1
+            guard let oldOrderPrice = oldOrderBook[oldBookIndex].price else {
+                oldBookIndex += 1
                 continue
             }
             
-            if newAskPrice > oldAskPrice {
-                if newAskBook[newAskBookIndex].quantity == 0 {
-                    newAskBookIndex += 1
+            if newOrderPrice > oldOrderPrice {
+                if newOrderBook[newBookIndex].quantity == 0 {
+                    newBookIndex += 1
                     continue
                 }
-                mergedAskBook.append(newAskBook[newAskBookIndex])
-                newAskBookIndex += 1
-            } else if newAskPrice == oldAskPrice {
-                if newAskBook[newAskBookIndex].quantity != 0 {
-                    mergedAskBook.append(newAskBook[newAskBookIndex])
+                mergedBook.append(newOrderBook[newBookIndex])
+                newBookIndex += 1
+            } else if newOrderPrice == oldOrderPrice {
+                if newOrderBook[newBookIndex].quantity != 0 {
+                    mergedBook.append(newOrderBook[newBookIndex])
                 }
-                newAskBookIndex += 1
-                oldAskBookIndex += 1
+                newBookIndex += 1
+                oldBookIndex += 1
             } else {
-                mergedAskBook.append(asks[oldAskBookIndex])
-                oldAskBookIndex += 1
+                mergedBook.append(oldOrderBook[oldBookIndex])
+                oldBookIndex += 1
             }
         }
         
-        while newAskBookIndex < newAskBook.count {
-            mergedAskBook.append(newAskBook[newAskBookIndex])
-            newAskBookIndex += 1
+        while newBookIndex < newOrderBook.count {
+            mergedBook.append(newOrderBook[newBookIndex])
+            newBookIndex += 1
         }
         
-        while oldAskBookIndex < asks.count {
-            mergedAskBook.append(asks[oldAskBookIndex])
-            oldAskBookIndex += 1
+        while oldBookIndex < oldOrderBook.count {
+            mergedBook.append(oldOrderBook[oldBookIndex])
+            oldBookIndex += 1
         }
         
-        if mergedAskBook.count > 30 {
-            asks = mergedAskBook.reversed().prefix(30).reversed()
+        return mergedBook
+    }
+    
+    private func calculateFluctuation(orderPrice: Double?) -> Double? {
+        guard let orderPrice = orderPrice, let previousDayClosingPrice = previousDayClosingPrice else {
+            return nil
+        }
+        
+        if previousDayClosingPrice == 0 {
+            return 1
         } else {
-            asks = mergedAskBook
+            return orderPrice / previousDayClosingPrice
         }
     }
 }

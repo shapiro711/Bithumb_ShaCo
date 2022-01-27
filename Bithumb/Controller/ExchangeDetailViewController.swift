@@ -8,10 +8,15 @@
 import UIKit
 import XLPagerTabStrip
 
+protocol ClosingPriceReceivable: AnyObject {
+    func didReceive(previousDayClosingPrice: Double?)
+}
+
 final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet private weak var headerView: ExchangeDetailHeaderView!
     private var symbol: String?
     private let repository: Repositoryable = Repository()
+    private weak var closingPriceReceiver: ClosingPriceReceivable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,7 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         }
         
         orderBookViewController.register(symbol: symbol)
+        closingPriceReceiver = orderBookViewController
         
         let chartViewController = ChartViewController()
         let transactionViewController = TransactionViewController()
@@ -61,6 +67,7 @@ extension ExchangeDetailViewController {
         repository.execute(request: tickerRequest) { [weak self] result in
             switch result {
             case .success(let tickers):
+                self?.closingPriceReceiver?.didReceive(previousDayClosingPrice: tickers.first?.data.previousDayClosingPrice)
                 DispatchQueue.main.async {
                     self?.headerView.configure(by: tickers.first)
                 }
@@ -85,6 +92,7 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
         switch messageEvent {
         case .ticker(let tickerDTO):
+            closingPriceReceiver?.didReceive(previousDayClosingPrice: tickerDTO.data.previousDayClosingPrice)
             DispatchQueue.main.async {
                 self.headerView.configure(by: tickerDTO)
             }

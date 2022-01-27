@@ -8,11 +8,17 @@
 import UIKit
 import XLPagerTabStrip
 
+enum OrderBookFluctuationStatus {
+    case notLoaded
+    case loaded
+}
+
 final class OrderBookViewController: UIViewController {
     @IBOutlet private weak var orderBookTableView: UITableView!
     private let orderBookTableViewDataSource = OrderBookTableViewDataSource()
     private let repository: Repositoryable = Repository()
     private var symbol: String?
+    private var fluctuationStatus = OrderBookFluctuationStatus.notLoaded
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +112,17 @@ extension OrderBookViewController: WebSocketDelegate {
     func didReceive(_ error: WebSocketCommonError) {
         
     }
-    
-    
+}
+
+extension OrderBookViewController: ClosingPriceReceivable {
+    func didReceive(previousDayClosingPrice: Double?) {
+        orderBookTableViewDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)
+        
+        if fluctuationStatus == .notLoaded {
+            DispatchQueue.main.async {
+                self.orderBookTableView.reloadData()
+            }
+            fluctuationStatus = .loaded
+        }
+    }
 }

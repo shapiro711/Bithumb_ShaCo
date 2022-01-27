@@ -55,17 +55,18 @@ final class OrderBookAskTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildHierachy()
         laysOutConstraints()
-        paint()
+        paintBackground()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func configure(by askInformation: OrderBookDepthDTO.OrderBookData) {
+    func configure(by askInformation: OrderBookDepthDTO.OrderBookData, fluctuation: Double?) {
         priceLabel.text = askInformation.price?.description
         quantityLabel.text = askInformation.quantity?.description
-        fluctuatedRateLabel.text = "15.0%"
+        fluctuatedRateLabel.text = format(fluctuation: fluctuation)
+        paintLabels(fluctuation: fluctuation)
     }
 }
 
@@ -103,10 +104,40 @@ extension OrderBookAskTableViewCell {
         priceStackView.layoutMargins = insets
     }
     
-    private func paint() {
+    private func paintBackground() {
         let blueColor = UIColor(red: 0.6, green: 0.8, blue: 1, alpha: 0.5)
         
         quantityStackView.backgroundColor = blueColor
         priceStackView.backgroundColor = blueColor
+    }
+    
+    private func paintLabels(fluctuation: Double?) {
+        priceLabel.textColor = .label
+        fluctuatedRateLabel.textColor = .label
+        
+        guard let fluctuation = fluctuation else {
+            return
+        }
+        
+        if fluctuation < 1 {
+            priceLabel.textColor = .systemBlue
+            fluctuatedRateLabel.textColor = .systemBlue
+        } else if fluctuation > 1 {
+            priceLabel.textColor = .systemRed
+            fluctuatedRateLabel.textColor = .systemRed
+        }
+    }
+    
+    private func format(fluctuation: Double?) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.numberStyle = .percent
+        
+        guard let fluctuation = fluctuation, let formattedFluctuation = numberFormatter.string(from: NSNumber(value: fluctuation - 1)) else {
+            return ""
+        }
+        
+        return formattedFluctuation
     }
 }
