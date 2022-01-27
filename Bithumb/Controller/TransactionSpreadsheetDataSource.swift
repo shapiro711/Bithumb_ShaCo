@@ -16,6 +16,16 @@ enum PriceTrend {
 
 final class TransactionSpreadsheetDataSource {
     private var transactions: [TransactionDTO] = []
+    
+    func configure(by transactions: [TransactionDTO]) {
+        self.transactions = transactions.reversed()
+    }
+    
+    func update(by transactions: [TransactionDTO]) {
+        var reversedTransactions = Array(transactions.reversed())
+        reversedTransactions.append(contentsOf: transactions)
+        self.transactions = reversedTransactions
+    }
 }
 
 extension TransactionSpreadsheetDataSource: SpreadsheetViewDataSource {
