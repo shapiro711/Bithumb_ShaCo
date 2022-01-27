@@ -73,12 +73,15 @@ extension WebSocketOrderBook {
         var bids: [OrderBookDepthDTO.OrderBookData] = []
         var asks: [OrderBookDepthDTO.OrderBookData] = []
         
+        let paymentCurrency = orders.first?.symbol?.split(separator: "_")
+            .map { String($0) }.last
+        
         for order in orders {
             switch order.orderType {
             case .ask:
-                asks.append(.init(type: order.orderType, price: order.price, quantity: order.quantity))
+                asks.append(.init(type: order.orderType, price: order.price, quantity: order.quantity, paymentCurrency: paymentCurrency))
             case .bid:
-                bids.append(.init(type: order.orderType, price: order.price, quantity: order.quantity))
+                bids.append(.init(type: order.orderType, price: order.price, quantity: order.quantity, paymentCurrency: paymentCurrency))
             default:
                 break
             }

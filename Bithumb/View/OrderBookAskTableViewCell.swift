@@ -39,8 +39,9 @@ final class OrderBookAskTableViewCell: UITableViewCell {
     }()
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .callout)
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .right
+        label.numberOfLines = 0
         return label
     }()
     private let fluctuatedRateLabel: UILabel = {
@@ -48,6 +49,7 @@ final class OrderBookAskTableViewCell: UITableViewCell {
         label.font = .preferredFont(forTextStyle: .caption2)
         label.textAlignment = .right
         label.setContentHuggingPriority(.required, for: .horizontal)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -63,8 +65,8 @@ final class OrderBookAskTableViewCell: UITableViewCell {
     }
     
     func configure(by askInformation: OrderBookDepthDTO.OrderBookData, fluctuation: Double?) {
-        priceLabel.text = askInformation.price?.description
-        quantityLabel.text = askInformation.quantity?.description
+        priceLabel.text = askInformation.formattedPrice
+        quantityLabel.text = askInformation.formattedQuantity
         fluctuatedRateLabel.text = format(fluctuation: fluctuation)
         paintLabels(fluctuation: fluctuation)
     }
@@ -93,8 +95,8 @@ extension OrderBookAskTableViewCell {
             orderInformationStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             orderInformationStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            quantityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-            emptyView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3)
+            quantityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.29),
+            emptyView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.29)
         ])
         
         quantityStackView.isLayoutMarginsRelativeArrangement = true

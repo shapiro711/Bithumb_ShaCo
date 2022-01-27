@@ -53,10 +53,10 @@ extension RestOrder: Decodable {
 extension RestOrderBook {
     func toDomain() -> OrderBookDepthDTO {
         let bids = bids?.map { bid in
-            OrderBookDepthDTO.OrderBookData(type: .bid, price: bid.price, quantity: bid.quantity)
+            OrderBookDepthDTO.OrderBookData(type: .bid, price: bid.price, quantity: bid.quantity, paymentCurrency: paymentCurrency)
         }
         let asks = asks?.map { ask in
-            OrderBookDepthDTO.OrderBookData(type: .ask, price: ask.price, quantity: ask.quantity)
+            OrderBookDepthDTO.OrderBookData(type: .ask, price: ask.price, quantity: ask.quantity, paymentCurrency: paymentCurrency)
         }
         return OrderBookDepthDTO(bids: bids, asks: asks)
     }

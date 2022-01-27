@@ -39,8 +39,9 @@ final class OrderBookBidTableViewCell: UITableViewCell {
     }()
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .callout)
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .right
+        label.numberOfLines = 0
         return label
     }()
     private let fluctuatedRateLabel: UILabel = {
@@ -48,6 +49,7 @@ final class OrderBookBidTableViewCell: UITableViewCell {
         label.font = .preferredFont(forTextStyle: .caption2)
         label.textAlignment = .right
         label.setContentHuggingPriority(.required, for: .horizontal)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -63,8 +65,8 @@ final class OrderBookBidTableViewCell: UITableViewCell {
     }
     
     func configure(by bidInformation: OrderBookDepthDTO.OrderBookData, fluctuation: Double?) {
-        priceLabel.text = bidInformation.price?.description
-        quantityLabel.text = bidInformation.quantity?.description
+        priceLabel.text = bidInformation.formattedPrice
+        quantityLabel.text = bidInformation.formattedQuantity
         fluctuatedRateLabel.text = format(fluctuation: fluctuation)
         paintLabels(fluctuation: fluctuation)
     }
@@ -94,8 +96,8 @@ extension OrderBookBidTableViewCell {
             orderInformationStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             orderInformationStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
-            emptyView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-            quantityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3)
+            emptyView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.29),
+            quantityStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.29)
         ])
         
         priceStackView.isLayoutMarginsRelativeArrangement = true

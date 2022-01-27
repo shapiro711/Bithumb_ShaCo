@@ -96,9 +96,3 @@ struct TickerDTO: DataTransferable {
         let previousDayClosingPrice: Double?
     }
 }
-
-private extension String {
-    static let hypen = "-"
-    static let underScore = "_"
-    static let slash = "/"
-}
