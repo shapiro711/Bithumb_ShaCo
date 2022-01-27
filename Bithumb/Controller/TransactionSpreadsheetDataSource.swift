@@ -24,7 +24,7 @@ final class TransactionSpreadsheetDataSource {
     
     func update(by transactions: [TransactionDTO]) {
         var reversedTransactions = Array(transactions.reversed())
-        reversedTransactions.append(contentsOf: transactions)
+        reversedTransactions.append(contentsOf: self.transactions)
         self.transactions = reversedTransactions
     }
     

@@ -12,7 +12,7 @@ final class TransactionTimeSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionTimeSpreadsheetCell.self)
     private let informationLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,6 +22,7 @@ final class TransactionTimeSpreadsheetCell: Cell {
         super.init(frame: frame)
         buildHierachy()
         laysOutConstraint()
+        paintBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,7 +30,7 @@ final class TransactionTimeSpreadsheetCell: Cell {
     }
     
     func configure(by transactionInformation: TransactionDTO) {
-        
+        informationLabel.text = transactionInformation.formattedDate
     }
     
     private func buildHierachy() {
@@ -44,13 +45,17 @@ final class TransactionTimeSpreadsheetCell: Cell {
             informationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
+    
+    private func paintBackground() {
+        contentView.backgroundColor = .systemBackground
+    }
 }
 
 final class TransactionPriceSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionPriceSpreadsheetCell.self)
     private let informationLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,6 +65,7 @@ final class TransactionPriceSpreadsheetCell: Cell {
         super.init(frame: frame)
         buildHierachy()
         laysOutConstraint()
+        paintBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,7 +73,8 @@ final class TransactionPriceSpreadsheetCell: Cell {
     }
     
     func configure(by transactionInformation: TransactionDTO, priceTrend: PriceTrend) {
-        
+        informationLabel.text = transactionInformation.formattedPrice
+        paint(by: priceTrend)
     }
     
     private func buildHierachy() {
@@ -78,9 +85,24 @@ final class TransactionPriceSpreadsheetCell: Cell {
         NSLayoutConstraint.activate([
             informationLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             informationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            informationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            informationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             informationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+    }
+    
+    private func paintBackground() {
+        contentView.backgroundColor = .systemBackground
+    }
+    
+    private func paint(by priceTrend: PriceTrend) {
+        switch priceTrend {
+        case .up:
+            informationLabel.textColor = .systemRed
+        case .equal:
+            informationLabel.textColor = .label
+        case .down:
+            informationLabel.textColor = .systemBlue
+        }
     }
 }
 
@@ -89,7 +111,7 @@ final class TransactionQuantityTimeSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionQuantityTimeSpreadsheetCell.self)
     private let informationLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption2)
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -99,6 +121,7 @@ final class TransactionQuantityTimeSpreadsheetCell: Cell {
         super.init(frame: frame)
         buildHierachy()
         laysOutConstraint()
+        paintBackground()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -106,7 +129,8 @@ final class TransactionQuantityTimeSpreadsheetCell: Cell {
     }
     
     func configure(by transactionInformation: TransactionDTO) {
-        
+        informationLabel.text = transactionInformation.formattedQuantity
+        paint(by: transactionInformation.type)
     }
     
     private func buildHierachy() {
@@ -117,9 +141,27 @@ final class TransactionQuantityTimeSpreadsheetCell: Cell {
         NSLayoutConstraint.activate([
             informationLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             informationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            informationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            informationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             informationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+    }
+    
+    private func paintBackground() {
+        contentView.backgroundColor = .systemBackground
+    }
+    
+    private func paint(by orderType: OrderType?) {
+        guard let orderType = orderType else {
+            informationLabel.textColor = .label
+            return
+        }
+        
+        switch orderType {
+        case .ask:
+            informationLabel.textColor = .systemBlue
+        case .bid:
+            informationLabel.textColor = .systemRed
+        }
     }
 }
 

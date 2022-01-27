@@ -88,7 +88,12 @@ extension TransactionViewController {
         let transactionRequest = TransactionRequest.lookUp(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency)
         repository.execute(request: transactionRequest) { [weak self] result in
             switch result {
-            case .success(let transactions):
+            case .success(var transactions):
+                transactions = transactions.map { (transaction: TransactionDTO) -> TransactionDTO in
+                    var transaction  = transaction
+                    transaction.symbol = symbol
+                    return transaction
+                }
                 self?.spreadsheetDataSource.configure(by: transactions)
                 DispatchQueue.main.async {
                     self?.spreadsheetView.reloadData()
