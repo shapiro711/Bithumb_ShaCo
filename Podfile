@@ -6,6 +6,7 @@ target 'Bithumb' do
   use_frameworks!
 
   pod 'XLPagerTabStrip', '~> 9.0'
+  pod 'SpreadsheetView'
 
   # Pods for Bithumb
 

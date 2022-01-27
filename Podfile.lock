@@ -1,16 +1,20 @@
 PODS:
+  - SpreadsheetView (0.9.1)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
+  - SpreadsheetView
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
+    - SpreadsheetView
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
+  SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: a0c6c5a0d77fde70e8a942c83bd00322430367d1
+PODFILE CHECKSUM: 45a531dfea64a88dd70182c629179cf878852834
 
 COCOAPODS: 1.11.2

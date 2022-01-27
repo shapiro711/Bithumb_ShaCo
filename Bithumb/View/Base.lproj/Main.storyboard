@@ -255,6 +255,21 @@
             </objects>
             <point key="canvasLocation" x="4506" y="-627"/>
         </scene>
+        <!--Transaction View Controller-->
+        <scene sceneID="1CP-9F-gGg">
+            <objects>
+                <viewController storyboardIdentifier="TransactionViewController" id="7pM-wI-Y0c" customClass="TransactionViewController" customModule="Bithumb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bpJ-qD-Jf6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lpf-DU-Tye"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y92-Q6-tme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4506" y="135"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.left.arrow.right" catalog="system" width="119" height="128"/>
