@@ -12,6 +12,11 @@ protocol ClosingPriceReceivable: AnyObject {
     func didReceive(previousDayClosingPrice: Double?)
 }
 
+enum ClosingPriceReceiveStatus {
+    case notReceived
+    case received
+}
+
 final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet private weak var headerView: ExchangeDetailHeaderView!
     private var symbol: String?

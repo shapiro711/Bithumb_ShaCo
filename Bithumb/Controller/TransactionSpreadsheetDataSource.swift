@@ -16,6 +16,7 @@ enum PriceTrend {
 
 final class TransactionSpreadsheetDataSource {
     private var transactions: [TransactionDTO] = []
+    private var previousDayClosingPrice: Double?
     
     func configure(by transactions: [TransactionDTO]) {
         self.transactions = transactions.reversed()
@@ -25,6 +26,10 @@ final class TransactionSpreadsheetDataSource {
         var reversedTransactions = Array(transactions.reversed())
         reversedTransactions.append(contentsOf: transactions)
         self.transactions = reversedTransactions
+    }
+    
+    func receive(previousDayClosingPrice: Double?) {
+        self.previousDayClosingPrice = previousDayClosingPrice
     }
 }
 
@@ -46,10 +51,52 @@ extension TransactionSpreadsheetDataSource: SpreadsheetViewDataSource {
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return 123
+        return transactions.count
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
-        return nil
+        let transactionInformation = transactions[indexPath.row]
+        
+        switch indexPath.column {
+        case 0:
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionTimeSpreadsheetCell.identifier, for: indexPath) as? TransactionTimeSpreadsheetCell else {
+                return nil
+            }
+            
+            cell.configure(by: transactionInformation)
+            return cell
+        case 1:
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionPriceSpreadsheetCell.identifier, for: indexPath) as? TransactionPriceSpreadsheetCell else {
+                return nil
+            }
+            
+            let priceTrend = caculateTrend(transactionPrice: transactionInformation.price)
+            cell.configure(by: transactionInformation, priceTrend: priceTrend)
+            return cell
+        case 2:
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionQuantityTimeSpreadsheetCell.identifier, for: indexPath) as? TransactionQuantityTimeSpreadsheetCell else {
+                return nil
+            }
+            
+            cell.configure(by: transactionInformation)
+            return cell
+        default:
+            return nil
+        }
+    }
+    
+    private func caculateTrend(transactionPrice: Double?) -> PriceTrend {
+        guard let transactionPrice = transactionPrice,
+              let previousDayClosingPrice = previousDayClosingPrice else {
+                  return .equal
+              }
+        
+        if transactionPrice > previousDayClosingPrice {
+            return .up
+        } else if transactionPrice == previousDayClosingPrice {
+            return .equal
+        } else {
+            return .down
+        }
     }
 }

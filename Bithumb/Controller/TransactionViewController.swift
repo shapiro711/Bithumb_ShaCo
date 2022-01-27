@@ -14,6 +14,7 @@ final class TransactionViewController: UIViewController {
     private let spreadsheetDataSource = TransactionSpreadsheetDataSource()
     private var symbol: String?
     private let repository: Repositoryable = Repository()
+    private var closingPriceReceiveStatus = ClosingPriceReceiveStatus.notReceived
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,16 @@ final class TransactionViewController: UIViewController {
         laysOutConstraint()
         setUpSpreadsheetView()
         repository.register(delegate: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestRestTransactionAPI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        repository.execute(request: .disconnect)
     }
     
     func register(symbol: String?) {
@@ -44,11 +55,16 @@ extension TransactionViewController {
     
     private func setUpSpreadsheetView() {
         spreadsheetView.translatesAutoresizingMaskIntoConstraints = false
-        spreadsheetView.dataSource = spreadsheetDataSource
         spreadsheetView.showsHorizontalScrollIndicator = false
         spreadsheetView.bounces = false
         spreadsheetView.allowsSelection = false
         spreadsheetView.isDirectionalLockEnabled = true
+        
+        spreadsheetView.dataSource = spreadsheetDataSource
+        
+        spreadsheetView.register(TransactionTimeSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionTimeSpreadsheetCell.identifier)
+        spreadsheetView.register(TransactionPriceSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionPriceSpreadsheetCell.identifier)
+        spreadsheetView.register(TransactionQuantityTimeSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionQuantityTimeSpreadsheetCell.identifier)
     }
 }
 
@@ -118,6 +134,13 @@ extension TransactionViewController: WebSocketDelegate {
 
 extension TransactionViewController: ClosingPriceReceivable {
     func didReceive(previousDayClosingPrice: Double?) {
+        spreadsheetDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)
         
+        if closingPriceReceiveStatus == .notReceived {
+            DispatchQueue.main.async {
+                self.spreadsheetView.reloadData()
+            }
+            closingPriceReceiveStatus = .received
+        }
     }
 }
