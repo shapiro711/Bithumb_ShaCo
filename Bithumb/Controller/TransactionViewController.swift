@@ -11,12 +11,13 @@ import SpreadsheetView
 
 final class TransactionViewController: UIViewController {
     private let spreadsheetView = SpreadsheetView()
+    private let spreadsheetDataSource = TransactionSpreadsheetDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buildHierachy()
         laysOutConstraint()
-        setUpSpreadSheetView()
+        setUpSpreadsheetView()
     }
 }
 
@@ -34,32 +35,18 @@ extension TransactionViewController {
         ])
     }
     
-    private func setUpSpreadSheetView() {
+    private func setUpSpreadsheetView() {
         spreadsheetView.translatesAutoresizingMaskIntoConstraints = false
-        spreadsheetView.dataSource = self
+        spreadsheetView.dataSource = spreadsheetDataSource
+        spreadsheetView.showsHorizontalScrollIndicator = false
+        spreadsheetView.bounces = false
+        spreadsheetView.allowsSelection = false
+        spreadsheetView.isDirectionalLockEnabled = true
     }
 }
 
 extension TransactionViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "시세")
-    }
-}
-
-extension TransactionViewController: SpreadsheetViewDataSource {
-    func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
-        return 200
-    }
-    
-    func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
-        return 55
-    }
-    
-    func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
-        return 300
-    }
-    
-    func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return 200
     }
 }
