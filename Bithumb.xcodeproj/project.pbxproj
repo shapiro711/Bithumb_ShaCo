@@ -52,6 +52,9 @@
 		C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */; };
 		C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */; };
 		C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */; };
+		C9AB327727A3D11C003FA78E /* AssetsStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */; };
+		C9AB327927A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */; };
+		C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */; };
 		C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AC23D127906C1600A359FB /* AssetStatus.swift */; };
 		C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* WebSocketTicker.swift */; };
 		C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */; };
@@ -149,6 +152,9 @@
 		C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookTableViewDataSource.swift; sourceTree = "<group>"; };
 		C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookAskTableViewCell.swift; sourceTree = "<group>"; };
 		C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookBidTableViewCell.swift; sourceTree = "<group>"; };
+		C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusViewController.swift; sourceTree = "<group>"; };
+		C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusTableViewDataSource.swift; sourceTree = "<group>"; };
+		C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusTableViewCell.swift; sourceTree = "<group>"; };
 		C9AC23D127906C1600A359FB /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		C9DA6B63278F19C50021706D /* WebSocketTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTicker.swift; sourceTree = "<group>"; };
 		C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderBook.swift; sourceTree = "<group>"; };
@@ -424,6 +430,8 @@
 				C951F24927A0357300C99A14 /* ChartViewController.swift */,
 				C951F24C27A0359C00C99A14 /* TransactionViewController.swift */,
 				3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */,
+				C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */,
+				C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */,
 				C9E59F252796E5BB0093BD4A /* DTO */,
 			);
 			path = Controller;
@@ -533,6 +541,7 @@
 				C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */,
 				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
 				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
+				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -777,6 +786,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */,
+				C9AB327727A3D11C003FA78E /* AssetsStatusViewController.swift in Sources */,
 				3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */,
 				3F549FB0279AA14200692C0A /* WebSocketMessageHandler.swift in Sources */,
 				3F008FFB2792BE4300356C3F /* RestService.swift in Sources */,
@@ -799,6 +809,7 @@
 				C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */,
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */,
+				C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */,
 				C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */,
 				3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */,
 				3F648BF127A277B30019F93C /* String+Extension.swift in Sources */,
@@ -817,6 +828,7 @@
 				C9FF258C279DB7A300FFC876 /* TickerTableViewDataSource.swift in Sources */,
 				C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */,
 				3F549FB3279AF1D900692C0A /* WebSocketEvent.swift in Sources */,
+				C9AB327927A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift in Sources */,
 				C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */,
 				C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
