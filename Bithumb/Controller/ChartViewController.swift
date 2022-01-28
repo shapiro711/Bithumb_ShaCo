@@ -44,6 +44,8 @@ extension ChartViewController {
     private func setUpCandlestickChartView() {
         candlestickChartView.xAxis.labelPosition = .bottom
         candlestickChartView.leftAxis.enabled = false
+        candlestickChartView.xAxis.setLabelCount(4, force: false)
+        candlestickChartView.legend.enabled = false
     }
 }
 
@@ -71,7 +73,7 @@ extension ChartViewController {
             switch result {
             case .success(let candlesticks):
                 DispatchQueue.main.async {
-                    self?.setUpCandlestickChart(by: candlesticks)
+                    self?.setUpCandlestickChart(by: candlesticks, chartInterval: chartInterval)
                 }
             case .failure(_):
                 break
@@ -81,7 +83,7 @@ extension ChartViewController {
 }
 
 extension ChartViewController {
-    private func setUpCandlestickChart(by data: [CandlestickDTO]) {
+    private func setUpCandlestickChart(by data: [CandlestickDTO], chartInterval: ChartInterval) {
         var chartEntries = [CandleChartDataEntry]()
         for index in data.indices {
             let entry = CandleChartDataEntry(x: Double(index),
@@ -102,12 +104,28 @@ extension ChartViewController {
         let chartData = CandleChartData(dataSet: chartDataSet)
         
         candlestickChartView.data = chartData
-        candlestickChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { $0.date.description })
         
-        if let lastEntry = chartEntries.last {
-            let pixel = candlestickChartView.getPosition(entry: lastEntry, axis: .right)
-            candlestickChartView.zoomToCenter(scaleX: 0, scaleY: 0)
-            candlestickChartView.zoom(scaleX: 150, scaleY: 1, x: pixel.x, y: pixel.y)
+        let dateFormatter = generateDateFormatter(by: chartInterval)
+        candlestickChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { dateFormatter.string(from: $0.date) })
+    }
+    
+    private func generateDateFormatter(by chartInterval: ChartInterval) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        switch chartInterval {
+        case .oneMinute:
+            dateFormatter.dateFormat = "dd-HH:mm"
+        case .tenMinutes:
+            dateFormatter.dateFormat = "dd-HH:mm"
+        case .thirtyMinutes:
+            dateFormatter.dateFormat = "dd-HH:mm"
+        case .oneHour:
+            dateFormatter.dateFormat = "dd-HH:mm"
+        case .twentyFourHours:
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        default:
+            dateFormatter.dateFormat = "dd-HH:mm"
         }
+        
+        return dateFormatter
     }
 }
