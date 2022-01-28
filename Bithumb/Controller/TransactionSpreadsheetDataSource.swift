@@ -17,26 +17,15 @@ enum PriceTrend {
 final class TransactionSpreadsheetDataSource {
     private var transactions: [TransactionDTO] = []
     private var previousDayClosingPrice: Double?
-    private let updateQueue = DispatchQueue(label: "TransactionUpdateQueue")
     
     func configure(by transactions: [TransactionDTO]) {
-        updateQueue.async { [weak self] in
-            guard let self = self else {
-                return
-            }
-            self.transactions = transactions.reversed()
-        }
+        self.transactions = transactions.reversed()
     }
     
     func update(by transactions: [TransactionDTO]) {
-        updateQueue.async { [weak self] in
-            guard let self = self else {
-                return
-            }
-            var reversedTransactions = Array(transactions.reversed())
-            reversedTransactions.append(contentsOf: self.transactions)
-            self.transactions = reversedTransactions
-        }
+        var reversedTransactions = Array(transactions.reversed())
+        reversedTransactions.append(contentsOf: self.transactions)
+        self.transactions = reversedTransactions
     }
     
     func receive(previousDayClosingPrice: Double?) {

@@ -28,6 +28,7 @@ final class OrderBookViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        repository.execute(request: .disconnect)
     }
     
     func register(symbol: String?) {

@@ -75,13 +75,11 @@ extension TickerViewController: WebSocketDelegate {
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
         switch messageEvent {
         case .ticker(let tickerDTO):
-            tickerTableViewDataSource.update(by: tickerDTO) { index in
-                guard let index = index else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.tickerTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-                }
+            guard let index = tickerTableViewDataSource.update(by: tickerDTO) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.tickerTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
             }
         default:
             break
