@@ -11,26 +11,37 @@ final class OrderBookTableViewDataSource: NSObject {
     private var asks: [OrderBookDepthDTO.OrderBookData] = []
     private var bids: [OrderBookDepthDTO.OrderBookData] = []
     private var previousDayClosingPrice: Double?
+    private let updateQueue = DispatchQueue(label: "OrderBookUpdateQueue")
     
     func configure(orderBookDepth: OrderBookDepthDTO) {
-        asks = orderBookDepth.asks?.reversed() ?? []
-        bids = orderBookDepth.bids ?? []
+        updateQueue.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.asks = orderBookDepth.asks?.reversed() ?? []
+            self.bids = orderBookDepth.bids ?? []
+        }
     }
     
     func update(by orderBookDepth: OrderBookDepthDTO) {
-        let newAsks = updateOrderBook(using: orderBookDepth.asks, oldOrderBook: asks)
-        let newBids = updateOrderBook(using: orderBookDepth.bids, oldOrderBook: bids)
-        
-        if newAsks.count > 30 {
-            asks = newAsks.reversed().prefix(30).reversed()
-        } else {
-            asks = newAsks
-        }
-        
-        if newBids.count > 30 {
-            bids = Array(newBids.prefix(30))
-        } else {
-            bids = newBids
+        updateQueue.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            let newAsks = self.updateOrderBook(using: orderBookDepth.asks, oldOrderBook: self.asks)
+            let newBids = self.updateOrderBook(using: orderBookDepth.bids, oldOrderBook: self.bids)
+            
+            if newAsks.count > 30 {
+                self.asks = newAsks.reversed().prefix(30).reversed()
+            } else {
+                self.asks = newAsks
+            }
+            
+            if newBids.count > 30 {
+                self.bids = Array(newBids.prefix(30))
+            } else {
+                self.bids = newBids
+            }
         }
     }
     
@@ -64,8 +75,8 @@ extension OrderBookTableViewDataSource: UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderBookBidTableViewCell.identifier, for: indexPath) as? OrderBookBidTableViewCell else {
-                      return UITableViewCell()
-                  }
+                return UITableViewCell()
+            }
             
             let bidOrder = bids[indexPath.row]
             let fluctuation = calculateFluctuation(orderPrice: bidOrder.price)

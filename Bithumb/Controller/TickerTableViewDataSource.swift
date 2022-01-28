@@ -10,23 +10,32 @@ import UIKit
 final class TickerTableViewDataSource: NSObject {
     private var tickers: [TickerDTO] = []
     private var tickerIndexFinder: [String: Int] = [:]
+    private let updateQueue = DispatchQueue(label: "TickerUpdateQueue")
     
     func configure(tickers: [TickerDTO]) {
-        self.tickers = tickers
-        for index in tickers.indices {
-            guard let symbol = tickers[index].symbol else {
-                continue
+        updateQueue.async { [weak self] in
+            guard let self = self else {
+                return
             }
-            tickerIndexFinder[symbol] = index
+            self.tickers = tickers
+            for index in tickers.indices {
+                guard let symbol = tickers[index].symbol else {
+                    continue
+                }
+                self.tickerIndexFinder[symbol] = index
+            }
         }
     }
     
-    func update(by ticker: TickerDTO) -> Int? {
-        guard let symbol = ticker.symbol, let index = tickerIndexFinder[symbol] else {
-            return nil
+    func update(by ticker: TickerDTO, completion: @escaping (Int?) -> Void) {
+        updateQueue.async { [weak self] in
+            guard let self = self, let symbol = ticker.symbol, let index = self.tickerIndexFinder[symbol] else {
+                completion(nil)
+                return
+            }
+            self.tickers[index] = ticker
+            completion(index)
         }
-        tickers[index] = ticker
-        return index
     }
     
     func findSymbol(by index: Int) -> String? {
