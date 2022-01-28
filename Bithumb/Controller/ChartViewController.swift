@@ -20,6 +20,7 @@ final class ChartViewController: UIViewController {
         super.viewDidLoad()
         setUpSegmentControl()
         setUpCandlestickChartView()
+        setUpBarChartView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,12 @@ extension ChartViewController {
         candlestickChartView.xAxis.setLabelCount(4, force: false)
         candlestickChartView.legend.enabled = false
     }
+    
+    private func setUpBarChartView() {
+        barChartView.legend.enabled = false
+        barChartView.xAxis.enabled = false
+        barChartView.leftAxis.enabled = false
+    }
 }
 
 extension ChartViewController: IndicatorInfoProvider {
@@ -73,7 +80,8 @@ extension ChartViewController {
             switch result {
             case .success(let candlesticks):
                 DispatchQueue.main.async {
-                    self?.setUpCandlestickChart(by: candlesticks, chartInterval: chartInterval)
+                    self?.drawCandlestickChart(by: candlesticks, chartInterval: chartInterval)
+                    self?.drawBarChart(by: candlesticks)
                 }
             case .failure(_):
                 break
@@ -83,7 +91,7 @@ extension ChartViewController {
 }
 
 extension ChartViewController {
-    private func setUpCandlestickChart(by data: [CandlestickDTO], chartInterval: ChartInterval) {
+    private func drawCandlestickChart(by data: [CandlestickDTO], chartInterval: ChartInterval) {
         var chartEntries = [CandleChartDataEntry]()
         for index in data.indices {
             let entry = CandleChartDataEntry(x: Double(index),
@@ -107,6 +115,35 @@ extension ChartViewController {
         
         let dateFormatter = generateDateFormatter(by: chartInterval)
         candlestickChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { dateFormatter.string(from: $0.date) })
+    }
+    
+    private func drawBarChart(by data: [CandlestickDTO]) {
+        var chartEntries = [BarChartDataEntry]()
+        for index in data.indices {
+            let entry = BarChartDataEntry(x: Double(index), y: data[index].volume ?? 0)
+            chartEntries.append(entry)
+        }
+        
+        let chartDataSet = BarChartDataSet(entries: chartEntries, label: nil)
+        let chartColors = data.map { (candlestick: CandlestickDTO) -> UIColor in
+            guard let openPrice = candlestick.initialPrice,
+                  let closePrice = candlestick.finalPrice else {
+                      return .label
+                  }
+            if openPrice > closePrice {
+                return .systemBlue
+            } else if openPrice < closePrice {
+                return .systemRed
+            } else {
+                return .systemCyan
+            }
+        }
+        chartDataSet.colors = chartColors
+        chartDataSet.drawValuesEnabled = false
+        
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        barChartView.data = chartData
     }
     
     private func generateDateFormatter(by chartInterval: ChartInterval) -> DateFormatter {
