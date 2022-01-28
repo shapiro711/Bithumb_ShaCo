@@ -90,7 +90,7 @@ extension TransactionViewController {
             switch result {
             case .success(var transactions):
                 transactions = transactions.map { (transaction: TransactionDTO) -> TransactionDTO in
-                    var transaction  = transaction
+                    var transaction = transaction
                     transaction.symbol = symbol
                     return transaction
                 }

@@ -7,6 +7,7 @@ target 'Bithumb' do
 
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'SpreadsheetView'
+  pod 'Charts'
 
   # Pods for Bithumb
 

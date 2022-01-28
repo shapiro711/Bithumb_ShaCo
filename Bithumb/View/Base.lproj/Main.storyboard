@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -268,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymB-9Y-63T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4506" y="-627"/>
+            <point key="canvasLocation" x="4506" y="-1368"/>
         </scene>
         <!--Transaction View Controller-->
         <scene sceneID="1CP-9F-gGg">
@@ -284,6 +284,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y92-Q6-tme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4506" y="135"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="8jF-s2-MRQ">
+            <objects>
+                <viewController storyboardIdentifier="ChartViewController" id="5yL-Cp-CmH" customClass="ChartViewController" customModule="Bithumb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rHc-1S-4v4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itN-6o-F7l" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="568" width="414" height="294"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YTp-yt-QM3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <segments>
+                                    <segment title="1분"/>
+                                    <segment title="10분"/>
+                                    <segment title="30분"/>
+                                    <segment title="1시간"/>
+                                    <segment title="일"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1n4-Ab-dA2" customClass="CandleStickChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="75" width="414" height="493"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qet-k9-Ujw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="itN-6o-F7l" firstAttribute="top" secondItem="1n4-Ab-dA2" secondAttribute="bottom" id="9n6-Ok-z8W"/>
+                            <constraint firstItem="qet-k9-Ujw" firstAttribute="bottom" secondItem="itN-6o-F7l" secondAttribute="bottom" id="Baf-M2-971"/>
+                            <constraint firstItem="1n4-Ab-dA2" firstAttribute="trailing" secondItem="qet-k9-Ujw" secondAttribute="trailing" id="HVA-4F-zun"/>
+                            <constraint firstItem="1n4-Ab-dA2" firstAttribute="leading" secondItem="qet-k9-Ujw" secondAttribute="leading" id="NNe-Dg-7de"/>
+                            <constraint firstItem="YTp-yt-QM3" firstAttribute="top" secondItem="qet-k9-Ujw" secondAttribute="top" id="TyA-rx-u1m"/>
+                            <constraint firstItem="1n4-Ab-dA2" firstAttribute="top" secondItem="YTp-yt-QM3" secondAttribute="bottom" id="Ug4-ys-bz6"/>
+                            <constraint firstItem="1n4-Ab-dA2" firstAttribute="height" secondItem="rHc-1S-4v4" secondAttribute="height" multiplier="0.55" id="aiq-vx-jxW"/>
+                            <constraint firstItem="itN-6o-F7l" firstAttribute="leading" secondItem="qet-k9-Ujw" secondAttribute="leading" id="bqD-JR-uc7"/>
+                            <constraint firstItem="qet-k9-Ujw" firstAttribute="trailing" secondItem="itN-6o-F7l" secondAttribute="trailing" id="mDD-xg-smb"/>
+                            <constraint firstItem="YTp-yt-QM3" firstAttribute="leading" secondItem="qet-k9-Ujw" secondAttribute="leading" id="o3C-be-9MT"/>
+                            <constraint firstItem="qet-k9-Ujw" firstAttribute="trailing" secondItem="YTp-yt-QM3" secondAttribute="trailing" id="oZj-vD-97k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="barChartView" destination="itN-6o-F7l" id="N0B-aA-pGI"/>
+                        <outlet property="candlestickChartView" destination="1n4-Ab-dA2" id="AhV-VP-y2c"/>
+                        <outlet property="chartIntervalSegmentedControl" destination="YTp-yt-QM3" id="xvk-NG-NIJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCN-Gi-ogE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4505.7971014492759" y="-627.45535714285711"/>
         </scene>
     </scenes>
     <resources>
