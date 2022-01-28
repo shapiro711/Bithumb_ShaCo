@@ -70,6 +70,9 @@ extension TransactionViewController {
 
 extension TransactionViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
+            exchageDetailViewController.addObserver(observer: self)
+        }
         return IndicatorInfo(title: "시세")
     }
 }
@@ -137,7 +140,7 @@ extension TransactionViewController: WebSocketDelegate {
     }
 }
 
-extension TransactionViewController: ClosingPriceReceivable {
+extension TransactionViewController: ClosingPriceObserverable {
     func didReceive(previousDayClosingPrice: Double?) {
         spreadsheetDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)
         

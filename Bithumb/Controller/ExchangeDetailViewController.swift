@@ -8,7 +8,7 @@
 import UIKit
 import XLPagerTabStrip
 
-protocol ClosingPriceReceivable: AnyObject {
+protocol ClosingPriceObserverable {
     func didReceive(previousDayClosingPrice: Double?)
 }
 
@@ -21,7 +21,7 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet private weak var headerView: ExchangeDetailHeaderView!
     private var symbol: String?
     private let repository: Repositoryable = Repository()
-    private var closingPriceReceivers: [ClosingPriceReceivable] = []
+    private var closingPriceObservers: [ClosingPriceObserverable] = []
     
     override func viewDidLoad() {
         setUpButtonBar()
@@ -44,6 +44,10 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         self.symbol = symbol
     }
     
+    func addObserver(observer: ClosingPriceObserverable) {
+        closingPriceObservers.append(observer)
+    }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         guard let orderBookViewController = storyboard?.instantiateViewController(withIdentifier: "OrderBookViewController") as? OrderBookViewController,
               let transactionViewController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController,
@@ -54,9 +58,6 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         orderBookViewController.register(symbol: symbol)
         transactionViewController.register(symbol: symbol)
         chartViewController.register(symbol: symbol)
-        
-        closingPriceReceivers.append(orderBookViewController)
-        closingPriceReceivers.append(transactionViewController)
         
         return [orderBookViewController, chartViewController, transactionViewController]
     }
@@ -90,7 +91,7 @@ extension ExchangeDetailViewController {
         repository.execute(request: tickerRequest) { [weak self] result in
             switch result {
             case .success(let tickers):
-                self?.closingPriceReceivers.forEach { $0.didReceive(previousDayClosingPrice: tickers.first?.data.previousDayClosingPrice) }
+                self?.closingPriceObservers.forEach { $0.didReceive(previousDayClosingPrice: tickers.first?.data.previousDayClosingPrice) }
                 DispatchQueue.main.async {
                     self?.headerView.configure(by: tickers.first)
                 }
@@ -115,7 +116,7 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
         switch messageEvent {
         case .ticker(let tickerDTO):
-            closingPriceReceivers.forEach { $0.didReceive(previousDayClosingPrice: tickerDTO.data.previousDayClosingPrice) }
+            closingPriceObservers.forEach { $0.didReceive(previousDayClosingPrice: tickerDTO.data.previousDayClosingPrice) }
             DispatchQueue.main.async {
                 self.headerView.configure(by: tickerDTO)
             }

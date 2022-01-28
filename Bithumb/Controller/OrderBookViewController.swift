@@ -80,6 +80,9 @@ extension OrderBookViewController {
 
 extension OrderBookViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
+            exchageDetailViewController.addObserver(observer: self)
+        }
         return IndicatorInfo(title: "호가")
     }
 }
@@ -110,7 +113,7 @@ extension OrderBookViewController: WebSocketDelegate {
     }
 }
 
-extension OrderBookViewController: ClosingPriceReceivable {
+extension OrderBookViewController: ClosingPriceObserverable {
     func didReceive(previousDayClosingPrice: Double?) {
         orderBookTableViewDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)
         
