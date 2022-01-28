@@ -46,8 +46,10 @@ class AssetStatusTableViewCell: UITableViewCell {
     
     func configure(by assetStatusInformation: AssetStatusDTO) {
         symbolLabel.text = assetStatusInformation.symbol
-        depositStatusLabel.text = assetStatusInformation.data.isDepositAvailable?.description
-        withdrawStatusLabel.text = assetStatusInformation.data.isWithdrawalAvailable?.description
+        depositStatusLabel.text = assetStatusInformation.formattedDepositStatus
+        withdrawStatusLabel.text = assetStatusInformation.formattedWithdrawStatus
+        
+        paint(by: assetStatusInformation)
     }
 }
 
@@ -75,5 +77,23 @@ extension AssetStatusTableViewCell {
         
         assetStatusInformationStackView.isLayoutMarginsRelativeArrangement = true
         assetStatusInformationStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    private func generateColor(by status: Bool?) -> UIColor {
+        guard let status = status else {
+            return .systemGray
+        }
+        
+        let greenColor = UIColor(red: 0, green: 0.6, blue: 0.298, alpha: 1)
+        if status {
+            return greenColor
+        } else {
+            return .systemRed
+        }
+    }
+    
+    private func paint(by assetStatus: AssetStatusDTO) {
+        depositStatusLabel.textColor = generateColor(by: assetStatus.data.isDepositAvailable)
+        withdrawStatusLabel.textColor = generateColor(by: assetStatus.data.isWithdrawalAvailable)
     }
 }

@@ -27,6 +27,7 @@ extension AssetsStatusViewController {
     private func setUpTableView() {
         assetsStatusTableView.dataSource = assetsStatusTableViewDataSource
         assetsStatusTableView.register(AssetStatusTableViewCell.self, forCellReuseIdentifier: AssetStatusTableViewCell.identifier)
+        assetsStatusTableView.allowsSelection = false
     }
 }
 
