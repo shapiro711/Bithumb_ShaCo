@@ -47,12 +47,24 @@ extension ChartViewController {
         candlestickChartView.leftAxis.enabled = false
         candlestickChartView.xAxis.setLabelCount(4, force: false)
         candlestickChartView.legend.enabled = false
+        candlestickChartView.pinchZoomEnabled = true
+        candlestickChartView.scaleXEnabled = true
+        candlestickChartView.scaleYEnabled = true
+        candlestickChartView.doubleTapToZoomEnabled = false
     }
     
     private func setUpBarChartView() {
         barChartView.legend.enabled = false
-        barChartView.xAxis.enabled = false
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.xAxis.setLabelCount(4, force: false)
         barChartView.leftAxis.enabled = false
+        barChartView.pinchZoomEnabled = true
+        barChartView.scaleXEnabled = true
+        barChartView.scaleYEnabled = true
+        barChartView.doubleTapToZoomEnabled = false
+        barChartView.rightAxis.enabled = true
+        barChartView.rightAxis.axisMinimum = 0
+        barChartView.leftAxis.axisMinimum = 0
     }
 }
 
@@ -79,10 +91,8 @@ extension ChartViewController {
         repository.execute(request: candlestickRequest) { [weak self] result in
             switch result {
             case .success(let candlesticks):
-                DispatchQueue.main.async {
-                    self?.drawCandlestickChart(by: candlesticks, chartInterval: chartInterval)
-                    self?.drawBarChart(by: candlesticks)
-                }
+                self?.drawCandlestickChart(by: candlesticks, chartInterval: chartInterval)
+                self?.drawBarChart(by: candlesticks, chartInterval: chartInterval)
             case .failure(_):
                 break
             }
@@ -105,19 +115,28 @@ extension ChartViewController {
         let chartDataSet = CandleChartDataSet(entries: chartEntries, label: nil)
         chartDataSet.increasingColor = .systemRed
         chartDataSet.decreasingColor = .systemBlue
+        chartDataSet.neutralColor = .systemRed
         chartDataSet.increasingFilled = true
         chartDataSet.shadowColorSameAsCandle = true
         chartDataSet.drawValuesEnabled = false
         
         let chartData = CandleChartData(dataSet: chartDataSet)
         
-        candlestickChartView.data = chartData
-        
-        let dateFormatter = generateDateFormatter(by: chartInterval)
-        candlestickChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { dateFormatter.string(from: $0.date) })
+        DispatchQueue.main.async {
+            self.candlestickChartView.data = chartData
+            self.candlestickChartView.fitScreen()
+            
+            if let openPrice = data.last?.initialPrice, let closingPrice = data.last?.finalPrice {
+                self.candlestickChartView.zoomToCenter(scaleX: 80, scaleY: 20)
+                self.candlestickChartView.moveViewTo(xValue: Double(data.count - 1), yValue: (openPrice + closingPrice) / 2, axis: .right)
+            }
+            
+            let dateFormatter = self.generateDateFormatter(by: chartInterval)
+            self.candlestickChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { dateFormatter.string(from: $0.date) })
+        }
     }
     
-    private func drawBarChart(by data: [CandlestickDTO]) {
+    private func drawBarChart(by data: [CandlestickDTO], chartInterval: ChartInterval) {
         var chartEntries = [BarChartDataEntry]()
         for index in data.indices {
             let entry = BarChartDataEntry(x: Double(index), y: data[index].volume ?? 0)
@@ -135,15 +154,27 @@ extension ChartViewController {
             } else if openPrice < closePrice {
                 return .systemRed
             } else {
-                return .systemCyan
+                return .systemRed
             }
         }
         chartDataSet.colors = chartColors
         chartDataSet.drawValuesEnabled = false
+        chartDataSet.highlightEnabled = false
         
         let chartData = BarChartData(dataSet: chartDataSet)
         
-        barChartView.data = chartData
+        DispatchQueue.main.async {
+            self.barChartView.data = chartData
+            self.barChartView.fitScreen()
+            
+            if let volume = data.last?.volume {
+                self.barChartView.zoomToCenter(scaleX: 80, scaleY: 20)
+                self.barChartView.moveViewTo(xValue: Double(data.count - 1), yValue: volume, axis: .right)
+            }
+            
+            let dateFormatter = self.generateDateFormatter(by: chartInterval)
+            self.barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: data.map { dateFormatter.string(from: $0.date) })
+        }
     }
     
     private func generateDateFormatter(by chartInterval: ChartInterval) -> DateFormatter {
