@@ -44,6 +44,7 @@
 		3F72D885278F14C6006B08E8 /* BithumbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D884278F14C6006B08E8 /* BithumbUITests.swift */; };
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
 		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
+		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
 		C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */; };
 		C951F24827A0352300C99A14 /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24727A0352300C99A14 /* OrderBookViewController.swift */; };
 		C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24927A0357300C99A14 /* ChartViewController.swift */; };
@@ -144,6 +145,7 @@
 		AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-BithumbUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_BithumbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BithumbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTickerViewController.swift; sourceTree = "<group>"; };
 		C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailViewController.swift; sourceTree = "<group>"; };
 		C951F24727A0352300C99A14 /* OrderBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
 		C951F24927A0357300C99A14 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 			children = (
 				3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */,
 				3F72D867278F14C5006B08E8 /* TickerViewController.swift */,
+				C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */,
 				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
 				C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */,
 				C951F24727A0352300C99A14 /* OrderBookViewController.swift */,
@@ -804,6 +807,7 @@
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */,
 				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
+				C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
 				C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */,
