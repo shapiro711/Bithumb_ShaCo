@@ -18,6 +18,16 @@ class FavoriteTickerViewController: UIViewController {
         setUpTableView()
         repository.register(delegate: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestRestTickerAPI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        repository.execute(request: .disconnect)
+    }
 }
 
 extension FavoriteTickerViewController {
@@ -81,6 +91,9 @@ extension FavoriteTickerViewController {
                 }
             }
             self?.tickerTableViewDataSource.configure(tickers: favoriteCoinTickers)
+            DispatchQueue.main.async {
+                self?.tickerTableView.reloadData()
+            }
             self?.requestWebSocketTickerAPI(symbols: favoriteCoinSymbols)
         }
     }

@@ -22,12 +22,19 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     private var symbol: String?
     private let repository: Repositoryable = Repository()
     private var closingPriceObservers: [ClosingPriceObserverable] = []
+    private var isFavorite = false
+    private lazy var favoriteButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(touchUpFavoriteButton))
+        button.tintColor = .systemOrange
+        return button
+    }()
     
     override func viewDidLoad() {
         setUpButtonBar()
         super.viewDidLoad()
         repository.register(delegate: self)
         setUpNavigationBar()
+        setUpNavigationBarButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +80,42 @@ extension ExchangeDetailViewController {
     
     private func setUpNavigationBar() {
         navigationItem.title = symbol?.replacingOccurrences(of: String.underScore, with: String.slash)
+        navigationItem.setRightBarButton(favoriteButton, animated: false)
+    }
+    
+    private func setUpNavigationBarButton() {
+        if let favoriteCoinSymbols = UserDefaults.standard.array(forKey: "favoriteCoinSymbols") as? [String],
+           let symbol = symbol,
+           favoriteCoinSymbols.contains(symbol) {
+            isFavorite = true
+            favoriteButton.image = UIImage(systemName: "star.fill")
+        } else {
+            isFavorite = false
+            favoriteButton.image = UIImage(systemName: "star")
+        }
+    }
+    
+    @objc private func touchUpFavoriteButton() {
+        guard let symbol = symbol else {
+            return
+        }
+        let favoriteCoinSymbolsKey = "favoriteCoinSymbols"
+        var favoriteCoinSymbols = UserDefaults.standard.array(forKey: favoriteCoinSymbolsKey) as? [String] ?? []
+
+        if isFavorite {
+            isFavorite = false
+            favoriteButton.image = UIImage(systemName: "star")
+            let index = favoriteCoinSymbols.firstIndex(of: symbol)
+            if let index = index {
+                favoriteCoinSymbols.remove(at: index)
+                UserDefaults.standard.set(favoriteCoinSymbols, forKey: favoriteCoinSymbolsKey)
+            }
+        } else {
+            isFavorite = true
+            favoriteButton.image = UIImage(systemName: "star.fill")
+            favoriteCoinSymbols.append(symbol)
+            UserDefaults.standard.set(favoriteCoinSymbols, forKey: favoriteCoinSymbolsKey)
+        }
     }
 }
 
