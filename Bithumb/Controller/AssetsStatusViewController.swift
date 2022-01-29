@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AssetsStatusViewController: UIViewController {
+final class AssetsStatusViewController: UIViewController {
     @IBOutlet private weak var assetsStatusTableView: UITableView!
     private let repository: Repositoryable = Repository()
     private let assetsStatusTableViewDataSource = AssetsStatusTableViewDataSource()

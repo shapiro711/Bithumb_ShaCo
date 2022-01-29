@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AssetStatusTableViewCell: UITableViewCell {
+final class AssetStatusTableViewCell: UITableViewCell {
     static let identifier = String(describing: AssetStatusTableViewCell.self)
     
     private let assetStatusInformationStackView: UIStackView = {

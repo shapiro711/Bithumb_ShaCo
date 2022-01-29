@@ -8,7 +8,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class FavoriteTickerViewController: UIViewController {
+final class FavoriteTickerViewController: UIViewController {
     @IBOutlet private weak var tickerTableView: UITableView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
