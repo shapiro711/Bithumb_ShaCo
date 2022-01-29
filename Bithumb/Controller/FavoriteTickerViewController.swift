@@ -49,25 +49,52 @@ extension FavoriteTickerViewController: UITableViewDelegate {
 
 extension FavoriteTickerViewController {
     private func requestRestTickerAPI() {
-        let tickerRequest = TickerRequest.lookUp(orderCurrency: "", paymentCurrency: "")
-        repository.execute(request: tickerRequest) { [weak self] result in
-            switch result {
-            case .success(let tickers):
-                self?.tickerTableViewDataSource.configure(tickers: tickers)
-                DispatchQueue.main.async {
-                    self?.tickerTableView.reloadData()
-                }
-                let symbols = tickers.compactMap { $0.symbol }
-                self?.requestWebSocketTickerAPI(symbols: symbols)
-            case .failure(_):
-                break
+        let favoriteCoinSymbols = bringFavoriteCoinSymbols()
+        var requestResults: [Result<[TickerDTO], RestError>] = []
+        let dispatchGroup = DispatchGroup()
+        
+        let tickerRequests = favoriteCoinSymbols.compactMap { (symbol: String) -> TickerRequest? in
+            let currencies = symbol.split(separator: "_").map { String($0) }
+            guard let orderCurrency = currencies.first, let paymentCurrency = currencies.last else {
+                return nil
             }
+            
+            return TickerRequest.lookUp(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency)
+        }
+    
+        tickerRequests.forEach {
+            dispatchGroup.enter()
+            repository.execute(request: $0) { result in
+                requestResults.append(result)
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .global()) { [weak self] in
+            var favoriteCoinTickers: [TickerDTO] = []
+            requestResults.forEach { result in
+                switch result {
+                case .success(let tickers):
+                    favoriteCoinTickers.append(contentsOf: tickers)
+                case .failure(_):
+                    break
+                }
+            }
+            self?.tickerTableViewDataSource.configure(tickers: favoriteCoinTickers)
+            self?.requestWebSocketTickerAPI(symbols: favoriteCoinSymbols)
         }
     }
     
     private func requestWebSocketTickerAPI(symbols: [String]) {
         repository.execute(request: .connect(target: .bitumbPublic))
         repository.execute(request: .send(message: .ticker(symbols: symbols)))
+    }
+    
+    private func bringFavoriteCoinSymbols() -> [String] {
+        guard let favoriteCoinSymbols = UserDefaults.standard.array(forKey: "favoriteCoinSymbols") as? [String] else {
+            return []
+        }
+        return favoriteCoinSymbols
     }
 }
 
