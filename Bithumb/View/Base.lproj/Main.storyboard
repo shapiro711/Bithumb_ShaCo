@@ -24,18 +24,27 @@
                                 </segments>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpK-fM-xCm">
-                                <rect key="frame" x="0.0" y="119" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="155" width="414" height="658"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXa-NA-wYN" customClass="ExchangeHeaderView" customModule="Bithumb" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="119" width="414" height="36"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cpK-fM-xCm" secondAttribute="trailing" id="0XT-fc-l3T"/>
-                            <constraint firstItem="cpK-fM-xCm" firstAttribute="top" secondItem="rOZ-Pr-o5L" secondAttribute="bottom" id="Hxj-z3-LKT"/>
+                            <constraint firstItem="jXa-NA-wYN" firstAttribute="top" secondItem="rOZ-Pr-o5L" secondAttribute="bottom" id="D1S-rh-cPA"/>
                             <constraint firstItem="rOZ-Pr-o5L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jqf-G0-SRW"/>
+                            <constraint firstItem="cpK-fM-xCm" firstAttribute="top" secondItem="jXa-NA-wYN" secondAttribute="bottom" id="Lhz-Ii-1T6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cpK-fM-xCm" secondAttribute="bottom" id="OBd-je-WYd"/>
+                            <constraint firstItem="jXa-NA-wYN" firstAttribute="height" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.04" id="OUV-gs-SUX"/>
                             <constraint firstItem="cpK-fM-xCm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PVi-Bj-5K1"/>
                             <constraint firstItem="cpK-fM-xCm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bJL-1N-idw"/>
+                            <constraint firstItem="jXa-NA-wYN" firstAttribute="height" secondItem="rOZ-Pr-o5L" secondAttribute="height" multiplier="1.16129" priority="750" id="bWH-YU-Tmu"/>
+                            <constraint firstItem="jXa-NA-wYN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jP6-JF-dJJ"/>
+                            <constraint firstItem="jXa-NA-wYN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nR0-DG-ZI3"/>
                             <constraint firstItem="rOZ-Pr-o5L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qH6-lh-hkf"/>
                             <constraint firstItem="rOZ-Pr-o5L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="vgc-EZ-9EY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rOZ-Pr-o5L" secondAttribute="trailing" id="we9-7T-yFK"/>

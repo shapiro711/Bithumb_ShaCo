@@ -45,6 +45,7 @@
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
 		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
 		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
+		C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */; };
 		C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */; };
 		C951F24827A0352300C99A14 /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24727A0352300C99A14 /* OrderBookViewController.swift */; };
 		C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24927A0357300C99A14 /* ChartViewController.swift */; };
@@ -146,6 +147,7 @@
 		ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_BithumbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BithumbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTickerViewController.swift; sourceTree = "<group>"; };
+		C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeHeaderView.swift; sourceTree = "<group>"; };
 		C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailViewController.swift; sourceTree = "<group>"; };
 		C951F24727A0352300C99A14 /* OrderBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
 		C951F24927A0357300C99A14 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
 				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
 				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
+				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */,
 				C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */,
 				C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */,
+				C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickRequest.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetsStatusRequest.swift in Sources */,
 				C951F24D27A0359C00C99A14 /* TransactionViewController.swift in Sources */,
