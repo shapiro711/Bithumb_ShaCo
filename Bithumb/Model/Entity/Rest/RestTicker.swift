@@ -57,10 +57,19 @@ extension RestTicker: Decodable {
 
 extension RestTicker {
     func toDomain(symbol: String) -> TickerDTO {
+        var rateOfChange: Double? = nil
+        var amountOfChange: Double? = nil
+        
+        if let previousDayClosingPrice = previousDayClosingPrice,
+           let finalPrice = finalPrice {
+            rateOfChange = (finalPrice / previousDayClosingPrice) - 1
+            amountOfChange = previousDayClosingPrice - finalPrice
+        }
+        
         return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
                                                      rateOfChange: rateOfChange,
                                                      amountOfChange: amountOfChange,
-                                                     accumulatedTransactionAmount: accumulatedTransactionAmount24Hours,
+                                                     accumulatedTransactionAmount: accumulatedTransactionAmountMidnight,
                                                      previousDayClosingPrice: previousDayClosingPrice))
     }
 }

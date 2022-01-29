@@ -48,7 +48,10 @@ extension TickerViewController {
         let tickerRequest = tickerCriteria.reqeustBasedOnCriteria
         repository.execute(request: tickerRequest) { [weak self] result in
             switch result {
-            case .success(let tickers):
+            case .success(var tickers):
+                if self?.tickerCriteria == .popularity {
+                    tickers.sort { $0.data.accumulatedTransactionAmount ?? 0 > $1.data.accumulatedTransactionAmount ?? 0 }
+                }
                 self?.tickerTableViewDataSource.configure(tickers: tickers)
                 DispatchQueue.main.async {
                     self?.tickerTableView.reloadData()
