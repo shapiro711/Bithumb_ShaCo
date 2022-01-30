@@ -16,9 +16,21 @@ final class AssetStatusTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         return stackView
     }()
-    private let symbolLabel: UILabel = {
+    private let nameStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+    private let koreanNameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
+        return label
+    }()
+    private let symbolLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .caption1)
+        label.textColor = .systemGray
         return label
     }()
     private let depositStatusLabel: UILabel = {
@@ -45,6 +57,7 @@ final class AssetStatusTableViewCell: UITableViewCell {
     }
     
     func configure(by assetStatusInformation: AssetStatusDTO) {
+        koreanNameLabel.text = assetStatusInformation.koreanName
         symbolLabel.text = assetStatusInformation.symbol
         depositStatusLabel.text = assetStatusInformation.formattedDepositStatus
         withdrawStatusLabel.text = assetStatusInformation.formattedWithdrawStatus
@@ -57,9 +70,12 @@ extension AssetStatusTableViewCell {
     private func buildHierachy() {
         contentView.addSubview(assetStatusInformationStackView)
         
-        assetStatusInformationStackView.addArrangedSubview(symbolLabel)
+        assetStatusInformationStackView.addArrangedSubview(nameStackView)
         assetStatusInformationStackView.addArrangedSubview(depositStatusLabel)
         assetStatusInformationStackView.addArrangedSubview(withdrawStatusLabel)
+        
+        nameStackView.addArrangedSubview(koreanNameLabel)
+        nameStackView.addArrangedSubview(symbolLabel)
     }
     
     private func laysOutConstraints() {
@@ -76,7 +92,7 @@ extension AssetStatusTableViewCell {
         ])
         
         assetStatusInformationStackView.isLayoutMarginsRelativeArrangement = true
-        assetStatusInformationStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        assetStatusInformationStackView.layoutMargins = UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10)
     }
     
     private func generateColor(by status: Bool?) -> UIColor {
