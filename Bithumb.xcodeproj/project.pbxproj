@@ -43,6 +43,7 @@
 		3F72D87B278F14C6006B08E8 /* BithumbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D87A278F14C6006B08E8 /* BithumbTests.swift */; };
 		3F72D885278F14C6006B08E8 /* BithumbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D884278F14C6006B08E8 /* BithumbUITests.swift */; };
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
+		3FA0027027A6637900C20DE1 /* AssetsStatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */; };
 		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
 		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
 		C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */; };
@@ -141,6 +142,7 @@
 		3F72D880278F14C6006B08E8 /* BithumbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D884278F14C6006B08E8 /* BithumbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITests.swift; sourceTree = "<group>"; };
 		3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusHeaderView.swift; sourceTree = "<group>"; };
 		4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.release.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.release.xcconfig"; sourceTree = "<group>"; };
 		6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.release.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
 				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
 				C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */,
+				3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */,
+				3FA0027027A6637900C20DE1 /* AssetsStatusHeaderView.swift in Sources */,
 				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
 				C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
