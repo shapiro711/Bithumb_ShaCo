@@ -12,7 +12,7 @@ final class FavoriteTickerViewController: UIViewController {
     @IBOutlet private weak var tickerTableView: UITableView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -21,11 +21,13 @@ final class FavoriteTickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        registerObserver()
         requestRestTickerAPI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         repository.execute(request: .disconnect)
     }
 }
@@ -71,7 +73,7 @@ extension FavoriteTickerViewController {
             
             return TickerRequest.lookUp(orderCurrency: orderCurrency, paymentCurrency: paymentCurrency)
         }
-    
+        
         tickerRequests.forEach {
             dispatchGroup.enter()
             repository.execute(request: $0) { result in
@@ -136,5 +138,15 @@ extension FavoriteTickerViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension FavoriteTickerViewController: AppLifeCycleOserverable {
+    func receiveForegoundNotification() {
+        requestRestTickerAPI()
+    }
+    
+    func receiveBackgroundNotification() {
+        repository.execute(request: .disconnect)
     }
 }

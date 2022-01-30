@@ -26,11 +26,13 @@ final class TransactionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        registerObserver()
         requestRestTransactionAPI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         repository.execute(request: .disconnect)
     }
     
@@ -138,6 +140,16 @@ extension TransactionViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension TransactionViewController: AppLifeCycleOserverable {
+    func receiveForegoundNotification() {
+        requestRestTransactionAPI()
+    }
+    
+    func receiveBackgroundNotification() {
+        repository.execute(request: .disconnect)
     }
 }
 

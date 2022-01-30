@@ -22,11 +22,13 @@ final class TickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        registerObserver()
         requestRestTickerAPI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         repository.execute(request: .disconnect)
     }
     
@@ -95,6 +97,16 @@ extension TickerViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension TickerViewController: AppLifeCycleOserverable {
+    func receiveForegoundNotification() {
+        requestRestTickerAPI()
+    }
+    
+    func receiveBackgroundNotification() {
+        repository.execute(request: .disconnect)
     }
 }
 

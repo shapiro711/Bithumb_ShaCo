@@ -28,11 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        NotificationCenter.default.post(name: .sceneWillEnterForeground , object: nil)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        NotificationCenter.default.post(name: .sceneDidEnterBackground , object: nil)
     }
-
-
 }
 

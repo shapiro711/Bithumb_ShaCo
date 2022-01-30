@@ -39,11 +39,13 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        registerObserver()
         requestRestTickerAPI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         repository.execute(request: .disconnect)
     }
     
@@ -174,5 +176,15 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension ExchangeDetailViewController: AppLifeCycleOserverable {
+    func receiveForegoundNotification() {
+        requestRestTickerAPI()
+    }
+    
+    func receiveBackgroundNotification() {
+        repository.execute(request: .disconnect)
     }
 }

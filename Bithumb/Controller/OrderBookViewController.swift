@@ -23,11 +23,13 @@ final class OrderBookViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        registerObserver()
         requestRestOrderBookAPI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeObserver()
         repository.execute(request: .disconnect)
     }
     
@@ -110,6 +112,16 @@ extension OrderBookViewController: WebSocketDelegate {
     
     func didReceive(_ error: WebSocketCommonError) {
         
+    }
+}
+
+extension OrderBookViewController: AppLifeCycleOserverable {
+    func receiveForegoundNotification() {
+        requestRestOrderBookAPI()
+    }
+    
+    func receiveBackgroundNotification() {
+        repository.execute(request: .disconnect)
     }
 }
 
