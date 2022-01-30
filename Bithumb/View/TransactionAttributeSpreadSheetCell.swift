@@ -14,6 +14,7 @@ final class TransactionAttributeSpreadSheetCell: Cell {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .footnote)
         label.textAlignment = .center
+        label.backgroundColor = .systemBackground
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
