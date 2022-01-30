@@ -46,6 +46,7 @@
 		3FA0027027A6637900C20DE1 /* AssetsStatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */; };
 		3FA0027227A6D35600C20DE1 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */; };
 		3FA0027427A6E01A00C20DE1 /* AppLifeCycleOserverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */; };
+		3FA0027727A6F8D500C20DE1 /* CoinBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027627A6F8D500C20DE1 /* CoinBook.swift */; };
 		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
 		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
 		C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */; };
@@ -111,6 +112,7 @@
 		3F008FF82792BCF700356C3F /* Serviceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serviceable.swift; sourceTree = "<group>"; };
 		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		3F0AD95E27A7017B00367BC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookDTO.swift; sourceTree = "<group>"; };
 		3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusDTO.swift; sourceTree = "<group>"; };
@@ -138,7 +140,6 @@
 		3F72D86A278F14C5006B08E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F72D86C278F14C5006B08E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F72D86F278F14C5006B08E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3F72D871278F14C5006B08E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F72D876278F14C6006B08E8 /* BithumbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D87A278F14C6006B08E8 /* BithumbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbTests.swift; sourceTree = "<group>"; };
 		3F72D880278F14C6006B08E8 /* BithumbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +148,7 @@
 		3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusHeaderView.swift; sourceTree = "<group>"; };
 		3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifeCycleOserverable.swift; sourceTree = "<group>"; };
+		3FA0027627A6F8D500C20DE1 /* CoinBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBook.swift; sourceTree = "<group>"; };
 		4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.release.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.release.xcconfig"; sourceTree = "<group>"; };
 		6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.release.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -347,8 +349,7 @@
 				3F72D863278F14C5006B08E8 /* AppDelegate.swift */,
 				3F72D865278F14C5006B08E8 /* SceneDelegate.swift */,
 				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
-				3F72D86C278F14C5006B08E8 /* Assets.xcassets */,
-				3F72D871278F14C5006B08E8 /* Info.plist */,
+				3FA0027527A6F89400C20DE1 /* Resource */,
 			);
 			path = Bithumb;
 			sourceTree = "<group>";
@@ -368,6 +369,16 @@
 				3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */,
 			);
 			path = BithumbUITests;
+			sourceTree = "<group>";
+		};
+		3FA0027527A6F89400C20DE1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3F0AD95E27A7017B00367BC8 /* Info.plist */,
+				3F72D86C278F14C5006B08E8 /* Assets.xcassets */,
+				3FA0027627A6F8D500C20DE1 /* CoinBook.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		7DECAA86AA75E27EB03961DD /* Frameworks */ = {
@@ -816,6 +827,7 @@
 				C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */,
 				3F72D868278F14C5006B08E8 /* TickerViewController.swift in Sources */,
 				3F648BF327A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift in Sources */,
+				3FA0027727A6F8D500C20DE1 /* CoinBook.swift in Sources */,
 				3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */,
 				3F549FAE27993A1700692C0A /* WebSocketSessionManager.swift in Sources */,
 				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
@@ -1048,9 +1060,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J8CB2X29B5;
+				DEVELOPMENT_TEAM = Z9X27XS2Q8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bithumb/Info.plist;
+				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1077,9 +1089,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J8CB2X29B5;
+				DEVELOPMENT_TEAM = Z9X27XS2Q8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bithumb/Info.plist;
+				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

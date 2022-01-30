@@ -50,6 +50,10 @@ final class TickerTableViewDataSource: NSObject {
         return tickers[index].symbol
     }
     
+    func findKoreanName(by index: Int) -> String? {
+        return tickers[index].koreanName
+    }
+    
     func bringTrend(by index: Int) -> PriceTrend {
         return tickerTrends[index]
     }

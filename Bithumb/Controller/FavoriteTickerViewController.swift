@@ -53,7 +53,10 @@ extension FavoriteTickerViewController: UITableViewDelegate {
         }
         
         let symbol = tickerTableViewDataSource.findSymbol(by: indexPath.row)
+        let koreanName = tickerTableViewDataSource.findKoreanName(by: indexPath.row)
+        
         exchangeDetailViewController.register(symbol: symbol)
+        exchangeDetailViewController.register(koreanName: koreanName)
         
         navigationController?.pushViewController(exchangeDetailViewController, animated: true)
     }

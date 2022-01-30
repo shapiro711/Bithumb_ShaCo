@@ -20,6 +20,7 @@ enum ClosingPriceReceiveStatus {
 final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet private weak var headerView: ExchangeDetailHeaderView!
     private var symbol: String?
+    private var koreanName: String?
     private let repository: Repositoryable = Repository()
     private var closingPriceObservers: [ClosingPriceObserverable] = []
     private var isFavorite = false
@@ -53,6 +54,10 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         self.symbol = symbol
     }
     
+    func register(koreanName: String?) {
+        self.koreanName = koreanName
+    }
+    
     func addObserver(observer: ClosingPriceObserverable) {
         closingPriceObservers.append(observer)
     }
@@ -81,7 +86,10 @@ extension ExchangeDetailViewController {
     }
     
     private func setUpNavigationBar() {
-        navigationItem.title = symbol?.replacingOccurrences(of: String.underScore, with: String.slash)
+        if let koreanName = koreanName, let symbol = symbol {
+            navigationItem.title = koreanName +
+            " (\(symbol.replacingOccurrences(of: String.underScore, with: String.slash)))"
+        }
         navigationItem.setRightBarButton(favoriteButton, animated: false)
     }
     

@@ -17,7 +17,19 @@ struct TickerDTO: DataTransferable {
         }
         return symbol.replacingOccurrences(of: String.underScore, with: String.slash)
     }
-    
+    var koreanName: String {
+        guard let symbol = symbol else {
+            return .hypen
+        }
+        
+        let currencies = symbol.split(separator: "_").map { String($0) }
+        guard let orderCurrency = currencies.first,
+              let koreanName = CryptoCurrency.coinBook[orderCurrency] else {
+                  return symbol.replacingOccurrences(of: String.underScore, with: String.slash)
+              }
+        
+        return koreanName
+    }
     var formattedCurrentPrice: String {
         guard let currentPrice = data.currentPrice,
               let symbol = symbol else {

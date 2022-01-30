@@ -83,7 +83,7 @@ final class TickerTableViewCell: UITableViewCell {
     }
     
     func configure(by tickerInformation: TickerDTO) {
-        nameLabel.text = tickerInformation.symbol
+        nameLabel.text = tickerInformation.koreanName
         symbolLabel.text = tickerInformation.formattedSymbol
         currentPriceLabel.text = tickerInformation.formattedCurrentPrice
         fluctuatedRateLabel.text = tickerInformation.formattedRateOfChange
