@@ -57,6 +57,16 @@ extension FavoriteTickerViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(exchangeDetailViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? TickerTableViewCell else {
+            return
+        }
+        
+        let trend = tickerTableViewDataSource.bringTrend(by: indexPath.row)
+        cell.sparkle(by: trend)
+        tickerTableViewDataSource.resetTrend(by: indexPath.row)
+    }
 }
 
 extension FavoriteTickerViewController {
