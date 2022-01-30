@@ -51,38 +51,64 @@ extension TransactionSpreadsheetDataSource: SpreadsheetViewDataSource {
     }
     
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return transactions.count
+        return transactions.count + 1
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
-        let transactionInformation = transactions[indexPath.row]
-        
-        switch indexPath.column {
-        case 0:
+        switch (indexPath.row, indexPath.column) {
+        case (0, 0):
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionAttributeSpreadSheetCell.identifier, for: indexPath) as? TransactionAttributeSpreadSheetCell else {
+                return nil
+            }
+            
+            cell.configure(by: "체결시간")
+            return cell
+        case (0, 1):
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionAttributeSpreadSheetCell.identifier, for: indexPath) as? TransactionAttributeSpreadSheetCell else {
+                return nil
+            }
+            
+            cell.configure(by: "체결가격")
+            return cell
+        case (0, 2):
+            guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionAttributeSpreadSheetCell.identifier, for: indexPath) as? TransactionAttributeSpreadSheetCell else {
+                return nil
+            }
+            
+            cell.configure(by: "체결량")
+            return cell
+        case (_, 0):
             guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionTimeSpreadsheetCell.identifier, for: indexPath) as? TransactionTimeSpreadsheetCell else {
                 return nil
             }
             
+            let transactionInformation = transactions[indexPath.row - 1]
             cell.configure(by: transactionInformation)
             return cell
-        case 1:
+        case (_, 1):
             guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionPriceSpreadsheetCell.identifier, for: indexPath) as? TransactionPriceSpreadsheetCell else {
                 return nil
             }
             
+            let transactionInformation = transactions[indexPath.row - 1]
             let priceTrend = caculateTrend(transactionPrice: transactionInformation.price)
             cell.configure(by: transactionInformation, priceTrend: priceTrend)
             return cell
-        case 2:
+        case (_, 2):
             guard let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: TransactionQuantityTimeSpreadsheetCell.identifier, for: indexPath) as? TransactionQuantityTimeSpreadsheetCell else {
                 return nil
             }
             
+            let transactionInformation = transactions[indexPath.row - 1]
             cell.configure(by: transactionInformation)
             return cell
         default:
             return nil
         }
+    }
+    
+    func frozenRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return 1
     }
     
     private func caculateTrend(transactionPrice: Double?) -> PriceTrend {

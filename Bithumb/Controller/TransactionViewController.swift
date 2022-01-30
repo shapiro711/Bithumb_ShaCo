@@ -62,6 +62,7 @@ extension TransactionViewController {
         
         spreadsheetView.dataSource = spreadsheetDataSource
         
+        spreadsheetView.register(TransactionAttributeSpreadSheetCell.self, forCellWithReuseIdentifier: TransactionAttributeSpreadSheetCell.identifier)
         spreadsheetView.register(TransactionTimeSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionTimeSpreadsheetCell.identifier)
         spreadsheetView.register(TransactionPriceSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionPriceSpreadsheetCell.identifier)
         spreadsheetView.register(TransactionQuantityTimeSpreadsheetCell.self, forCellWithReuseIdentifier: TransactionQuantityTimeSpreadsheetCell.identifier)

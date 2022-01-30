@@ -46,6 +46,7 @@
 		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
 		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
 		C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */; };
+		C9123D4F27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */; };
 		C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */; };
 		C951F24827A0352300C99A14 /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24727A0352300C99A14 /* OrderBookViewController.swift */; };
 		C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24927A0357300C99A14 /* ChartViewController.swift */; };
@@ -148,6 +149,7 @@
 		B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BithumbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTickerViewController.swift; sourceTree = "<group>"; };
 		C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeHeaderView.swift; sourceTree = "<group>"; };
+		C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAttributeSpreadSheetCell.swift; sourceTree = "<group>"; };
 		C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailViewController.swift; sourceTree = "<group>"; };
 		C951F24727A0352300C99A14 /* OrderBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
 		C951F24927A0357300C99A14 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
 				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
 				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
+				C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
 				C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */,
+				C9123D4F27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift in Sources */,
 				C951F24F27A039DF00C99A14 /* ExchangeDetailHeaderView.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
