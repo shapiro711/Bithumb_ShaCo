@@ -81,6 +81,47 @@ final class TickerTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    func configure(by tickerInformation: TickerDTO) {
+        nameLabel.text = tickerInformation.symbol
+        symbolLabel.text = tickerInformation.formattedSymbol
+        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
+        fluctuatedRateLabel.text = tickerInformation.formattedRateOfChange
+        fluctuatedPriceLabel.text = tickerInformation.formattedAmountOfChange
+        transactionAmountLabel.text = tickerInformation.formattedTransactionAmount
+        
+        choiceColor(by: tickerInformation.data.rateOfChange)
+    }
+    
+    func sparkle(by trend: PriceTrend) {
+        let borderColorAnimation = CABasicAnimation(keyPath: "borderColor")
+        let borderWidthAnimation = CABasicAnimation(keyPath: "borderWidth")
+        let animationGroup = CAAnimationGroup()
+        
+        animationGroup.animations = [borderColorAnimation, borderWidthAnimation]
+        animationGroup.duration = 0.4
+        
+        switch trend {
+        case .up:
+            borderColorAnimation.fromValue = UIColor.systemRed.cgColor
+            borderColorAnimation.toValue = UIColor.systemRed.cgColor
+            
+            borderWidthAnimation.fromValue = 0.8
+            borderWidthAnimation.toValue = 0.8
+            
+            currentPriceLabel.layer.add(animationGroup, forKey: "sparkle")
+        case .equal:
+            break
+        case .down:
+            borderColorAnimation.fromValue = UIColor.systemBlue.cgColor
+            borderColorAnimation.toValue = UIColor.systemBlue.cgColor
+            
+            borderWidthAnimation.fromValue = 0.8
+            borderWidthAnimation.toValue = 0.8
+            
+            currentPriceLabel.layer.add(animationGroup, forKey: "sparkle")
+        }
+    }
 }
 
 extension TickerTableViewCell {
@@ -111,17 +152,6 @@ extension TickerTableViewCell {
             currentPriceLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
             fluctuationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.17)
         ])
-    }
-    
-    func configure(by tickerInformation: TickerDTO) {
-        nameLabel.text = tickerInformation.symbol
-        symbolLabel.text = tickerInformation.formattedSymbol
-        currentPriceLabel.text = tickerInformation.formattedCurrentPrice
-        fluctuatedRateLabel.text = tickerInformation.formattedRateOfChange
-        fluctuatedPriceLabel.text = tickerInformation.formattedAmountOfChange
-        transactionAmountLabel.text = tickerInformation.formattedTransactionAmount
-        
-        choiceColor(by: tickerInformation.data.rateOfChange)
     }
     
     private func choiceColor(by fluctuation: Double?) {

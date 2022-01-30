@@ -10,6 +10,7 @@ import UIKit
 final class TickerTableViewDataSource: NSObject {
     private var tickers: [TickerDTO] = []
     private var tickerIndexFinder: [String: Int] = [:]
+    private var tickerTrends: [PriceTrend] = []
     
     func configure(tickers: [TickerDTO]) {
         self.tickers = tickers
@@ -19,18 +20,42 @@ final class TickerTableViewDataSource: NSObject {
             }
             self.tickerIndexFinder[symbol] = index
         }
+        
+        tickerTrends = Array(repeating: .equal, count: tickers.count)
     }
     
     func update(by ticker: TickerDTO) -> Int? {
         guard let symbol = ticker.symbol, let index = self.tickerIndexFinder[symbol] else {
             return nil
         }
+        
+        if let previousPrice = tickers[index].data.currentPrice, let currentPrice = ticker.data.currentPrice {
+            if previousPrice > currentPrice {
+                tickerTrends[index] = .down
+            } else if previousPrice == currentPrice {
+                tickerTrends[index] = .equal
+            } else {
+                tickerTrends[index] = .up
+            }
+        } else {
+            tickerTrends[index] = .equal
+        }
+        
         self.tickers[index] = ticker
+        
         return index
     }
     
     func findSymbol(by index: Int) -> String? {
         return tickers[index].symbol
+    }
+    
+    func bringTrend(by index: Int) -> PriceTrend {
+        return tickerTrends[index]
+    }
+    
+    func resetTrend(by index: Int) {
+        tickerTrends[index] = .equal
     }
 }
 
