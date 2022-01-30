@@ -46,6 +46,6 @@ final class ExchangeViewContorller: SegmentedPagerTabStripViewController {
         btcTickerViewController.register(tickerCriteria: .btc)
         popularityTickerViewController.register(tickerCriteria: .popularity)
         
-        return [krwTickerViewController, btcTickerViewController, favoritesTickerViewController, popularityTickerViewController]
+        return [popularityTickerViewController, krwTickerViewController, btcTickerViewController, favoritesTickerViewController]
     }
 }
