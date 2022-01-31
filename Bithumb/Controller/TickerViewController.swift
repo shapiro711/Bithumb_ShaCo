@@ -60,8 +60,8 @@ extension TickerViewController {
                 }
                 let symbols = tickers.compactMap { $0.symbol }
                 self?.requestWebSocketTickerAPI(symbols: symbols)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }
@@ -74,7 +74,7 @@ extension TickerViewController {
 
 extension TickerViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
-        
+        UIAlertController.showAlert(about: connectionEvent, on: self)
     }
     
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
@@ -92,11 +92,11 @@ extension TickerViewController: WebSocketDelegate {
     }
     
     func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
-        
+        UIAlertController.showAlert(about: subscriptionEvent, on: self)
     }
     
     func didReceive(_ error: WebSocketCommonError) {
-        
+        UIAlertController.showAlert(about: error, on: self)
     }
 }
 

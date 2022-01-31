@@ -34,6 +34,7 @@
 		3F648BF127A277B30019F93C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF027A277B30019F93C /* String+Extension.swift */; };
 		3F648BF327A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */; };
 		3F648BF527A2E69D0019F93C /* TransactionSpreadsheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */; };
+		3F6ACBB227A8224F00B41C8C /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6ACBB127A8224F00B41C8C /* UIAlertController+Extension.swift */; };
 		3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D863278F14C5006B08E8 /* AppDelegate.swift */; };
 		3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D865278F14C5006B08E8 /* SceneDelegate.swift */; };
 		3F72D868278F14C5006B08E8 /* TickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* TickerViewController.swift */; };
@@ -133,6 +134,7 @@
 		3F648BF027A277B30019F93C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSpreadsheetDataSource.swift; sourceTree = "<group>"; };
 		3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSpreadsheetCell.swift; sourceTree = "<group>"; };
+		3F6ACBB127A8224F00B41C8C /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		3F72D860278F14C5006B08E8 /* Bithumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bithumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D863278F14C5006B08E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F72D865278F14C5006B08E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +320,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3F6ACBB027A8222F00B41C8C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
+				3F6ACBB127A8224F00B41C8C /* UIAlertController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3F72D857278F14C5006B08E8 = {
 			isa = PBXGroup;
 			children = (
@@ -343,12 +354,12 @@
 		3F72D862278F14C5006B08E8 /* Bithumb */ = {
 			isa = PBXGroup;
 			children = (
+				3F6ACBB027A8222F00B41C8C /* Extension */,
 				C9FF258A279DB6FB00FFC876 /* View */,
 				C9E59F242796E5B30093BD4A /* Controller */,
 				C9DA6B62278F19B40021706D /* Model */,
 				3F72D863278F14C5006B08E8 /* AppDelegate.swift */,
 				3F72D865278F14C5006B08E8 /* SceneDelegate.swift */,
-				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
 				3FA0027527A6F89400C20DE1 /* Resource */,
 			);
 			path = Bithumb;
@@ -844,6 +855,7 @@
 				C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */,
 				C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */,
 				3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */,
+				3F6ACBB227A8224F00B41C8C /* UIAlertController+Extension.swift in Sources */,
 				3F648BF127A277B30019F93C /* String+Extension.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
@@ -1060,7 +1072,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z9X27XS2Q8;
+				DEVELOPMENT_TEAM = J8CB2X29B5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1090,7 +1102,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z9X27XS2Q8;
+				DEVELOPMENT_TEAM = J8CB2X29B5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

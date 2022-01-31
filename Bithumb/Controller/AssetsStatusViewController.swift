@@ -41,8 +41,8 @@ extension AssetsStatusViewController {
                 DispatchQueue.main.async {
                     self?.assetsStatusTableView.reloadData()
                 }
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }

@@ -149,8 +149,8 @@ extension ExchangeDetailViewController {
                     self?.headerView.configure(by: tickers.first)
                 }
                 self?.requestWebSocketTickerAPI(symbol: symbol)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }
@@ -163,7 +163,7 @@ extension ExchangeDetailViewController {
 
 extension ExchangeDetailViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
-        
+        UIAlertController.showAlert(about: connectionEvent, on: self)
     }
     
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
@@ -179,11 +179,11 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     }
     
     func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
-        
+        UIAlertController.showAlert(about: subscriptionEvent, on: self)
     }
     
     func didReceive(_ error: WebSocketCommonError) {
-        
+        UIAlertController.showAlert(about: error, on: self)
     }
 }
 

@@ -68,8 +68,8 @@ extension OrderBookViewController {
                     self?.orderBookTableView.reloadData()
                 }
                 self?.requestWebSocketOrderBookAPI(symbol: symbol)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }
@@ -91,7 +91,7 @@ extension OrderBookViewController: IndicatorInfoProvider {
 
 extension OrderBookViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
-        
+        UIAlertController.showAlert(about: connectionEvent, on: self)
     }
     
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
@@ -107,11 +107,11 @@ extension OrderBookViewController: WebSocketDelegate {
     }
     
     func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
-        
+        UIAlertController.showAlert(about: subscriptionEvent, on: self)
     }
     
     func didReceive(_ error: WebSocketCommonError) {
-        
+        UIAlertController.showAlert(about: error, on: self)
     }
 }
 
