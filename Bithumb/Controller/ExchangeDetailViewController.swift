@@ -163,7 +163,7 @@ extension ExchangeDetailViewController {
 
 extension ExchangeDetailViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
-        
+        UIAlertController.showAlert(about: connectionEvent, on: self)
     }
     
     func didReceive(_ messageEvent: WebSocketResponseMessage) {
