@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -219,9 +219,9 @@
                         <viewLayoutGuide key="safeArea" id="WhK-mt-5pF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NOE-zk-eqt" firstAttribute="leading" secondItem="WhK-mt-5pF" secondAttribute="leading" id="L1j-re-nOe"/>
+                            <constraint firstItem="NOE-zk-eqt" firstAttribute="leading" secondItem="0zc-wz-4Ql" secondAttribute="leading" id="L1j-re-nOe"/>
                             <constraint firstItem="NOE-zk-eqt" firstAttribute="top" secondItem="WhK-mt-5pF" secondAttribute="top" id="Xii-Dv-mWI"/>
-                            <constraint firstItem="WhK-mt-5pF" firstAttribute="trailing" secondItem="NOE-zk-eqt" secondAttribute="trailing" id="i4m-7m-WzI"/>
+                            <constraint firstAttribute="trailing" secondItem="NOE-zk-eqt" secondAttribute="trailing" id="i4m-7m-WzI"/>
                             <constraint firstItem="WhK-mt-5pF" firstAttribute="bottom" secondItem="NOE-zk-eqt" secondAttribute="bottom" id="qbb-pG-oJ0"/>
                         </constraints>
                     </view>
