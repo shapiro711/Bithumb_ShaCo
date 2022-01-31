@@ -92,11 +92,11 @@ extension TickerViewController: WebSocketDelegate {
     }
     
     func didReceive(_ subscriptionEvent: WebSocketSubscriptionEvent) {
-        
+        UIAlertController.showAlert(about: subscriptionEvent, on: self)
     }
     
     func didReceive(_ error: WebSocketCommonError) {
-        
+        UIAlertController.showAlert(about: error, on: self)
     }
 }
 
