@@ -101,8 +101,8 @@ extension FavoriteTickerViewController {
                 switch result {
                 case .success(let tickers):
                     favoriteCoinTickers.append(contentsOf: tickers)
-                case .failure(_):
-                    break
+                case .failure(let error):
+                    UIAlertController.showAlert(about: error, on: self)
                 }
             }
             self?.tickerTableViewDataSource.configure(tickers: favoriteCoinTickers)

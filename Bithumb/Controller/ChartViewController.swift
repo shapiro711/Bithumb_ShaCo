@@ -93,8 +93,8 @@ extension ChartViewController {
             case .success(let candlesticks):
                 self?.drawCandlestickChart(by: candlesticks, chartInterval: chartInterval)
                 self?.drawBarChart(by: candlesticks, chartInterval: chartInterval)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }

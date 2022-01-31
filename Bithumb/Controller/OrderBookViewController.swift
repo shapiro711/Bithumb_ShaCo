@@ -68,8 +68,8 @@ extension OrderBookViewController {
                     self?.orderBookTableView.reloadData()
                 }
                 self?.requestWebSocketOrderBookAPI(symbol: symbol)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }

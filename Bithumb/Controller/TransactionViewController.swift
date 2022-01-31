@@ -105,8 +105,8 @@ extension TransactionViewController {
                     self?.spreadsheetView.reloadData()
                 }
                 self?.requestWebSocketTransactionAPI(symbol: symbol)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }

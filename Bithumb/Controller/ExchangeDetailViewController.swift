@@ -149,8 +149,8 @@ extension ExchangeDetailViewController {
                     self?.headerView.configure(by: tickers.first)
                 }
                 self?.requestWebSocketTickerAPI(symbol: symbol)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }

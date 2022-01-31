@@ -60,8 +60,8 @@ extension TickerViewController {
                 }
                 let symbols = tickers.compactMap { $0.symbol }
                 self?.requestWebSocketTickerAPI(symbols: symbols)
-            case .failure(_):
-                break
+            case .failure(let error):
+                UIAlertController.showAlert(about: error, on: self)
             }
         }
     }
