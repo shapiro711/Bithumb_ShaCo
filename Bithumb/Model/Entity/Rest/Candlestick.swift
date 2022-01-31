@@ -16,8 +16,7 @@ struct Candlestick {
     let volume: String
     
     var date: Date {
-        let nineHoursInSeconds: TimeInterval = 32400
-        return Date(timeIntervalSince1970: dateTime / 1000 + nineHoursInSeconds)
+        return Date(timeIntervalSince1970: dateTime / 1000)
     }
 }
 

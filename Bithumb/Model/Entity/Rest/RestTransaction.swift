@@ -19,12 +19,10 @@ struct RestTransaction {
             return nil
         }
         
-        let nineHoursInSeconds: TimeInterval = 32400
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var date = dateFormatter.date(from: dateTime)
-        date?.addTimeInterval(nineHoursInSeconds)
-        return date
+        
+        return dateFormatter.date(from: dateTime)
     }
 }
 
@@ -49,6 +47,6 @@ extension RestTransaction: Decodable {
 
 extension RestTransaction {
     func toDomain() -> TransactionDTO {
-        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType)
+        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType, symbol: nil)
     }
 }

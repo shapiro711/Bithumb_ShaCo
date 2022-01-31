@@ -67,6 +67,6 @@ extension WebSocketTransaction: Decodable {
 
 extension WebSocketTransaction {
     func toDomain() -> TransactionDTO {
-        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType)
+        return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType, symbol: symbol)
     }
 }

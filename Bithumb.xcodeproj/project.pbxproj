@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7475367A66F898CA088F4E /* Pods_Bithumb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */; };
 		3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF12792999700356C3F /* RestEndPoint.swift */; };
 		3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */; };
 		3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF52792AD2500356C3F /* EndPointFactory.swift */; };
 		3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF82792BCF700356C3F /* Serviceable.swift */; };
 		3F008FFB2792BE4300356C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFA2792BE4300356C3F /* RestService.swift */; };
 		3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFC2792BE5300356C3F /* WebSocketService.swift */; };
+		3F183DDC279FF0CE00FAB23F /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */; };
 		3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */; };
 		3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */; };
 		3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */; };
@@ -28,15 +30,38 @@
 		3F549FB0279AA14200692C0A /* WebSocketMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */; };
 		3F549FB3279AF1D900692C0A /* WebSocketEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F549FB2279AF1D900692C0A /* WebSocketEvent.swift */; };
 		3F58DD73279D8ED9002DE43D /* RestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58DD72279D8ED9002DE43D /* RestError.swift */; };
+		3F58DD75279DC4A5002DE43D /* TickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */; };
+		3F648BF127A277B30019F93C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF027A277B30019F93C /* String+Extension.swift */; };
+		3F648BF327A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */; };
+		3F648BF527A2E69D0019F93C /* TransactionSpreadsheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */; };
 		3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D863278F14C5006B08E8 /* AppDelegate.swift */; };
 		3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D865278F14C5006B08E8 /* SceneDelegate.swift */; };
-		3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* ViewController.swift */; };
+		3F72D868278F14C5006B08E8 /* TickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D867278F14C5006B08E8 /* TickerViewController.swift */; };
 		3F72D86B278F14C5006B08E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F72D869278F14C5006B08E8 /* Main.storyboard */; };
 		3F72D86D278F14C5006B08E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F72D86C278F14C5006B08E8 /* Assets.xcassets */; };
 		3F72D870278F14C5006B08E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */; };
 		3F72D87B278F14C6006B08E8 /* BithumbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D87A278F14C6006B08E8 /* BithumbTests.swift */; };
 		3F72D885278F14C6006B08E8 /* BithumbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D884278F14C6006B08E8 /* BithumbUITests.swift */; };
 		3F72D887278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */; };
+		3FA0027027A6637900C20DE1 /* AssetsStatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */; };
+		3FA0027227A6D35600C20DE1 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */; };
+		3FA0027427A6E01A00C20DE1 /* AppLifeCycleOserverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */; };
+		3FA0027727A6F8D500C20DE1 /* CoinBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0027627A6F8D500C20DE1 /* CoinBook.swift */; };
+		B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */; };
+		C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */; };
+		C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */; };
+		C9123D4F27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */; };
+		C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */; };
+		C951F24827A0352300C99A14 /* OrderBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24727A0352300C99A14 /* OrderBookViewController.swift */; };
+		C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24927A0357300C99A14 /* ChartViewController.swift */; };
+		C951F24D27A0359C00C99A14 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24C27A0359C00C99A14 /* TransactionViewController.swift */; };
+		C951F24F27A039DF00C99A14 /* ExchangeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */; };
+		C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */; };
+		C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */; };
+		C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */; };
+		C9AB327727A3D11C003FA78E /* AssetsStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */; };
+		C9AB327927A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */; };
+		C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */; };
 		C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AC23D127906C1600A359FB /* AssetStatus.swift */; };
 		C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B63278F19C50021706D /* WebSocketTicker.swift */; };
 		C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */; };
@@ -56,6 +81,8 @@
 		C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF257427984FF700FFC876 /* WebSocketRequest.swift */; };
 		C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */; };
 		C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */; };
+		C9FF258C279DB7A300FFC876 /* TickerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */; };
+		FEDD67D61DBED91993C875B1 /* Pods_Bithumb_BithumbUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +103,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.debug.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.debug.xcconfig"; sourceTree = "<group>"; };
+		17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-BithumbUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F008FF12792999700356C3F /* RestEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEndPoint.swift; sourceTree = "<group>"; };
 		3F008FF52792AD2500356C3F /* EndPointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointFactory.swift; sourceTree = "<group>"; };
 		3F008FF82792BCF700356C3F /* Serviceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serviceable.swift; sourceTree = "<group>"; };
 		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		3F0AD95E27A7017B00367BC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookDTO.swift; sourceTree = "<group>"; };
 		3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusDTO.swift; sourceTree = "<group>"; };
 		3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferable.swift; sourceTree = "<group>"; };
@@ -97,19 +129,46 @@
 		3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessageHandler.swift; sourceTree = "<group>"; };
 		3F549FB2279AF1D900692C0A /* WebSocketEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketEvent.swift; sourceTree = "<group>"; };
 		3F58DD72279D8ED9002DE43D /* RestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestError.swift; sourceTree = "<group>"; };
+		3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTableViewCell.swift; sourceTree = "<group>"; };
+		3F648BF027A277B30019F93C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSpreadsheetDataSource.swift; sourceTree = "<group>"; };
+		3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSpreadsheetCell.swift; sourceTree = "<group>"; };
 		3F72D860278F14C5006B08E8 /* Bithumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bithumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D863278F14C5006B08E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F72D865278F14C5006B08E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F72D867278F14C5006B08E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F72D867278F14C5006B08E8 /* TickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerViewController.swift; sourceTree = "<group>"; };
 		3F72D86A278F14C5006B08E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F72D86C278F14C5006B08E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F72D86F278F14C5006B08E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3F72D871278F14C5006B08E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F72D876278F14C6006B08E8 /* BithumbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D87A278F14C6006B08E8 /* BithumbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbTests.swift; sourceTree = "<group>"; };
 		3F72D880278F14C6006B08E8 /* BithumbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BithumbUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F72D884278F14C6006B08E8 /* BithumbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITests.swift; sourceTree = "<group>"; };
 		3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BithumbUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusHeaderView.swift; sourceTree = "<group>"; };
+		3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifeCycleOserverable.swift; sourceTree = "<group>"; };
+		3FA0027627A6F8D500C20DE1 /* CoinBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBook.swift; sourceTree = "<group>"; };
+		4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb.release.xcconfig"; path = "Target Support Files/Pods-Bithumb/Pods-Bithumb.release.xcconfig"; sourceTree = "<group>"; };
+		6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BithumbTests.release.xcconfig"; path = "Target Support Files/Pods-BithumbTests/Pods-BithumbTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bithumb-BithumbUITests.release.xcconfig"; path = "Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bithumb_BithumbUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BithumbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTickerViewController.swift; sourceTree = "<group>"; };
+		C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeHeaderView.swift; sourceTree = "<group>"; };
+		C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAttributeSpreadSheetCell.swift; sourceTree = "<group>"; };
+		C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailViewController.swift; sourceTree = "<group>"; };
+		C951F24727A0352300C99A14 /* OrderBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookViewController.swift; sourceTree = "<group>"; };
+		C951F24927A0357300C99A14 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		C951F24C27A0359C00C99A14 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailHeaderView.swift; sourceTree = "<group>"; };
+		C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookTableViewDataSource.swift; sourceTree = "<group>"; };
+		C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookAskTableViewCell.swift; sourceTree = "<group>"; };
+		C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookBidTableViewCell.swift; sourceTree = "<group>"; };
+		C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusViewController.swift; sourceTree = "<group>"; };
+		C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsStatusTableViewDataSource.swift; sourceTree = "<group>"; };
+		C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusTableViewCell.swift; sourceTree = "<group>"; };
 		C9AC23D127906C1600A359FB /* AssetStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatus.swift; sourceTree = "<group>"; };
 		C9DA6B63278F19C50021706D /* WebSocketTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTicker.swift; sourceTree = "<group>"; };
 		C9DA6B65278FF1700021706D /* WebSocketOrderBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketOrderBook.swift; sourceTree = "<group>"; };
@@ -129,6 +188,7 @@
 		C9FF257427984FF700FFC876 /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
 		C9FF2586279A8D4300FFC876 /* ConnectionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMessage.swift; sourceTree = "<group>"; };
 		C9FF2588279D897D00FFC876 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7475367A66F898CA088F4E /* Pods_Bithumb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FA224901F16E8167510CAC /* Pods_BithumbTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,12 +212,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEDD67D61DBED91993C875B1 /* Pods_Bithumb_BithumbUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		287DE80827C6490D0465D562 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */,
+				660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */,
+				17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */,
+				AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */,
+				14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */,
+				6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3F008FEE2792916E00356C3F /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +310,14 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
+		3F648BEF27A2779E0019F93C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3F648BF027A277B30019F93C /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3F72D857278F14C5006B08E8 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +325,8 @@
 				3F72D879278F14C6006B08E8 /* BithumbTests */,
 				3F72D883278F14C6006B08E8 /* BithumbUITests */,
 				3F72D861278F14C5006B08E8 /* Products */,
+				287DE80827C6490D0465D562 /* Pods */,
+				7DECAA86AA75E27EB03961DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,15 +343,13 @@
 		3F72D862278F14C5006B08E8 /* Bithumb */ = {
 			isa = PBXGroup;
 			children = (
+				C9FF258A279DB6FB00FFC876 /* View */,
 				C9E59F242796E5B30093BD4A /* Controller */,
 				C9DA6B62278F19B40021706D /* Model */,
 				3F72D863278F14C5006B08E8 /* AppDelegate.swift */,
 				3F72D865278F14C5006B08E8 /* SceneDelegate.swift */,
-				3F72D867278F14C5006B08E8 /* ViewController.swift */,
-				3F72D869278F14C5006B08E8 /* Main.storyboard */,
-				3F72D86C278F14C5006B08E8 /* Assets.xcassets */,
-				3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */,
-				3F72D871278F14C5006B08E8 /* Info.plist */,
+				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
+				3FA0027527A6F89400C20DE1 /* Resource */,
 			);
 			path = Bithumb;
 			sourceTree = "<group>";
@@ -285,6 +369,26 @@
 				3F72D886278F14C6006B08E8 /* BithumbUITestsLaunchTests.swift */,
 			);
 			path = BithumbUITests;
+			sourceTree = "<group>";
+		};
+		3FA0027527A6F89400C20DE1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3F0AD95E27A7017B00367BC8 /* Info.plist */,
+				3F72D86C278F14C5006B08E8 /* Assets.xcassets */,
+				3FA0027627A6F8D500C20DE1 /* CoinBook.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		7DECAA86AA75E27EB03961DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F43F979DA4AE0716EDD71C8 /* Pods_Bithumb.framework */,
+				ACA963C8C76C8BB3BA682817 /* Pods_Bithumb_BithumbUITests.framework */,
+				B1583A40E6CBF28DE0FD4455 /* Pods_BithumbTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C9DA6B62278F19B40021706D /* Model */ = {
@@ -341,6 +445,19 @@
 		C9E59F242796E5B30093BD4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */,
+				3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */,
+				3F72D867278F14C5006B08E8 /* TickerViewController.swift */,
+				C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */,
+				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
+				C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */,
+				C951F24727A0352300C99A14 /* OrderBookViewController.swift */,
+				C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */,
+				C951F24927A0357300C99A14 /* ChartViewController.swift */,
+				C951F24C27A0359C00C99A14 /* TransactionViewController.swift */,
+				3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */,
+				C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */,
+				C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */,
 				C9E59F252796E5BB0093BD4A /* DTO */,
 			);
 			path = Controller;
@@ -349,6 +466,7 @@
 		C9E59F252796E5BB0093BD4A /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				3F648BEF27A2779E0019F93C /* Extension */,
 				3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */,
 				C9E59F262796E5CF0093BD4A /* TickerDTO.swift */,
 				3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */,
@@ -439,6 +557,24 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
+		C9FF258A279DB6FB00FFC876 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F72D869278F14C5006B08E8 /* Main.storyboard */,
+				3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */,
+				3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */,
+				C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */,
+				C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */,
+				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
+				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
+				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
+				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
+				C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */,
+				3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,9 +582,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D88A278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "Bithumb" */;
 			buildPhases = (
+				4DD3FA30285F7ECF8269BDB9 /* [CP] Check Pods Manifest.lock */,
 				3F72D85C278F14C5006B08E8 /* Sources */,
 				3F72D85D278F14C5006B08E8 /* Frameworks */,
 				3F72D85E278F14C5006B08E8 /* Resources */,
+				05A4A578E52A64B17AD4ADA2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -463,6 +601,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D88D278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "BithumbTests" */;
 			buildPhases = (
+				71DF3E9DD74AEF97403E42DB /* [CP] Check Pods Manifest.lock */,
 				3F72D872278F14C6006B08E8 /* Sources */,
 				3F72D873278F14C6006B08E8 /* Frameworks */,
 				3F72D874278F14C6006B08E8 /* Resources */,
@@ -481,9 +620,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F72D890278F14C6006B08E8 /* Build configuration list for PBXNativeTarget "BithumbUITests" */;
 			buildPhases = (
+				2B06BFF6BC4489F0E8261A7D /* [CP] Check Pods Manifest.lock */,
 				3F72D87C278F14C6006B08E8 /* Sources */,
 				3F72D87D278F14C6006B08E8 /* Frameworks */,
 				3F72D87E278F14C6006B08E8 /* Resources */,
+				F739B02E6B2DED9C6564ACE2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -565,53 +706,180 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05A4A578E52A64B17AD4ADA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb/Pods-Bithumb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B06BFF6BC4489F0E8261A7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-BithumbUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DD3FA30285F7ECF8269BDB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bithumb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71DF3E9DD74AEF97403E42DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BithumbTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F739B02E6B2DED9C6564ACE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bithumb-BithumbUITests/Pods-Bithumb-BithumbUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F72D85C278F14C5006B08E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */,
+				C9AB327727A3D11C003FA78E /* AssetsStatusViewController.swift in Sources */,
 				3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */,
 				3F549FB0279AA14200692C0A /* WebSocketMessageHandler.swift in Sources */,
 				3F008FFB2792BE4300356C3F /* RestService.swift in Sources */,
 				3F52C2992790055000AE2082 /* WebSocketTransaction.swift in Sources */,
 				C9FF2587279A8D4300FFC876 /* ConnectionMessage.swift in Sources */,
+				3F648BF527A2E69D0019F93C /* TransactionSpreadsheetCell.swift in Sources */,
 				3F008FF22792999700356C3F /* RestEndPoint.swift in Sources */,
 				3F549FAA2799288300692C0A /* MessageFactory.swift in Sources */,
-				3F72D868278F14C5006B08E8 /* ViewController.swift in Sources */,
+				C951F24A27A0357300C99A14 /* ChartViewController.swift in Sources */,
+				3F72D868278F14C5006B08E8 /* TickerViewController.swift in Sources */,
+				3F648BF327A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift in Sources */,
+				3FA0027727A6F8D500C20DE1 /* CoinBook.swift in Sources */,
 				3F52C2A82791DC7E00AE2082 /* SubscriptionMessage.swift in Sources */,
 				3F549FAE27993A1700692C0A /* WebSocketSessionManager.swift in Sources */,
 				C9E59F312797D4850093BD4A /* Repository.swift in Sources */,
 				C9DA6B64278F19C50021706D /* WebSocketTicker.swift in Sources */,
 				C9FF2589279D897D00FFC876 /* NetworkMonitor.swift in Sources */,
+				3FA0027027A6637900C20DE1 /* AssetsStatusHeaderView.swift in Sources */,
 				C9FF257527984FF700FFC876 /* WebSocketRequest.swift in Sources */,
+				C9123D4B27A5665A0058EE16 /* FavoriteTickerViewController.swift in Sources */,
 				C9DA6B68279016900021706D /* RestOrderBook.swift in Sources */,
 				C9AC23D227906C1600A359FB /* AssetStatus.swift in Sources */,
+				C951F25127A055ED00C99A14 /* OrderBookTableViewDataSource.swift in Sources */,
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */,
+				C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */,
+				C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */,
 				3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */,
+				3F648BF127A277B30019F93C /* String+Extension.swift in Sources */,
 				3F52C29B279067D900AE2082 /* Candlestick.swift in Sources */,
 				C9DA6B6A279046C20021706D /* RestTransaction.swift in Sources */,
 				C9E59EE9279540A50093BD4A /* RestSessionManager.swift in Sources */,
+				C9123D4F27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift in Sources */,
+				C951F24F27A039DF00C99A14 /* ExchangeDetailHeaderView.swift in Sources */,
 				3F72D864278F14C5006B08E8 /* AppDelegate.swift in Sources */,
 				C9DA6B66278FF1700021706D /* WebSocketOrderBook.swift in Sources */,
+				3F58DD75279DC4A5002DE43D /* TickerTableViewCell.swift in Sources */,
 				3F008FF4279299FF00356C3F /* WebSocketEndPoint.swift in Sources */,
 				C9E59ED227918EA80093BD4A /* RestRequestable.swift in Sources */,
 				3F58DD73279D8ED9002DE43D /* RestError.swift in Sources */,
 				C9E59F2E279708730093BD4A /* RestResponseData.swift in Sources */,
 				3F52C2A02791918600AE2082 /* TickerRequest.swift in Sources */,
+				C9FF258C279DB7A300FFC876 /* TickerTableViewDataSource.swift in Sources */,
 				C9E59EE32792AFC40093BD4A /* NetworkConfigurable.swift in Sources */,
 				3F549FB3279AF1D900692C0A /* WebSocketEvent.swift in Sources */,
+				C9AB327927A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift in Sources */,
 				C9E59F272796E5CF0093BD4A /* TickerDTO.swift in Sources */,
+				3FA0027227A6D35600C20DE1 /* Notification+Extension.swift in Sources */,
+				3FA0027427A6E01A00C20DE1 /* AppLifeCycleOserverable.swift in Sources */,
+				C951F25527A117F300C99A14 /* OrderBookBidTableViewCell.swift in Sources */,
 				3F72D866278F14C5006B08E8 /* SceneDelegate.swift in Sources */,
 				3F52C2A22791C01C00AE2082 /* OrderBookRequest.swift in Sources */,
 				3F52C2A42791C54700AE2082 /* TransactionRequest.swift in Sources */,
 				C9E59EDC2791D20F0093BD4A /* RestTicker.swift in Sources */,
 				3F47DB9B2796FF8000DD3119 /* DataTransferable.swift in Sources */,
+				C951F25327A057C200C99A14 /* OrderBookAskTableViewCell.swift in Sources */,
 				C9E59F2B2796FE470093BD4A /* CandlestickDTO.swift in Sources */,
+				C9123D4D27A5BBAF0058EE16 /* ExchangeHeaderView.swift in Sources */,
 				3F52C2A62791CD3C00AE2082 /* CandlestickRequest.swift in Sources */,
 				C9E59ED62791C6A60093BD4A /* AssetsStatusRequest.swift in Sources */,
+				C951F24D27A0359C00C99A14 /* TransactionViewController.swift in Sources */,
+				3F183DDC279FF0CE00FAB23F /* ExchangeViewController.swift in Sources */,
 				3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */,
+				C951F24827A0352300C99A14 /* OrderBookViewController.swift in Sources */,
 				3F008FF62792AD2500356C3F /* EndPointFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,6 +1054,7 @@
 		};
 		3F72D88B278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15D6D956EBD23EDFB225692F /* Pods-Bithumb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -793,10 +1062,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z9X27XS2Q8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bithumb/Info.plist;
+				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -814,6 +1084,7 @@
 		};
 		3F72D88C278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 660465FBA66743C80F603B4E /* Pods-Bithumb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -821,10 +1092,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z9X27XS2Q8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bithumb/Info.plist;
+				INFOPLIST_FILE = Bithumb/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -842,6 +1114,7 @@
 		};
 		3F72D88E278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D188DA7BC80962558F071E /* Pods-BithumbTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -867,6 +1140,7 @@
 		};
 		3F72D88F278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CC460F8160C8F2F5CBFC96F /* Pods-BithumbTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -892,6 +1166,7 @@
 		};
 		3F72D891278F14C6006B08E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17263648167B36003BC03128 /* Pods-Bithumb-BithumbUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -915,6 +1190,7 @@
 		};
 		3F72D892278F14C6006B08E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9EA7E842742D31FBC5867A /* Pods-Bithumb-BithumbUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

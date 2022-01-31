@@ -16,10 +16,10 @@ final class NetworkMonitor {
     private init() { }
     
     func startMonitoring() {
-        monitor.start(queue: .global())
         monitor.pathUpdateHandler = { [weak self] path in
             self?.isConnected = (path.status == .satisfied)
         }
+        monitor.start(queue: .global())
     }
     
     func stopMonitoring() {

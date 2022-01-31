@@ -21,6 +21,23 @@ enum ChartInterval: String {
     var pathValue: String {
         return self.rawValue
     }
+    
+    init?(interval: String?) {
+        switch interval {
+        case "1분":
+            self = .oneMinute
+        case "10분":
+            self = .tenMinutes
+        case "30분":
+            self = .thirtyMinutes
+        case "1시간":
+            self = .oneHour
+        case "일":
+            self = .twentyFourHours
+        default:
+            return nil
+        }
+    }
 }
 
 enum CandlestickRequest {
