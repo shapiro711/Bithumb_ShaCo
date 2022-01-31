@@ -10,7 +10,7 @@ import UIKit
 extension UIAlertController {
     static func showAlert(about event: WebSocketConnectionEvent, on viewController: UIViewController) {
         DispatchQueue.main.async {
-            let alertController = UIAlertController()
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             
             switch event {
             case .failedToConnect, .unintentionalDisconnection:
@@ -32,7 +32,7 @@ extension UIAlertController {
         }
         
         DispatchQueue.main.async {
-            let alertController = UIAlertController()
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             alertController.title = "네트워크 오류 발생"
             alertController.message = "데이터를 받아오는데 실패하였습니다. 문제가 지속되는 경우 문의를 남겨주세요."
             let alertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -44,7 +44,7 @@ extension UIAlertController {
     
     static func showAlert(about error: WebSocketCommonError, on viewController: UIViewController) {
         DispatchQueue.main.async {
-            let alertController = UIAlertController()
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             alertController.addAction(alertAction)
             
@@ -67,7 +67,7 @@ extension UIAlertController {
         }
         
         DispatchQueue.main.async {
-            let alertController = UIAlertController()
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             alertController.addAction(alertAction)
             
