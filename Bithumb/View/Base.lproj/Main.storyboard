@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -384,11 +384,11 @@
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6t3-ik-5cD" id="qr0-bW-FQH">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rwq-sy-AIH">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -398,6 +398,26 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="jTr-3H-YFz" kind="show" id="ZOs-oS-La0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ByE-Da-Z5x" style="IBUITableViewCellStyleDefault" id="fpQ-Bq-M0G">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fpQ-Bq-M0G" id="gnX-w2-FrQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="팀 소개 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ByE-Da-Z5x">
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0IR-Te-2ss" kind="show" id="Vy8-EV-Cht"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -518,7 +538,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v08-4m-oQr">
                                 <rect key="frame" x="0.0" y="407.5" width="414" height="405.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">The MIT License (MIT)
+                                <string key="text">The MIT License (MIT)
 
 Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
 
@@ -738,7 +758,7 @@ SOFTWARE.  Apache License
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-   limitations under the License.</mutableString>
+   limitations under the License.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -752,7 +772,6 @@ SOFTWARE.  Apache License
                             <constraint firstItem="hSQ-53-QvT" firstAttribute="height" secondItem="NOA-Ms-JCp" secondAttribute="height" multiplier="0.003" id="7N2-Zi-hMi"/>
                             <constraint firstItem="v08-4m-oQr" firstAttribute="leading" secondItem="Lks-Au-uVL" secondAttribute="leading" id="Ba7-XK-wt9"/>
                             <constraint firstItem="Lks-Au-uVL" firstAttribute="bottom" secondItem="v08-4m-oQr" secondAttribute="bottom" id="Iil-iw-VHq"/>
-                            <constraint firstItem="hSQ-53-QvT" firstAttribute="bottom" secondItem="v08-4m-oQr" secondAttribute="top" id="JAG-A6-2hw"/>
                             <constraint firstItem="Lks-Au-uVL" firstAttribute="trailing" secondItem="v08-4m-oQr" secondAttribute="trailing" id="SUp-Ba-n8d"/>
                             <constraint firstItem="agL-l4-uuc" firstAttribute="leading" secondItem="Lks-Au-uVL" secondAttribute="leading" constant="10" id="SrN-q1-quU"/>
                             <constraint firstAttribute="trailing" secondItem="hSQ-53-QvT" secondAttribute="trailing" id="fxO-LB-mOo"/>
@@ -766,13 +785,128 @@ SOFTWARE.  Apache License
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0m-DG-N9K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2799" y="135"/>
+        </scene>
+        <!--팀 소개-->
+        <scene sceneID="xhD-Hi-ac7">
+            <objects>
+                <viewController id="0IR-Te-2ss" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hw-8z-wY6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7f-Gn-8Ai">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-PK-j9U">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="96G-f1-4ow">
+                                                <rect key="frame" x="125" y="100" width="164" height="520"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-lY-yTl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="164" height="236"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coden" translatesAutoresizingMaskIntoConstraints="NO" id="pj1-gg-l0s">
+                                                                <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="pj1-gg-l0s" secondAttribute="height" multiplier="1:1" id="otc-ws-R9s"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안진홍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PR-vG-fW8">
+                                                                <rect key="frame" x="0.0" y="169" width="164" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 개발" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQu-LH-Wcg">
+                                                                <rect key="frame" x="0.0" y="197" width="164" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="github.com/ictechgy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aag-hV-FRf">
+                                                                <rect key="frame" x="0.0" y="219" width="164" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Zl-5K-gTG">
+                                                        <rect key="frame" x="1" y="286" width="162" height="234"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shapiro" translatesAutoresizingMaskIntoConstraints="NO" id="Fdb-5J-pPy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="162"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Fdb-5J-pPy" secondAttribute="height" multiplier="1:1" id="l10-zN-2Xz"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김도형" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6M-h8-tvu">
+                                                                <rect key="frame" x="0.0" y="167" width="162" height="23"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 개발" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVm-Hl-Cys">
+                                                                <rect key="frame" x="0.0" y="195" width="162" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="github.com/shapiro711" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qak-mH-uEm">
+                                                                <rect key="frame" x="0.0" y="217" width="162" height="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="96G-f1-4ow" firstAttribute="centerX" secondItem="LHI-PK-j9U" secondAttribute="centerX" id="5Hn-Vl-fSt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="leading" secondItem="Jrs-cO-Vjg" secondAttribute="leading" id="TtA-gC-GPB"/>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="height" secondItem="a2Q-u2-hCb" secondAttribute="height" priority="250" id="V2x-F6-v3N"/>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="top" secondItem="Jrs-cO-Vjg" secondAttribute="top" id="VDg-Ye-ahx"/>
+                                    <constraint firstItem="Jrs-cO-Vjg" firstAttribute="bottom" secondItem="96G-f1-4ow" secondAttribute="bottom" constant="100" id="Y7N-FM-gJ9"/>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="trailing" secondItem="Jrs-cO-Vjg" secondAttribute="trailing" id="jyj-Uf-MuN"/>
+                                    <constraint firstItem="96G-f1-4ow" firstAttribute="top" secondItem="Jrs-cO-Vjg" secondAttribute="top" constant="100" id="qfz-EE-5BW"/>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="width" secondItem="a2Q-u2-hCb" secondAttribute="width" id="rsr-5S-hsa"/>
+                                    <constraint firstItem="LHI-PK-j9U" firstAttribute="bottom" secondItem="Jrs-cO-Vjg" secondAttribute="bottom" id="wDG-XU-nXX"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Jrs-cO-Vjg"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="a2Q-u2-hCb"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pZ8-ub-Ncp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pZ8-ub-Ncp" firstAttribute="trailing" secondItem="L7f-Gn-8Ai" secondAttribute="trailing" id="86d-ds-Fxz"/>
+                            <constraint firstItem="pZ8-ub-Ncp" firstAttribute="bottom" secondItem="L7f-Gn-8Ai" secondAttribute="bottom" id="8P1-vC-cM2"/>
+                            <constraint firstItem="L7f-Gn-8Ai" firstAttribute="top" secondItem="pZ8-ub-Ncp" secondAttribute="top" id="uiq-Zq-Ule"/>
+                            <constraint firstItem="L7f-Gn-8Ai" firstAttribute="leading" secondItem="1hw-8z-wY6" secondAttribute="leading" id="xdN-vn-aoP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="팀 소개" id="EXS-Jp-KYz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szy-tN-lTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="2798.5507246376815" y="916.74107142857133"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.left.arrow.right" catalog="system" width="119" height="128"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="101"/>
+        <image name="coden" width="164" height="164"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="shapiro" width="162" height="162"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
