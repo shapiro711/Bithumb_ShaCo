@@ -14,6 +14,7 @@
 		3F008FF92792BCF700356C3F /* Serviceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FF82792BCF700356C3F /* Serviceable.swift */; };
 		3F008FFB2792BE4300356C3F /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFA2792BE4300356C3F /* RestService.swift */; };
 		3F008FFD2792BE5300356C3F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F008FFC2792BE5300356C3F /* WebSocketService.swift */; };
+		3F12B26027A9310500C84774 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12B25F27A9310500C84774 /* UIScrollView+Extension.swift */; };
 		3F183DDC279FF0CE00FAB23F /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */; };
 		3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */; };
 		3F47DB992796F94100DD3119 /* AssetStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */; };
@@ -114,6 +115,7 @@
 		3F008FFA2792BE4300356C3F /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		3F008FFC2792BE5300356C3F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		3F0AD95E27A7017B00367BC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F12B25F27A9310500C84774 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookDTO.swift; sourceTree = "<group>"; };
 		3F47DB982796F94100DD3119 /* AssetStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStatusDTO.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
 				3F6ACBB127A8224F00B41C8C /* UIAlertController+Extension.swift */,
 				3F648BF027A277B30019F93C /* String+Extension.swift */,
+				3F12B25F27A9310500C84774 /* UIScrollView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				C9E59EDE279296EE0093BD4A /* EndPoints.swift in Sources */,
 				C9E59F292796F85A0093BD4A /* TransactionDTO.swift in Sources */,
 				C9AB327B27A3D304003FA78E /* AssetStatusTableViewCell.swift in Sources */,
+				3F12B26027A9310500C84774 /* UIScrollView+Extension.swift in Sources */,
 				C951F24627A034B700C99A14 /* ExchangeDetailViewController.swift in Sources */,
 				3F47DB972796EC4700DD3119 /* OrderBookDTO.swift in Sources */,
 				3F6ACBB227A8224F00B41C8C /* UIAlertController+Extension.swift in Sources */,

@@ -44,6 +44,7 @@ extension OrderBookViewController {
         orderBookTableView.register(OrderBookAskTableViewCell.self, forCellReuseIdentifier: OrderBookAskTableViewCell.identifier)
         orderBookTableView.register(OrderBookBidTableViewCell.self, forCellReuseIdentifier: OrderBookBidTableViewCell.identifier)
         orderBookTableView.separatorStyle = .none
+        orderBookTableView.allowsSelection = false
     }
 }
 
@@ -66,6 +67,7 @@ extension OrderBookViewController {
                 self?.orderBookTableViewDataSource.configure(orderBookDepth: orderBookDepth)
                 DispatchQueue.main.async {
                     self?.orderBookTableView.reloadData()
+                    self?.orderBookTableView.scrollToCenter()
                 }
                 self?.requestWebSocketOrderBookAPI(symbol: symbol)
             case .failure(let error):
