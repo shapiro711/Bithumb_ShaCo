@@ -118,8 +118,8 @@ extension ChartViewController {
             let entry = CandleChartDataEntry(x: Double(index),
                                              shadowH: data[index].highPrice ?? 0,
                                              shadowL: data[index].lowPrice ?? 0,
-                                             open: data[index].initialPrice ?? 0,
-                                             close: data[index].finalPrice ?? 0)
+                                             open: data[index].openPrice ?? 0,
+                                             close: data[index].closePrice ?? 0)
             chartEntries.append(entry)
         }
         
@@ -137,7 +137,7 @@ extension ChartViewController {
             self.candlestickChartView.data = chartData
             self.candlestickChartView.fitScreen()
             
-            if let openPrice = data.last?.initialPrice, let closingPrice = data.last?.finalPrice {
+            if let openPrice = data.last?.openPrice, let closingPrice = data.last?.closePrice {
                 self.candlestickChartView.zoomToCenter(scaleX: 80, scaleY: 20)
                 self.candlestickChartView.moveViewTo(xValue: Double(data.count - 1), yValue: (openPrice + closingPrice) / 2, axis: .right)
             }
@@ -156,8 +156,8 @@ extension ChartViewController {
         
         let chartDataSet = BarChartDataSet(entries: chartEntries, label: nil)
         let chartColors = data.map { (candlestick: CandlestickDTO) -> UIColor in
-            guard let openPrice = candlestick.initialPrice,
-                  let closePrice = candlestick.finalPrice else {
+            guard let openPrice = candlestick.openPrice,
+                  let closePrice = candlestick.closePrice else {
                       return .label
                   }
             if openPrice > closePrice {

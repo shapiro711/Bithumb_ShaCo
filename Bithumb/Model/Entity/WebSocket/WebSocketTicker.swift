@@ -24,8 +24,8 @@ struct WebSocketTicker {
     let criteriaOfChange: CriteriaOfChange?
     let day: String?
     let time: String?
-    let initialPrice: Double?
-    let finalPrice: Double?
+    let openPrice: Double?
+    let closePrice: Double?
     let lowPrice: Double?
     let highPrice: Double?
     let accumulatedTransactionAmount: Double?
@@ -53,8 +53,8 @@ extension WebSocketTicker: Decodable {
         case symbol, time, lowPrice, highPrice, volumePower
         case criteriaOfChange = "tickType"
         case day = "date"
-        case initialPrice = "openPrice"
-        case finalPrice = "closePrice"
+        case openPrice = "openPrice"
+        case closePrice = "closePrice"
         case accumulatedTransactionAmount = "value"
         case accumulatedTransactionVolume = "volume"
         case accumulatedSellVolume = "sellVolume"
@@ -70,8 +70,8 @@ extension WebSocketTicker: Decodable {
         criteriaOfChange = try? CriteriaOfChange(rawValue: values.decode(String.self, forKey: .criteriaOfChange))
         day = try? values.decode(String.self, forKey: .day)
         time = try? values.decode(String.self, forKey: .time)
-        initialPrice = try? Double(values.decode(String.self, forKey: .initialPrice))
-        finalPrice = try? Double(values.decode(String.self, forKey: .finalPrice))
+        openPrice = try? Double(values.decode(String.self, forKey: .openPrice))
+        closePrice = try? Double(values.decode(String.self, forKey: .closePrice))
         lowPrice = try? Double(values.decode(String.self, forKey: .lowPrice))
         highPrice = try? Double(values.decode(String.self, forKey: .highPrice))
         accumulatedTransactionAmount = try? Double(values.decode(String.self, forKey: .accumulatedTransactionAmount))
@@ -88,7 +88,7 @@ extension WebSocketTicker: Decodable {
 //MARK: - Convert To DTO
 extension WebSocketTicker {
     func toDomain() -> TickerDTO {
-        return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
+        return TickerDTO(symbol: symbol, data: .init(currentPrice: closePrice,
                                                      rateOfChange: rateOfChange,
                                                      amountOfChange: amountOfChange,
                                                      accumulatedTransactionAmount: accumulatedTransactionAmount,
