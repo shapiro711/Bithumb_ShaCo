@@ -37,6 +37,7 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     
     func stop() {
         webSocketTask?.cancel(with: .normalClosure, reason: nil)
+        webSocketTask = nil
     }
     
     func send(data: Data) {
@@ -55,6 +56,8 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
                 self?.receive()
             case .failure(let error):
                 self?.delegate?.didReceive(.receivingFailed(error))
+                self?.webSocketTask?.cancel(with: .normalClosure, reason: nil)
+                self?.webSocketTask = nil
             }
         }
     }
