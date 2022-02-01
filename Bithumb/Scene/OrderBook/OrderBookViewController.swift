@@ -10,6 +10,7 @@ import XLPagerTabStrip
 
 final class OrderBookViewController: UIViewController {
     @IBOutlet private weak var orderBookTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let orderBookTableViewDataSource = OrderBookTableViewDataSource()
     private let repository: Repositoryable = Repository()
     private var symbol: String?
@@ -25,6 +26,7 @@ final class OrderBookViewController: UIViewController {
         super.viewWillAppear(animated)
         registerObserver()
         requestRestOrderBookAPI()
+        activityIndicator.startAnimating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,6 +68,7 @@ extension OrderBookViewController {
             case .success(let orderBookDepth):
                 self?.orderBookTableViewDataSource.configure(orderBookDepth: orderBookDepth)
                 DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
                     self?.orderBookTableView.reloadData()
                     self?.orderBookTableView.scrollToCenter()
                 }

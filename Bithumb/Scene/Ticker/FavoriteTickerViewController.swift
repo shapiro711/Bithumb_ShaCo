@@ -10,6 +10,7 @@ import XLPagerTabStrip
 
 final class FavoriteTickerViewController: UIViewController {
     @IBOutlet private weak var tickerTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
     
@@ -23,6 +24,7 @@ final class FavoriteTickerViewController: UIViewController {
         super.viewWillAppear(animated)
         registerObserver()
         requestRestTickerAPI()
+        activityIndicator.startAnimating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,6 +109,7 @@ extension FavoriteTickerViewController {
             }
             self?.tickerTableViewDataSource.configure(tickers: favoriteCoinTickers)
             DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
                 self?.tickerTableView.reloadData()
             }
             self?.requestWebSocketTickerAPI(symbols: favoriteCoinSymbols)

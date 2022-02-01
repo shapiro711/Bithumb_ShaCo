@@ -10,6 +10,7 @@ import XLPagerTabStrip
 
 final class TickerViewController: UIViewController {
     @IBOutlet private weak var tickerTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
     private var tickerCriteria: TickerCriteria = .krw
@@ -24,6 +25,7 @@ final class TickerViewController: UIViewController {
         super.viewWillAppear(animated)
         registerObserver()
         requestRestTickerAPI()
+        activityIndicator.startAnimating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,6 +58,7 @@ extension TickerViewController {
                 }
                 self?.tickerTableViewDataSource.configure(tickers: tickers)
                 DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
                     self?.tickerTableView.reloadData()
                 }
                 let symbols = tickers.compactMap { $0.symbol }

@@ -13,6 +13,7 @@ final class ChartViewController: UIViewController {
     @IBOutlet private weak var chartIntervalSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var candlestickChartView: CandleStickChartView!
     @IBOutlet private weak var barChartView: BarChartView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private var symbol: String?
     private let repository: Repositoryable = Repository()
     
@@ -26,6 +27,7 @@ final class ChartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reqeustRestCandlestickAPI()
+        activityIndicator.startAnimating()
     }
     
     func register(symbol: String?) {
@@ -93,6 +95,9 @@ extension ChartViewController {
             case .success(let candlesticks):
                 self?.drawCandlestickChart(by: candlesticks, chartInterval: chartInterval)
                 self?.drawBarChart(by: candlesticks, chartInterval: chartInterval)
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                }
             case .failure(let error):
                 UIAlertController.showAlert(about: error, on: self)
             }

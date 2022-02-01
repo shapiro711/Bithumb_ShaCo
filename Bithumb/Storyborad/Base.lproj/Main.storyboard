@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJA-8B-JuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,6 +115,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="KFa-gv-IMR">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WW2-hv-aEY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,6 +136,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="입출금 현황" image="arrow.left.arrow.right" catalog="system" id="YdM-lC-ZMM"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="KFa-gv-IMR" id="095-cG-fKy"/>
                         <outlet property="assetsStatusTableView" destination="C3E-OJ-Ec2" id="WCE-lH-uM2"/>
                     </connections>
                 </viewController>
@@ -169,17 +175,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gAV-jU-JeW">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="57E-yC-KDa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gAV-jU-JeW" firstAttribute="centerY" secondItem="dzp-AR-lOP" secondAttribute="centerY" id="1RX-xt-cn6"/>
                             <constraint firstItem="57E-yC-KDa" firstAttribute="trailing" secondItem="8C5-sg-RkI" secondAttribute="trailing" id="6Ef-mb-w4h"/>
                             <constraint firstItem="57E-yC-KDa" firstAttribute="bottom" secondItem="8C5-sg-RkI" secondAttribute="bottom" id="Kq8-Nf-Oxn"/>
+                            <constraint firstItem="gAV-jU-JeW" firstAttribute="centerX" secondItem="dzp-AR-lOP" secondAttribute="centerX" id="e9x-Oa-FAC"/>
                             <constraint firstItem="8C5-sg-RkI" firstAttribute="top" secondItem="57E-yC-KDa" secondAttribute="top" id="gks-St-sXE"/>
                             <constraint firstItem="8C5-sg-RkI" firstAttribute="leading" secondItem="57E-yC-KDa" secondAttribute="leading" id="uan-us-fe5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="gAV-jU-JeW" id="6YP-Kt-3CQ"/>
                         <outlet property="tickerTableView" destination="8C5-sg-RkI" id="1mn-rb-peD"/>
                     </connections>
                 </viewController>
@@ -199,17 +212,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="nV5-lK-7DB">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WhK-mt-5pF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nV5-lK-7DB" firstAttribute="centerX" secondItem="0zc-wz-4Ql" secondAttribute="centerX" id="64r-MM-KBB"/>
                             <constraint firstItem="NOE-zk-eqt" firstAttribute="leading" secondItem="0zc-wz-4Ql" secondAttribute="leading" id="L1j-re-nOe"/>
                             <constraint firstItem="NOE-zk-eqt" firstAttribute="top" secondItem="WhK-mt-5pF" secondAttribute="top" id="Xii-Dv-mWI"/>
+                            <constraint firstItem="nV5-lK-7DB" firstAttribute="centerY" secondItem="0zc-wz-4Ql" secondAttribute="centerY" id="aJ0-eC-QjU"/>
                             <constraint firstAttribute="trailing" secondItem="NOE-zk-eqt" secondAttribute="trailing" id="i4m-7m-WzI"/>
                             <constraint firstItem="WhK-mt-5pF" firstAttribute="bottom" secondItem="NOE-zk-eqt" secondAttribute="bottom" id="qbb-pG-oJ0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="nV5-lK-7DB" id="SFz-gN-Wqb"/>
                         <outlet property="tickerTableView" destination="NOE-zk-eqt" id="ia9-AZ-ez0"/>
                     </connections>
                 </viewController>
@@ -283,17 +303,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-Og-nOq">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mUp-83-JZu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="k8T-Og-nOq" firstAttribute="centerY" secondItem="zt7-NV-LeN" secondAttribute="centerY" id="2Ed-60-fl3"/>
                             <constraint firstItem="qit-mg-KFT" firstAttribute="top" secondItem="mUp-83-JZu" secondAttribute="top" id="fLF-QO-jqa"/>
                             <constraint firstItem="mUp-83-JZu" firstAttribute="trailing" secondItem="qit-mg-KFT" secondAttribute="trailing" id="iU0-Cg-ayz"/>
                             <constraint firstItem="qit-mg-KFT" firstAttribute="leading" secondItem="mUp-83-JZu" secondAttribute="leading" id="nKk-Uw-oMP"/>
+                            <constraint firstItem="k8T-Og-nOq" firstAttribute="centerX" secondItem="zt7-NV-LeN" secondAttribute="centerX" id="xmS-Ch-x3e"/>
                             <constraint firstItem="mUp-83-JZu" firstAttribute="bottom" secondItem="qit-mg-KFT" secondAttribute="bottom" id="yDh-ho-7o6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="k8T-Og-nOq" id="aCo-Em-Rfb"/>
                         <outlet property="orderBookTableView" destination="qit-mg-KFT" id="jj8-op-FP2"/>
                     </connections>
                 </viewController>
@@ -308,9 +335,19 @@
                     <view key="view" contentMode="scaleToFill" id="bpJ-qD-Jf6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-GS-VXn">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lpf-DU-Tye"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="tiT-GS-VXn" id="zj3-WQ-Eay"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y92-Q6-tme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,16 +379,22 @@
                                 <rect key="frame" x="0.0" y="75" width="414" height="493"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GPr-mC-JbB">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qet-k9-Ujw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GPr-mC-JbB" firstAttribute="centerX" secondItem="rHc-1S-4v4" secondAttribute="centerX" id="0W3-Jh-ySS"/>
                             <constraint firstItem="itN-6o-F7l" firstAttribute="top" secondItem="1n4-Ab-dA2" secondAttribute="bottom" id="9n6-Ok-z8W"/>
                             <constraint firstItem="qet-k9-Ujw" firstAttribute="bottom" secondItem="itN-6o-F7l" secondAttribute="bottom" id="Baf-M2-971"/>
                             <constraint firstItem="1n4-Ab-dA2" firstAttribute="trailing" secondItem="qet-k9-Ujw" secondAttribute="trailing" id="HVA-4F-zun"/>
                             <constraint firstItem="1n4-Ab-dA2" firstAttribute="leading" secondItem="qet-k9-Ujw" secondAttribute="leading" id="NNe-Dg-7de"/>
                             <constraint firstItem="YTp-yt-QM3" firstAttribute="top" secondItem="qet-k9-Ujw" secondAttribute="top" id="TyA-rx-u1m"/>
                             <constraint firstItem="1n4-Ab-dA2" firstAttribute="top" secondItem="YTp-yt-QM3" secondAttribute="bottom" id="Ug4-ys-bz6"/>
+                            <constraint firstItem="GPr-mC-JbB" firstAttribute="centerY" secondItem="rHc-1S-4v4" secondAttribute="centerY" id="XHw-g5-mir"/>
                             <constraint firstItem="1n4-Ab-dA2" firstAttribute="height" secondItem="rHc-1S-4v4" secondAttribute="height" multiplier="0.55" id="aiq-vx-jxW"/>
                             <constraint firstItem="itN-6o-F7l" firstAttribute="leading" secondItem="qet-k9-Ujw" secondAttribute="leading" id="bqD-JR-uc7"/>
                             <constraint firstItem="qet-k9-Ujw" firstAttribute="trailing" secondItem="itN-6o-F7l" secondAttribute="trailing" id="mDD-xg-smb"/>
@@ -360,6 +403,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="GPr-mC-JbB" id="uoe-hT-zPa"/>
                         <outlet property="barChartView" destination="itN-6o-F7l" id="N0B-aA-pGI"/>
                         <outlet property="candlestickChartView" destination="1n4-Ab-dA2" id="AhV-VP-y2c"/>
                         <outlet property="chartIntervalSegmentedControl" destination="YTp-yt-QM3" id="xvk-NG-NIJ"/>
@@ -384,11 +428,11 @@
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6t3-ik-5cD" id="qr0-bW-FQH">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rwq-sy-AIH">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -404,11 +448,11 @@
                                         <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fpQ-Bq-M0G" id="gnX-w2-FrQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="팀 소개 👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ByE-Da-Z5x">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>

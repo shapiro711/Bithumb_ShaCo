@@ -10,6 +10,7 @@ import XLPagerTabStrip
 import SpreadsheetView
 
 final class TransactionViewController: UIViewController {
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let spreadsheetView = SpreadsheetView()
     private let spreadsheetDataSource = TransactionSpreadsheetDataSource()
     private var symbol: String?
@@ -28,6 +29,7 @@ final class TransactionViewController: UIViewController {
         super.viewWillAppear(animated)
         registerObserver()
         requestRestTransactionAPI()
+        activityIndicator.startAnimating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,6 +104,7 @@ extension TransactionViewController {
                 }
                 self?.spreadsheetDataSource.configure(by: transactions)
                 DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
                     self?.spreadsheetView.reloadData()
                 }
                 self?.requestWebSocketTransactionAPI(symbol: symbol)

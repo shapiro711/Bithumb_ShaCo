@@ -9,6 +9,7 @@ import UIKit
 
 final class AssetsStatusViewController: UIViewController {
     @IBOutlet private weak var assetsStatusTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let assetsStatusTableViewDataSource = AssetsStatusTableViewDataSource()
     
@@ -20,6 +21,7 @@ final class AssetsStatusViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestRestAssetsStatusAPI()
+        activityIndicator.startAnimating()
     }
 }
 
@@ -39,6 +41,7 @@ extension AssetsStatusViewController {
             case .success(let assetsStatus):
                 self?.assetsStatusTableViewDataSource.configure(by: assetsStatus)
                 DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
                     self?.assetsStatusTableView.reloadData()
                 }
             case .failure(let error):
