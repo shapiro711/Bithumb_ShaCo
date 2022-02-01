@@ -71,7 +71,7 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 
 |가상자산 목록|입출금 현황|관심 목록|
 |:--:|:--:|:--:|
-|<img width="200" alt="코인 목록" src="https://user-images.githubusercontent.com/57553889/151996428-6e5e8ba6-5cd7-443c-8005-1881fae07fdd.gif">|<img width="200" alt="입출금 현황" src="https://user-images.githubusercontent.com/57553889/151996453-a4e8c8f8-f449-4e7d-b7e7-41b1f3002419.gif">|<img width="200" alt="관심 목록" src="https://user-images.githubusercontent.com/57553889/151996344-42d534e5-6186-42f2-95db-4490ed6a73e4.gif">|
+|<img width="200" alt="코인 목록" src="https://user-images.githubusercontent.com/57553889/152048208-ad8c9169-76c6-4ad9-8bef-75d02ed5b8aa.gif">|<img width="200" alt="입출금 현황" src="https://user-images.githubusercontent.com/57553889/151996453-a4e8c8f8-f449-4e7d-b7e7-41b1f3002419.gif">|<img width="200" alt="관심 목록" src="https://user-images.githubusercontent.com/57553889/151996344-42d534e5-6186-42f2-95db-4490ed6a73e4.gif">|
 
 &nbsp; 
 
@@ -135,12 +135,13 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 
 - 인기, KRW, BTC, 관심별 목록 구현
 - XLPagerTabStrip을 이용한 Paging 구현
+- 스와이프를 통한 화면 전환 기능 구현
 
 &nbsp;   
 
 ## 2. 메인 화면
 
-<img width="200" alt="코인 목록" src="https://user-images.githubusercontent.com/57553889/151996428-6e5e8ba6-5cd7-443c-8005-1881fae07fdd.gif">
+<img width="200" alt="코인 목록" src="https://user-images.githubusercontent.com/57553889/152048208-ad8c9169-76c6-4ad9-8bef-75d02ed5b8aa.gif">
 
 - Bithumb 가상자산 목록 구현
 - 전날 밤을 기준으로 현재가, 변동률, 거래금액을 표시
