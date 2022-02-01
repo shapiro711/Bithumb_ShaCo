@@ -8,6 +8,7 @@
 import Foundation
 import SpreadsheetView
 
+//MARK: Time Cell
 final class TransactionTimeSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionTimeSpreadsheetCell.self)
     private let informationLabel: UILabel = {
@@ -51,6 +52,7 @@ final class TransactionTimeSpreadsheetCell: Cell {
     }
 }
 
+//MARK: Price Cell
 final class TransactionPriceSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionPriceSpreadsheetCell.self)
     private let informationLabel: UILabel = {
@@ -106,7 +108,7 @@ final class TransactionPriceSpreadsheetCell: Cell {
     }
 }
 
-
+//MARK: Quantity Cell
 final class TransactionQuantityTimeSpreadsheetCell: Cell {
     static let identifier = String(describing: TransactionQuantityTimeSpreadsheetCell.self)
     private let informationLabel: UILabel = {

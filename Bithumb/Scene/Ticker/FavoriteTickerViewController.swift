@@ -9,11 +9,13 @@ import UIKit
 import XLPagerTabStrip
 
 final class FavoriteTickerViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var tickerTableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -34,6 +36,7 @@ final class FavoriteTickerViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension FavoriteTickerViewController {
     private func setUpTableView() {
         tickerTableView.dataSource = tickerTableViewDataSource
@@ -42,12 +45,14 @@ extension FavoriteTickerViewController {
     }
 }
 
+//MARK: - Conform to IndicatorInfoProvider
 extension FavoriteTickerViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "관심")
     }
 }
 
+//MARK: - Conform to UITableViewDelegate
 extension FavoriteTickerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let exchangeDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ExchangeDetailViewController") as? ExchangeDetailViewController else {
@@ -74,6 +79,7 @@ extension FavoriteTickerViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - Network
 extension FavoriteTickerViewController {
     private func requestRestTickerAPI() {
         let favoriteCoinSymbols = bringFavoriteCoinSymbols()
@@ -157,6 +163,7 @@ extension FavoriteTickerViewController: WebSocketDelegate {
     }
 }
 
+//MARK: - Conform to AppLifeCycleOserverable
 extension FavoriteTickerViewController: AppLifeCycleOserverable {
     func receiveForegoundNotification() {
         requestRestTickerAPI()

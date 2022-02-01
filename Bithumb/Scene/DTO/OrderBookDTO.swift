@@ -17,6 +17,7 @@ struct OrderBookDepthDTO: DataTransferable {
         let quantity: Double?
         let paymentCurrency: String?
         
+        //MARK: Formatted Data
         var formattedPrice: String {
             guard let price = price,
                   let paymentCurrency = paymentCurrency else {

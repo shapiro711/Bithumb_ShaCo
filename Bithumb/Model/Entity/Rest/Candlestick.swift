@@ -32,6 +32,7 @@ extension Candlestick: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension Candlestick {
     func toDomain() -> CandlestickDTO {
         return CandlestickDTO(date: date,

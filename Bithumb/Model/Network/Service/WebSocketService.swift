@@ -70,6 +70,7 @@ final class WebSocketService: WebSocketServiceable {
     }
 }
 
+//MARK: - Conform to WebSocketSessionDelegate
 extension WebSocketService: WebSocketSessionDelegate {
     func didReceive(_ messageError: WebSocketMessageError) {
         delegate?.didReceive(.messageError(messageError))

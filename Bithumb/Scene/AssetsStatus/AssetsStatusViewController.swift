@@ -8,11 +8,13 @@
 import UIKit
 
 final class AssetsStatusViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var assetsStatusTableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let assetsStatusTableViewDataSource = AssetsStatusTableViewDataSource()
-    
+     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -25,6 +27,7 @@ final class AssetsStatusViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension AssetsStatusViewController {
     private func setUpTableView() {
         assetsStatusTableView.dataSource = assetsStatusTableViewDataSource
@@ -33,6 +36,7 @@ extension AssetsStatusViewController {
     }
 }
 
+//MARK: - Network
 extension AssetsStatusViewController {
     private func requestRestAssetsStatusAPI() {
         let assetsStatusRequest = AssetsStatusRequest.lookUpAll

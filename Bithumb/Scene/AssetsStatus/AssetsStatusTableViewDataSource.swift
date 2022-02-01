@@ -15,6 +15,7 @@ final class AssetsStatusTableViewDataSource: NSObject {
     }
 }
 
+//MARK: - Conform to UITableViewDataSource
 extension AssetsStatusTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return assetsStatus.count

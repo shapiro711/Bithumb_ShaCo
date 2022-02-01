@@ -18,6 +18,7 @@ enum ClosingPriceReceiveStatus {
 }
 
 final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
+    //MARK: Properties
     @IBOutlet private weak var headerView: ExchangeDetailHeaderView!
     private var symbol: String?
     private var koreanName: String?
@@ -30,6 +31,7 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         return button
     }()
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         setUpButtonBar()
         super.viewDidLoad()
@@ -77,6 +79,7 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension ExchangeDetailViewController {
     private func setUpButtonBar() {
         settings.style.buttonBarItemBackgroundColor = .systemBackground
@@ -129,6 +132,7 @@ extension ExchangeDetailViewController {
     }
 }
 
+//MARK: - Network
 extension ExchangeDetailViewController {
     private func requestRestTickerAPI() {
         guard let symbol = symbol else {
@@ -187,6 +191,7 @@ extension ExchangeDetailViewController: WebSocketDelegate {
     }
 }
 
+//MARK: - Conform to AppLifeCycleOserverable
 extension ExchangeDetailViewController: AppLifeCycleOserverable {
     func receiveForegoundNotification() {
         requestRestTickerAPI()

@@ -45,6 +45,7 @@ extension RestTransaction: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension RestTransaction {
     func toDomain() -> TransactionDTO {
         return TransactionDTO(date: date, price: price, quantity: quantity, type: executionType, symbol: nil)

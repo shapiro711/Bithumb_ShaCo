@@ -60,6 +60,7 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
     }
 }
 
+//MARK: - Conform to URLSessionWebSocketDelegate
 extension WebSocketSessionManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         switch closeCode {

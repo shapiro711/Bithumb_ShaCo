@@ -8,6 +8,7 @@
 import UIKit
 
 final class AssetStatusTableViewCell: UITableViewCell {
+    //MARK: Properties
     static let identifier = String(describing: AssetStatusTableViewCell.self)
     
     private let assetStatusInformationStackView: UIStackView = {
@@ -46,6 +47,7 @@ final class AssetStatusTableViewCell: UITableViewCell {
         return label
     }()
     
+    //MARK: Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildHierachy()
@@ -66,6 +68,7 @@ final class AssetStatusTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - SetUp UI
 extension AssetStatusTableViewCell {
     private func buildHierachy() {
         contentView.addSubview(assetStatusInformationStackView)

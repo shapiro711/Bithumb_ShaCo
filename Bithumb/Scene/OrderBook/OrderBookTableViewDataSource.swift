@@ -8,10 +8,12 @@
 import UIKit
 
 final class OrderBookTableViewDataSource: NSObject {
+    //MARK: Properties
     private var asks: [OrderBookDepthDTO.OrderBookData] = []
     private var bids: [OrderBookDepthDTO.OrderBookData] = []
     private var previousDayClosingPrice: Double?
     
+    //MARK: Interface
     func configure(orderBookDepth: OrderBookDepthDTO) {
         self.asks = orderBookDepth.asks?.reversed() ?? []
         self.bids = orderBookDepth.bids ?? []
@@ -39,6 +41,7 @@ final class OrderBookTableViewDataSource: NSObject {
     }
 }
 
+//MARK: - Conform to UITableViewDataSource
 extension OrderBookTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -76,6 +79,7 @@ extension OrderBookTableViewDataSource: UITableViewDataSource {
     }
 }
 
+//MARK: - Update OrderBook Logic
 extension OrderBookTableViewDataSource {
     private func updateOrderBook(using newOrderBook: [OrderBookDepthDTO.OrderBookData]?, oldOrderBook: [OrderBookDepthDTO.OrderBookData]) -> [OrderBookDepthDTO.OrderBookData] {
         let newOrderBook = newOrderBook?.sorted { $0.price ?? 0 > $1.price ?? 0 } ?? []

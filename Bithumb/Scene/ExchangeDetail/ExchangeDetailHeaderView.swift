@@ -8,6 +8,7 @@
 import UIKit
 
 final class ExchangeDetailHeaderView: UIView {
+    //MARK: Properties
     private let tickerInformationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -38,6 +39,7 @@ final class ExchangeDetailHeaderView: UIView {
         return label
     }()
     
+    //MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -64,6 +66,7 @@ final class ExchangeDetailHeaderView: UIView {
     }
 }
 
+//MARK: - SetUp UI
 extension ExchangeDetailHeaderView {
     private func buildHierachy() {
         addSubview(tickerInformationStackView)

@@ -9,6 +9,7 @@ import UIKit
 import XLPagerTabStrip
 
 final class OrderBookViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var orderBookTableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let orderBookTableViewDataSource = OrderBookTableViewDataSource()
@@ -16,6 +17,7 @@ final class OrderBookViewController: UIViewController {
     private var symbol: String?
     private var closingPriceReceiveStatus = ClosingPriceReceiveStatus.notReceived
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -40,6 +42,7 @@ final class OrderBookViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension OrderBookViewController {
     private func setUpTableView() {
         orderBookTableView.dataSource = orderBookTableViewDataSource
@@ -50,6 +53,7 @@ extension OrderBookViewController {
     }
 }
 
+//MARK: - Network
 extension OrderBookViewController {
     private func requestRestOrderBookAPI() {
         guard let symbol = symbol else {
@@ -85,15 +89,6 @@ extension OrderBookViewController {
     }
 }
 
-extension OrderBookViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
-            exchageDetailViewController.addObserver(observer: self)
-        }
-        return IndicatorInfo(title: "호가")
-    }
-}
-
 extension OrderBookViewController: WebSocketDelegate {
     func didReceive(_ connectionEvent: WebSocketConnectionEvent) {
         UIAlertController.showAlert(about: connectionEvent, on: self)
@@ -120,6 +115,17 @@ extension OrderBookViewController: WebSocketDelegate {
     }
 }
 
+//MARK: - Conform to IndicatorInfoProvider
+extension OrderBookViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
+            exchageDetailViewController.addObserver(observer: self)
+        }
+        return IndicatorInfo(title: "호가")
+    }
+}
+
+//MARK: - Conform to AppLifeCycleOserverable
 extension OrderBookViewController: AppLifeCycleOserverable {
     func receiveForegoundNotification() {
         requestRestOrderBookAPI()
@@ -130,6 +136,7 @@ extension OrderBookViewController: AppLifeCycleOserverable {
     }
 }
 
+//MARK: - Conform to ClosingPriceObserverable
 extension OrderBookViewController: ClosingPriceObserverable {
     func didReceive(previousDayClosingPrice: Double?) {
         orderBookTableViewDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)

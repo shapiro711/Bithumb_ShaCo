@@ -8,10 +8,12 @@
 import UIKit
 
 final class TickerTableViewDataSource: NSObject {
+    //MARK: Properties
     private var tickers: [TickerDTO] = []
     private var tickerIndexFinder: [String: Int] = [:]
     private var tickerTrends: [PriceTrend] = []
     
+    //MARK: Interface
     func configure(tickers: [TickerDTO]) {
         self.tickers = tickers
         for index in tickers.indices {
@@ -63,6 +65,7 @@ final class TickerTableViewDataSource: NSObject {
     }
 }
 
+//MARK: - Conform to UITableViewDataSource
 extension TickerTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tickers.count

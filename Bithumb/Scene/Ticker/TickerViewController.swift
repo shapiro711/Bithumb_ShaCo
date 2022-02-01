@@ -9,12 +9,14 @@ import UIKit
 import XLPagerTabStrip
 
 final class TickerViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var tickerTableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let repository: Repositoryable = Repository()
     private let tickerTableViewDataSource = TickerTableViewDataSource()
     private var tickerCriteria: TickerCriteria = .krw
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -39,6 +41,7 @@ final class TickerViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension TickerViewController {
     private func setUpTableView() {
         tickerTableView.dataSource = tickerTableViewDataSource
@@ -47,6 +50,7 @@ extension TickerViewController {
     }
 }
 
+//MARK: - Network
 extension TickerViewController {
     private func requestRestTickerAPI() {
         let tickerRequest = tickerCriteria.reqeustBasedOnCriteria
@@ -103,6 +107,7 @@ extension TickerViewController: WebSocketDelegate {
     }
 }
 
+//MARK: - Conform to AppLifeCycleOserverable
 extension TickerViewController: AppLifeCycleOserverable {
     func receiveForegoundNotification() {
         requestRestTickerAPI()
@@ -113,12 +118,14 @@ extension TickerViewController: AppLifeCycleOserverable {
     }
 }
 
+//MARK: - Conform to IndicatorInfoProvider
 extension TickerViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: tickerCriteria.title)
     }
 }
 
+//MARK: - Conform to UITableViewDelegate
 extension TickerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let exchangeDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ExchangeDetailViewController") as? ExchangeDetailViewController else {

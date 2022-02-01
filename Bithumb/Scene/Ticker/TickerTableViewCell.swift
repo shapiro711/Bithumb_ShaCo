@@ -8,6 +8,7 @@
 import UIKit
 
 final class TickerTableViewCell: UITableViewCell {
+    //MARK: - Properties
     static let identifier = String(describing: TickerTableViewCell.self)
     
     private let tickerInformationStackView: UIStackView = {
@@ -72,6 +73,7 @@ final class TickerTableViewCell: UITableViewCell {
         return transactionAmountLabel
     }()
     
+    //MARK: Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildHierarchy()
@@ -124,6 +126,7 @@ final class TickerTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - SetUp UI
 extension TickerTableViewCell {
     override var safeAreaInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

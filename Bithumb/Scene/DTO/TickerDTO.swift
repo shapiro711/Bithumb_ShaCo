@@ -11,6 +11,15 @@ struct TickerDTO: DataTransferable {
     let symbol: String?
     let data: TickerData
     
+    struct TickerData {
+        let currentPrice: Double?
+        let rateOfChange: Double?
+        let amountOfChange: Double?
+        let accumulatedTransactionAmount: Double?
+        let previousDayClosingPrice: Double?
+    }
+    
+    //MARK: Formatted Data
     var formattedSymbol: String {
         guard let symbol = symbol else {
             return .hypen
@@ -112,13 +121,5 @@ struct TickerDTO: DataTransferable {
         }
         
         return formattedTransactionAmount + currency
-    }
-    
-    struct TickerData {
-        let currentPrice: Double?
-        let rateOfChange: Double?
-        let amountOfChange: Double?
-        let accumulatedTransactionAmount: Double?
-        let previousDayClosingPrice: Double?
     }
 }

@@ -55,6 +55,7 @@ extension RestTicker: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension RestTicker {
     func toDomain(symbol: String) -> TickerDTO {
         var rateOfChange: Double? = nil

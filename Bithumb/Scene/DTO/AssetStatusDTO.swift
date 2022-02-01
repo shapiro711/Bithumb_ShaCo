@@ -11,6 +11,12 @@ struct AssetStatusDTO: DataTransferable {
     let symbol: String
     let data: AssetStatusData
     
+    struct AssetStatusData {
+        let isDepositAvailable: Bool?
+        let isWithdrawalAvailable: Bool?
+    }
+    
+    //MARK: Formatted Data
     var koreanName: String {
         guard let koreanName = CryptoCurrency.coinBook[symbol] else {
             return symbol
@@ -39,10 +45,5 @@ struct AssetStatusDTO: DataTransferable {
         } else {
             return "✗ 불가능"
         }
-    }
-    
-    struct AssetStatusData {
-        let isDepositAvailable: Bool?
-        let isWithdrawalAvailable: Bool?
     }
 }

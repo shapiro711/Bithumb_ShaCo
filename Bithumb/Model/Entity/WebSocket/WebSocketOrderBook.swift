@@ -65,6 +65,7 @@ extension WebSocketOrder: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension WebSocketOrderBook {
     func toDomain() -> OrderBookDepthDTO {
         guard let orders = orders else {

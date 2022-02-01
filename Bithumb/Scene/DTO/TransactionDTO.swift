@@ -14,6 +14,7 @@ struct TransactionDTO: DataTransferable {
     let type: OrderType?
     var symbol: String?
     
+    //MARK: Formatted Data
     var formattedPrice: String {
         guard let price = price,
               let symbol = symbol else {

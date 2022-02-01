@@ -33,6 +33,7 @@ final class TransactionSpreadsheetDataSource {
     }
 }
 
+//MARK: - Conform to SpreadsheetViewDataSource
 extension TransactionSpreadsheetDataSource: SpreadsheetViewDataSource {
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
         if case 0 = column {

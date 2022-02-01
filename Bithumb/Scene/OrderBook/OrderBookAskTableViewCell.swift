@@ -8,6 +8,7 @@
 import UIKit
 
 final class OrderBookAskTableViewCell: UITableViewCell {
+    //MARK: Properties
     static let identifier = String(describing: OrderBookAskTableViewCell.self)
     
     private let orderInformationStackView: UIStackView = {
@@ -53,6 +54,7 @@ final class OrderBookAskTableViewCell: UITableViewCell {
         return label
     }()
     
+    //MARK: Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildHierachy()
@@ -72,6 +74,7 @@ final class OrderBookAskTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - SetUp UI
 extension OrderBookAskTableViewCell {
     private func buildHierachy() {
         contentView.addSubview(orderInformationStackView)

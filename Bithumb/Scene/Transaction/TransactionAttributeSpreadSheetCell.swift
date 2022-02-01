@@ -34,6 +34,7 @@ final class TransactionAttributeSpreadSheetCell: Cell {
     }
 }
 
+//MARK: - SetUp UI
 extension TransactionAttributeSpreadSheetCell {
     private func buildHierachy() {
         contentView.addSubview(attributeLabel)

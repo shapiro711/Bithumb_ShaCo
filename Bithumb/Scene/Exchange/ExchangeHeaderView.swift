@@ -8,6 +8,7 @@
 import UIKit
 
 final class ExchangeHeaderView: UIView {
+    //MARK: Properties
     private let attributeStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +40,7 @@ final class ExchangeHeaderView: UIView {
         return label
     }()
     
+    //MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -58,6 +60,7 @@ final class ExchangeHeaderView: UIView {
     }
 }
 
+//MARK: - SetUp UI
 extension ExchangeHeaderView {
     private func buildHierachy() {
         addSubview(attributeStackView)

@@ -8,6 +8,7 @@
 import UIKit
 
 final class AssetsStatusHeaderView: UIView {
+    //MARK: Properties
     private let attributeStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -35,6 +36,7 @@ final class AssetsStatusHeaderView: UIView {
         return label
     }()
     
+    //MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -46,6 +48,7 @@ final class AssetsStatusHeaderView: UIView {
     }
 }
 
+//MARK: - SetUp UI
 extension AssetsStatusHeaderView {
     private func buildHierachy() {
         addSubview(attributeStackView)

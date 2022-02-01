@@ -10,6 +10,7 @@ import XLPagerTabStrip
 import SpreadsheetView
 
 final class TransactionViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let spreadsheetView = SpreadsheetView()
     private let spreadsheetDataSource = TransactionSpreadsheetDataSource()
@@ -17,6 +18,7 @@ final class TransactionViewController: UIViewController {
     private let repository: Repositoryable = Repository()
     private var closingPriceReceiveStatus = ClosingPriceReceiveStatus.notReceived
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         buildHierachy()
@@ -43,6 +45,7 @@ final class TransactionViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension TransactionViewController {
     private func buildHierachy() {
         view.addSubview(spreadsheetView)
@@ -73,15 +76,7 @@ extension TransactionViewController {
     }
 }
 
-extension TransactionViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
-            exchageDetailViewController.addObserver(observer: self)
-        }
-        return IndicatorInfo(title: "시세")
-    }
-}
-
+//MARK: - Network
 extension TransactionViewController {
     private func requestRestTransactionAPI() {
         guard let symbol = symbol else {
@@ -146,6 +141,17 @@ extension TransactionViewController: WebSocketDelegate {
     }
 }
 
+//MARK: - Conform to IndicatorInfoProvider
+extension TransactionViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let exchageDetailViewController = pagerTabStripController as? ExchangeDetailViewController {
+            exchageDetailViewController.addObserver(observer: self)
+        }
+        return IndicatorInfo(title: "시세")
+    }
+}
+
+//MARK: - Conform to AppLifeCycleOserverable
 extension TransactionViewController: AppLifeCycleOserverable {
     func receiveForegoundNotification() {
         requestRestTransactionAPI()
@@ -156,6 +162,7 @@ extension TransactionViewController: AppLifeCycleOserverable {
     }
 }
 
+//MARK: - Conform to ClosingPriceObserverable
 extension TransactionViewController: ClosingPriceObserverable {
     func didReceive(previousDayClosingPrice: Double?) {
         spreadsheetDataSource.receive(previousDayClosingPrice: previousDayClosingPrice)

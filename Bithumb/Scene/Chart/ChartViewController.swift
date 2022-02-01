@@ -10,6 +10,7 @@ import XLPagerTabStrip
 import Charts
 
 final class ChartViewController: UIViewController {
+    //MARK: Properties
     @IBOutlet private weak var chartIntervalSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var candlestickChartView: CandleStickChartView!
     @IBOutlet private weak var barChartView: BarChartView!
@@ -17,6 +18,7 @@ final class ChartViewController: UIViewController {
     private var symbol: String?
     private let repository: Repositoryable = Repository()
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSegmentControl()
@@ -35,6 +37,7 @@ final class ChartViewController: UIViewController {
     }
 }
 
+//MARK: - SetUp UI
 extension ChartViewController {
     private func setUpSegmentControl() {
         chartIntervalSegmentedControl.addTarget(self, action: #selector(touchUpSegmentedControl), for: .valueChanged)
@@ -70,12 +73,7 @@ extension ChartViewController {
     }
 }
 
-extension ChartViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "차트")
-    }
-}
-
+//MARK: - Network
 extension ChartViewController {
     private func reqeustRestCandlestickAPI() {
         let index = chartIntervalSegmentedControl.selectedSegmentIndex
@@ -105,6 +103,14 @@ extension ChartViewController {
     }
 }
 
+//MARK: - Conform to IndicatorInfoProvider
+extension ChartViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "차트")
+    }
+}
+
+//MARK: - Draw UI
 extension ChartViewController {
     private func drawCandlestickChart(by data: [CandlestickDTO], chartInterval: ChartInterval) {
         var chartEntries = [CandleChartDataEntry]()

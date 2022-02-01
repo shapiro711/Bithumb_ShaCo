@@ -85,6 +85,7 @@ extension WebSocketTicker: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension WebSocketTicker {
     func toDomain() -> TickerDTO {
         return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
