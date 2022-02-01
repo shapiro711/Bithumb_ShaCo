@@ -20,8 +20,8 @@ struct OrderBookDepthDTO: DataTransferable {
         var formattedPrice: String {
             guard let price = price,
                   let paymentCurrency = paymentCurrency else {
-                return .hypen
-            }
+                      return .hypen
+                  }
             
             let numberFormatter = NumberFormatter()
             

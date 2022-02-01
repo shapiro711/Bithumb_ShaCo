@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				C9E59EDD279296EE0093BD4A /* EndPoints.swift */,
-				C9FF25802799375600FFC876 /* Rest */,
-				C9FF257F2799374F00FFC876 /* WebSocket */,
+				3F008FF12792999700356C3F /* RestEndPoint.swift */,
+				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -248,8 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				3F008FF82792BCF700356C3F /* Serviceable.swift */,
-				C9FF257D279936CA00FFC876 /* Rest */,
-				C9FF257E279936CE00FFC876 /* WebSocket */,
+				3F008FFA2792BE4300356C3F /* RestService.swift */,
+				3F008FFC2792BE5300356C3F /* WebSocketService.swift */,
+				3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -278,6 +279,85 @@
 			path = WebSocket;
 			sourceTree = "<group>";
 		};
+		3F12B25727A9221A00C84774 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3F72D863278F14C5006B08E8 /* AppDelegate.swift */,
+				3F72D865278F14C5006B08E8 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3F12B25827A923C400C84774 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */,
+				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		3F12B25927A923F300C84774 /* ExchangeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */,
+				C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */,
+			);
+			path = ExchangeDetail;
+			sourceTree = "<group>";
+		};
+		3F12B25A27A9241500C84774 /* Ticker */ = {
+			isa = PBXGroup;
+			children = (
+				3F72D867278F14C5006B08E8 /* TickerViewController.swift */,
+				C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */,
+				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
+				3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */,
+			);
+			path = Ticker;
+			sourceTree = "<group>";
+		};
+		3F12B25B27A9244800C84774 /* OrderBook */ = {
+			isa = PBXGroup;
+			children = (
+				C951F24727A0352300C99A14 /* OrderBookViewController.swift */,
+				C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */,
+				C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */,
+				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
+			);
+			path = OrderBook;
+			sourceTree = "<group>";
+		};
+		3F12B25C27A9246F00C84774 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				C951F24C27A0359C00C99A14 /* TransactionViewController.swift */,
+				3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */,
+				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
+				C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		3F12B25D27A9248900C84774 /* AssetsStatus */ = {
+			isa = PBXGroup;
+			children = (
+				C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */,
+				C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */,
+				3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */,
+				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
+			);
+			path = AssetsStatus;
+			sourceTree = "<group>";
+		};
+		3F12B25E27A924A700C84774 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				C951F24927A0357300C99A14 /* ChartViewController.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		3F52C29E27918C4800AE2082 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,22 +365,6 @@
 				3F008FFF279342BD00356C3F /* WebSocket */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		3F549FAB279939F000692C0A /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				C9E59EE8279540A50093BD4A /* RestSessionManager.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
-		3F549FAC279939F700692C0A /* WebSocket */ = {
-			isa = PBXGroup;
-			children = (
-				3F549FAD27993A1700692C0A /* WebSocketSessionManager.swift */,
-			);
-			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		3F549FB1279AF1C900692C0A /* Event */ = {
@@ -312,19 +376,12 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
-		3F648BEF27A2779E0019F93C /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3F648BF027A277B30019F93C /* String+Extension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		3F6ACBB027A8222F00B41C8C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				3FA0027127A6D35600C20DE1 /* Notification+Extension.swift */,
 				3F6ACBB127A8224F00B41C8C /* UIAlertController+Extension.swift */,
+				3F648BF027A277B30019F93C /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -354,12 +411,11 @@
 		3F72D862278F14C5006B08E8 /* Bithumb */ = {
 			isa = PBXGroup;
 			children = (
-				3F6ACBB027A8222F00B41C8C /* Extension */,
-				C9FF258A279DB6FB00FFC876 /* View */,
-				C9E59F242796E5B30093BD4A /* Controller */,
+				3F12B25727A9221A00C84774 /* Application */,
+				C9FF258A279DB6FB00FFC876 /* Storyborad */,
+				C9E59F242796E5B30093BD4A /* Scene */,
 				C9DA6B62278F19B40021706D /* Model */,
-				3F72D863278F14C5006B08E8 /* AppDelegate.swift */,
-				3F72D865278F14C5006B08E8 /* SceneDelegate.swift */,
+				3F6ACBB027A8222F00B41C8C /* Extension */,
 				3FA0027527A6F89400C20DE1 /* Resource */,
 			);
 			path = Bithumb;
@@ -447,37 +503,31 @@
 		C9E59EE7279540910093BD4A /* SessionManager */ = {
 			isa = PBXGroup;
 			children = (
-				3F549FAB279939F000692C0A /* Rest */,
-				3F549FAC279939F700692C0A /* WebSocket */,
+				C9E59EE8279540A50093BD4A /* RestSessionManager.swift */,
+				3F549FAD27993A1700692C0A /* WebSocketSessionManager.swift */,
 			);
 			path = SessionManager;
 			sourceTree = "<group>";
 		};
-		C9E59F242796E5B30093BD4A /* Controller */ = {
+		C9E59F242796E5B30093BD4A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				3FA0027327A6E01A00C20DE1 /* AppLifeCycleOserverable.swift */,
-				3F183DDB279FF0CE00FAB23F /* ExchangeViewController.swift */,
-				3F72D867278F14C5006B08E8 /* TickerViewController.swift */,
-				C9123D4A27A5665A0058EE16 /* FavoriteTickerViewController.swift */,
-				C9FF258B279DB7A300FFC876 /* TickerTableViewDataSource.swift */,
-				C951F24527A034B700C99A14 /* ExchangeDetailViewController.swift */,
-				C951F24727A0352300C99A14 /* OrderBookViewController.swift */,
-				C951F25027A055ED00C99A14 /* OrderBookTableViewDataSource.swift */,
-				C951F24927A0357300C99A14 /* ChartViewController.swift */,
-				C951F24C27A0359C00C99A14 /* TransactionViewController.swift */,
-				3F648BF227A2DA9A0019F93C /* TransactionSpreadsheetDataSource.swift */,
-				C9AB327627A3D11C003FA78E /* AssetsStatusViewController.swift */,
-				C9AB327827A3D1A2003FA78E /* AssetsStatusTableViewDataSource.swift */,
+				3F12B25827A923C400C84774 /* Exchange */,
+				3F12B25A27A9241500C84774 /* Ticker */,
+				3F12B25D27A9248900C84774 /* AssetsStatus */,
+				3F12B25927A923F300C84774 /* ExchangeDetail */,
+				3F12B25B27A9244800C84774 /* OrderBook */,
+				3F12B25E27A924A700C84774 /* Chart */,
+				3F12B25C27A9246F00C84774 /* Transaction */,
 				C9E59F252796E5BB0093BD4A /* DTO */,
 			);
-			path = Controller;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		C9E59F252796E5BB0093BD4A /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				3F648BEF27A2779E0019F93C /* Extension */,
 				3F47DB9A2796FF8000DD3119 /* DataTransferable.swift */,
 				C9E59F262796E5CF0093BD4A /* TickerDTO.swift */,
 				3F47DB962796EC4700DD3119 /* OrderBookDTO.swift */,
@@ -503,39 +553,6 @@
 				C9FF25812799379F00FFC876 /* Factory */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		C9FF257D279936CA00FFC876 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				3F008FFA2792BE4300356C3F /* RestService.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
-		C9FF257E279936CE00FFC876 /* WebSocket */ = {
-			isa = PBXGroup;
-			children = (
-				3F008FFC2792BE5300356C3F /* WebSocketService.swift */,
-				3F549FAF279AA14200692C0A /* WebSocketMessageHandler.swift */,
-			);
-			path = WebSocket;
-			sourceTree = "<group>";
-		};
-		C9FF257F2799374F00FFC876 /* WebSocket */ = {
-			isa = PBXGroup;
-			children = (
-				3F008FF3279299FF00356C3F /* WebSocketEndPoint.swift */,
-			);
-			path = WebSocket;
-			sourceTree = "<group>";
-		};
-		C9FF25802799375600FFC876 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				3F008FF12792999700356C3F /* RestEndPoint.swift */,
-			);
-			path = Rest;
 			sourceTree = "<group>";
 		};
 		C9FF25812799379F00FFC876 /* Factory */ = {
@@ -568,22 +585,13 @@
 			path = Rest;
 			sourceTree = "<group>";
 		};
-		C9FF258A279DB6FB00FFC876 /* View */ = {
+		C9FF258A279DB6FB00FFC876 /* Storyborad */ = {
 			isa = PBXGroup;
 			children = (
 				3F72D869278F14C5006B08E8 /* Main.storyboard */,
 				3F72D86E278F14C5006B08E8 /* LaunchScreen.storyboard */,
-				3F58DD74279DC4A5002DE43D /* TickerTableViewCell.swift */,
-				C951F24E27A039DF00C99A14 /* ExchangeDetailHeaderView.swift */,
-				C951F25227A057C200C99A14 /* OrderBookAskTableViewCell.swift */,
-				C951F25427A117F300C99A14 /* OrderBookBidTableViewCell.swift */,
-				3F648BF427A2E69D0019F93C /* TransactionSpreadsheetCell.swift */,
-				C9AB327A27A3D304003FA78E /* AssetStatusTableViewCell.swift */,
-				C9123D4C27A5BBAF0058EE16 /* ExchangeHeaderView.swift */,
-				C9123D4E27A65B170058EE16 /* TransactionAttributeSpreadSheetCell.swift */,
-				3FA0026F27A6637900C20DE1 /* AssetsStatusHeaderView.swift */,
 			);
-			path = View;
+			path = Storyborad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

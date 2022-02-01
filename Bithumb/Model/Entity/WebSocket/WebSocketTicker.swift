@@ -41,7 +41,7 @@ struct WebSocketTicker {
         guard let day = day, let time = time else {
             return nil
         }
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         return dateFormatter.date(from: day + time)

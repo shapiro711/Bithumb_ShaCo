@@ -106,7 +106,7 @@ extension ExchangeDetailHeaderView {
         guard let fluctuation = fluctuation, fluctuation != 0 else {
             return ""
         }
-
+        
         if fluctuation > 0 {
             return "▲"
         } else {

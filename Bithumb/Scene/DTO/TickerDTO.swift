@@ -33,8 +33,8 @@ struct TickerDTO: DataTransferable {
     var formattedCurrentPrice: String {
         guard let currentPrice = data.currentPrice,
               let symbol = symbol else {
-            return .hypen
-        }
+                  return .hypen
+              }
         let numberFormatter = NumberFormatter()
         if symbol.hasSuffix("KRW") {
             numberFormatter.numberStyle = .decimal
@@ -55,7 +55,7 @@ struct TickerDTO: DataTransferable {
         guard let rateOfChange = data.rateOfChange,
               let formattedRateOfChange = numberFormatter.string(from: NSNumber(value: rateOfChange/100)) else {
                   return "0.00%"
-        }
+              }
         
         return formattedRateOfChange
     }
@@ -69,7 +69,7 @@ struct TickerDTO: DataTransferable {
               let amountOfChange = data.amountOfChange,
               let formattedAmountOfChange = numberFormatter.string(from: NSNumber(value: amountOfChange)) else {
                   return ""
-        }
+              }
         
         return formattedAmountOfChange
     }
@@ -77,21 +77,21 @@ struct TickerDTO: DataTransferable {
         guard let symbol = symbol,
               symbol.hasSuffix("BTC"),
               let amountOfChange = data.amountOfChange else {
-            return formattedAmountOfChange
-        }
+                  return formattedAmountOfChange
+              }
         
         let numberFormatter = NumberFormatter()
         numberFormatter.minimumFractionDigits = 8
         numberFormatter.maximumFractionDigits = 8
         numberFormatter.numberStyle = .none
-       
+        
         return numberFormatter.string(from: NSNumber(value: amountOfChange)) ?? .hypen
     }
     var formattedTransactionAmount: String {
         guard var accumulatedTransactionAmount = data.accumulatedTransactionAmount,
               let symbol = symbol else {
-            return .hypen
-        }
+                  return .hypen
+              }
         
         let numberFormatter = NumberFormatter()
         var currency = ""

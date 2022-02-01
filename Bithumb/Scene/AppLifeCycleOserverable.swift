@@ -18,7 +18,7 @@ extension AppLifeCycleOserverable {
         NotificationCenter.default.addObserver(self, selector: #selector(receiveBackgroundNotification), name: .sceneDidEnterBackground, object: nil)
     }
     
-   func removeObserver() {
+    func removeObserver() {
         NotificationCenter.default.removeObserver(self)
     }
 }

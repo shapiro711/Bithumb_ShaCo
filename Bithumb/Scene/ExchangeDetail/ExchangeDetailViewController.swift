@@ -111,7 +111,7 @@ extension ExchangeDetailViewController {
         }
         let favoriteCoinSymbolsKey = "favoriteCoinSymbols"
         var favoriteCoinSymbols = UserDefaults.standard.array(forKey: favoriteCoinSymbolsKey) as? [String] ?? []
-
+        
         if isFavorite {
             isFavorite = false
             favoriteButton.image = UIImage(systemName: "star")

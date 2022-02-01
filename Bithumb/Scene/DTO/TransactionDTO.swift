@@ -17,8 +17,8 @@ struct TransactionDTO: DataTransferable {
     var formattedPrice: String {
         guard let price = price,
               let symbol = symbol else {
-            return .hypen
-        }
+                  return .hypen
+              }
         
         let currencies = symbol.split(separator: "_").map { String($0) }
         guard let paymentCurrency = currencies.last else {
