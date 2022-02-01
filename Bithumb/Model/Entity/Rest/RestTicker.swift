@@ -8,8 +8,8 @@
 import Foundation
 
 struct RestTicker {
-    let initialPrice: Double?
-    let finalPrice: Double?
+    let openPrice: Double?
+    let closePrice: Double?
     let lowPrice: Double?
     let highPrice: Double?
     let accumulatedTransactionVolumeMidnight: Double?
@@ -24,8 +24,8 @@ struct RestTicker {
 
 extension RestTicker: Decodable {
     enum CodingKeys: String, CodingKey {
-        case initialPrice = "opening_price"
-        case finalPrice = "closing_price"
+        case openPrice = "opening_price"
+        case closePrice = "closing_price"
         case lowPrice = "min_price"
         case highPrice = "max_price"
         case accumulatedTransactionVolumeMidnight = "units_traded"
@@ -40,8 +40,8 @@ extension RestTicker: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        initialPrice = try? Double(values.decode(String.self, forKey: .initialPrice))
-        finalPrice = try? Double(values.decode(String.self, forKey: .finalPrice))
+        openPrice = try? Double(values.decode(String.self, forKey: .openPrice))
+        closePrice = try? Double(values.decode(String.self, forKey: .closePrice))
         lowPrice = try? Double(values.decode(String.self, forKey: .lowPrice))
         highPrice = try? Double(values.decode(String.self, forKey: .highPrice))
         accumulatedTransactionVolumeMidnight = try? Double(values.decode(String.self, forKey: .accumulatedTransactionVolumeMidnight))
@@ -62,13 +62,13 @@ extension RestTicker {
         var amountOfChange: Double? = nil
         
         if let previousDayClosingPrice = previousDayClosingPrice,
-           let finalPrice = finalPrice,
+           let closePrice = closePrice,
            previousDayClosingPrice != 0 {
-            rateOfChange = (finalPrice / previousDayClosingPrice) - 1
-            amountOfChange = finalPrice - previousDayClosingPrice
+            rateOfChange = (closePrice / previousDayClosingPrice) - 1
+            amountOfChange = closePrice - previousDayClosingPrice
         }
         
-        return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,
+        return TickerDTO(symbol: symbol, data: .init(currentPrice: closePrice,
                                                      rateOfChange: rateOfChange,
                                                      amountOfChange: amountOfChange,
                                                      accumulatedTransactionAmount: accumulatedTransactionAmountMidnight,

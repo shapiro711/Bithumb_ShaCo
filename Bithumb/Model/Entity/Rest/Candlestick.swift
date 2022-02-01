@@ -9,8 +9,8 @@ import Foundation
 
 struct Candlestick {
     let dateTime: Double
-    let initialPrice: String
-    let finalPrice: String
+    let openPrice: String
+    let closePrice: String
     let highPrice: String
     let lowPrice: String
     let volume: String
@@ -24,8 +24,8 @@ extension Candlestick: Decodable {
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         dateTime = try container.decode(Double.self)
-        initialPrice = try container.decode(String.self)
-        finalPrice = try container.decode(String.self)
+        openPrice = try container.decode(String.self)
+        closePrice = try container.decode(String.self)
         highPrice = try container.decode(String.self)
         lowPrice = try container.decode(String.self)
         volume = try container.decode(String.self)
@@ -36,8 +36,8 @@ extension Candlestick: Decodable {
 extension Candlestick {
     func toDomain() -> CandlestickDTO {
         return CandlestickDTO(date: date,
-                              initialPrice: Double(initialPrice),
-                              finalPrice: Double(finalPrice),
+                              openPrice: Double(openPrice),
+                              closePrice: Double(closePrice),
                               highPrice: Double(highPrice),
                               lowPrice: Double(lowPrice),
                               volume: Double(volume))

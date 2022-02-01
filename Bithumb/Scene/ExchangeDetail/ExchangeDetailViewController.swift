@@ -36,6 +36,7 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
         setUpButtonBar()
         super.viewDidLoad()
         repository.register(delegate: self)
+        setUpContainerView()
         setUpNavigationBar()
         setUpNavigationBarButton()
     }
@@ -81,6 +82,10 @@ final class ExchangeDetailViewController: ButtonBarPagerTabStripViewController {
 
 //MARK: - SetUp UI
 extension ExchangeDetailViewController {
+    private func setUpContainerView() {
+        containerView.isScrollEnabled = false
+    }
+    
     private func setUpButtonBar() {
         settings.style.buttonBarItemBackgroundColor = .systemBackground
         settings.style.buttonBarItemTitleColor = .label

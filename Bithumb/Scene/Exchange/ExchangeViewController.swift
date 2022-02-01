@@ -30,6 +30,7 @@ enum TickerCriteria: String {
 final class ExchangeViewContorller: SegmentedPagerTabStripViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerView.isScrollEnabled = true
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
