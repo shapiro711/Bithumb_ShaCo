@@ -50,6 +50,7 @@ extension RestOrder: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension RestOrderBook {
     func toDomain() -> OrderBookDepthDTO {
         let bids = bids?.map { bid in

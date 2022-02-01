@@ -39,6 +39,7 @@ extension AssetStatus: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension AssetStatus {
     func toDomain(symbol: String) -> AssetStatusDTO {
         return AssetStatusDTO(symbol: symbol, data: .init(isDepositAvailable: depositStatus?.isAvailable, isWithdrawalAvailable: withdrawalStatus?.isAvailable))

@@ -41,7 +41,7 @@ struct WebSocketTicker {
         guard let day = day, let time = time else {
             return nil
         }
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         return dateFormatter.date(from: day + time)
@@ -85,6 +85,7 @@ extension WebSocketTicker: Decodable {
     }
 }
 
+//MARK: - Convert To DTO
 extension WebSocketTicker {
     func toDomain() -> TickerDTO {
         return TickerDTO(symbol: symbol, data: .init(currentPrice: finalPrice,

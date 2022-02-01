@@ -38,6 +38,7 @@ final class Repository: Repositoryable {
     }
 }
 
+//MARK: - RestAPI Network
 extension Repository {
     func execute<Request: RestRequestable>(request: Request, completion: @escaping (Result<Request.TargetDTO, RestError>) -> Void) {
         guard isInternetConnected() else {
@@ -61,6 +62,7 @@ extension Repository {
     }
 }
 
+//MARK: - WebSocket Network
 extension Repository: WebSocketServiceDelegate {
     func register(delegate: WebSocketDelegate) {
         self.delegate = delegate
