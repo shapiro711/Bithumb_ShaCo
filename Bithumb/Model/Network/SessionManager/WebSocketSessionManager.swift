@@ -52,10 +52,10 @@ final class WebSocketSessionManager: NSObject, WebSocketSessionManageable {
             switch result {
             case .success(let message):
                 self?.delegate?.didReceive(message)
+                self?.receive()
             case .failure(let error):
                 self?.delegate?.didReceive(.receivingFailed(error))
             }
-            self?.receive()
         }
     }
 }
