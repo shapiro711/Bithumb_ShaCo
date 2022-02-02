@@ -6,7 +6,7 @@
 
 ## 🔥 프로젝트 기간 고민한 내용
 
-### [아래 문제들에 대한 Trouble Sooting 바로보기](https://coden.notion.site/Bithumb-Project-14bd7bab4a3742918789784a85ac1050)
+### [아래 문제들에 대한 Trouble Shooting 바로보기](https://coden.notion.site/Bithumb-Project-14bd7bab4a3742918789784a85ac1050)
 
 1. Rest 통신의 결과 값 타입 문제
 2. Ticker 업데이트 문제
@@ -47,13 +47,20 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 - Gitmoji를 이용한 커밋 ex) ✨ [Feat]: 웹소켓 통신 중에 발생할 수 있는 구독 및 클라이언트 에러 처리 구현
 - GitHub Flow 브런칭 규칙 사용 ex) feature/design-network-type
 
+&nbsp;
+
+## 🛠 사용 기술
+
 |구현 내용|도구|
 |:--:|:--:|
 |아키텍쳐|MVC|
 |UI|UIKit|
 |로컬 데이터 저장소|UserDefaults|
+|동시성 프로그래밍|GCD|
+|네트워크|URLSession|
+|리스트 표시|UITableView|
 
-&nbsp;   
+&nbsp;
 
 ## 📚 라이브러리
 ### CocoaPods을 이용하여 라이브러리 관리
@@ -89,7 +96,7 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 
 # 🧑‍💻 네트워크 모델 구성
 
-<img width="700" alt="네트워크 설계" src="https://user-images.githubusercontent.com/57553889/151996946-44ecabf9-a1b9-4542-a490-ae9917ee8ec0.png">|
+<img width="700" alt="네트워크 설계" src="https://user-images.githubusercontent.com/57553889/151996946-44ecabf9-a1b9-4542-a490-ae9917ee8ec0.png">
 
 &nbsp;   
 
@@ -131,6 +138,8 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 
 <img width="800" alt="네트워크 설계" src="https://user-images.githubusercontent.com/57553889/151996951-d6bb20bf-3317-4a58-8e9f-946c24916508.png">
 
+- 뷰의 전체적인 화면 흐름은 StoryBoard로 구성을 하였으며, 세부적인 UI내용은 코드로 구현
+
 ## 1. Exchange  View
 
 - 인기, KRW, BTC, 관심별 목록 구현
@@ -146,6 +155,7 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 - Bithumb 가상자산 목록 구현
 - 전날 밤을 기준으로 현재가, 변동률, 거래금액을 표시
 - 변동이 있는 가상자산의 이전 가격과 비교하여 애니메이션 구현
+- 가상자산 목록은 UITableView로 구현
 - 가상자산 목록의 셀 클릭 시 ExchangeDetail View로 이동
 
 &nbsp;   
@@ -168,6 +178,7 @@ Bithumb Public API를 이용하여 Bithumb의 가상자산 데이터를 보여�
 
 - 매도, 매수에 대한 호가창 구현
 - 가격, 수량과 전날 밤 대비 등락률 표시
+- 호가 목록은 UITableView로 구현
 
 &nbsp;   
 
